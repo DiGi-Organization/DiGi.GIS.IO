@@ -9,7 +9,7 @@ namespace DiGi.GIS.IO
         /// <summary>
         /// Computes the regressor-free "first detection year" baseline, one entry per row.
         /// <para>For each row, the first year of the range whose <c>Prediction Confidence {year}</c> value is present and greater than zero - the first year the detector saw the building. A row whose confidence values are all absent or zero falls back to <c>year_Default</c>.</para>
-        /// <para>This is the detector-only acceptance baseline of the YOLO retrain (ZiolkowskiJakub/DiGi.GIS.YOLO.UI#12): on the 2025-05-27 table it scores MAE 0.434 (OrtoBuildingDetectionModel.provenance.md), the bar a retrained detector has to clear. The regressor evaluation and the detector evaluation both compute it from the same columns, so the rule lives here where both can reach it.</para>
+        /// <para>This is the detector-only acceptance baseline of the YOLO retrain (DiGi-Organization/DiGi.GIS.YOLO.UI#12): on the 2025-05-27 table it scores MAE 0.434 (OrtoBuildingDetectionModel.provenance.md), the bar a retrained detector has to clear. The regressor evaluation and the detector evaluation both compute it from the same columns, so the rule lives here where both can reach it.</para>
         /// <para>The result aligns with the rows by index, so a caller that wants a dictionary zips it with the reference column.</para>
         /// </summary>
         /// <param name="table">The table carrying the per-year <c>Prediction Confidence</c> columns, or null.</param>

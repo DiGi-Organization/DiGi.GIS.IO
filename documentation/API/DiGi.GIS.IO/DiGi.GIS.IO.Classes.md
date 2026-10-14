@@ -13,7 +13,7 @@ The seam returns this rather than a bare flag so the reason a predictor cannot s
 
 [Years](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.YearBuiltPredictorReadiness.Years 'DiGi\.GIS\.IO\.Classes\.YearBuiltPredictorReadiness\.Years') and [Radiuses](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.YearBuiltPredictorReadiness.Radiuses 'DiGi\.GIS\.IO\.Classes\.YearBuiltPredictorReadiness\.Radiuses') state that contract. When both are [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') the predictor states no contract and the orchestrator's feature-contract check is skipped; when they are set, the orchestrator compares the run's options against them before it reads a county.
 
-[RequiredFeatureGroups](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.YearBuiltPredictorReadiness.RequiredFeatureGroups 'DiGi\.GIS\.IO\.Classes\.YearBuiltPredictorReadiness\.RequiredFeatureGroups') states which of the feature groups the predictor requires populated before a county is scored; when it is [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') the orchestrator keeps its historical default (ZiolkowskiJakub/DiGi.GIS.YOLO.UI#27).
+[RequiredFeatureGroups](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.YearBuiltPredictorReadiness.RequiredFeatureGroups 'DiGi\.GIS\.IO\.Classes\.YearBuiltPredictorReadiness\.RequiredFeatureGroups') states which of the feature groups the predictor requires populated before a county is scored; when it is [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') the orchestrator keeps its historical default (DiGi-Organization/DiGi.GIS.YOLO.UI#27).
 
 It is a local probe result, computed in the host and consumed in the same call, so it is not a SerializableObject and carries no serialization surface.
 
@@ -91,7 +91,7 @@ public System.Collections.Generic.List<string> Messages { get; }
 
 Gets the identity of the loaded model \- normally the lowercase hexadecimal SHA\-256 of its file \- or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') when the predictor states none\.
 
-The orchestrator stamps it on every prediction it stores (`PredictedYearBuilt.ModelId`), so the history can tell one model's predictions from another's after the model file is replaced in place - a file name says nothing then (ZiolkowskiJakub/DiGi.GIS.YOLO.UI#26).
+The orchestrator stamps it on every prediction it stores (`PredictedYearBuilt.ModelId`), so the history can tell one model's predictions from another's after the model file is replaced in place - a file name says nothing then (DiGi-Organization/DiGi.GIS.YOLO.UI#26).
 
 ```csharp
 public string? ModelId { get; }
@@ -119,7 +119,7 @@ public System.Collections.Generic.List<double>? Radiuses { get; }
 
 Gets the feature\-group names the predictor requires populated before a county is scored, or [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null') when it states none and the orchestrator keeps its historical default\.
 
-The values are [YearBuiltPredictionFeatureGroup](DiGi.GIS.IO.Constants.md#DiGi.GIS.IO.Constants.YearBuiltPredictionFeatureGroup 'DiGi\.GIS\.IO\.Constants\.YearBuiltPredictionFeatureGroup') names. A predictor that reads only a subset of the feature groups states it, so a group it does not read - such as the population columns of a first-detection heuristic - warns rather than refuses a county (ZiolkowskiJakub/DiGi.GIS.YOLO.UI#27).
+The values are [YearBuiltPredictionFeatureGroup](DiGi.GIS.IO.Constants.md#DiGi.GIS.IO.Constants.YearBuiltPredictionFeatureGroup 'DiGi\.GIS\.IO\.Constants\.YearBuiltPredictionFeatureGroup') names. A predictor that reads only a subset of the feature groups states it, so a group it does not read - such as the population columns of a first-detection heuristic - warns rather than refuses a county (DiGi-Organization/DiGi.GIS.YOLO.UI#27).
 
 ```csharp
 public System.Collections.Generic.List<string>? RequiredFeatureGroups { get; }
