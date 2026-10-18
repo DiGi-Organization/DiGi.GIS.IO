@@ -145,3 +145,9 @@ Represents demographic population count\.
 `ExternalComponentsArea` 21
 
 Represents the areas of a building's external components \(walls, roofs and floors\)\.
+
+<a name='DiGi.GIS.IO.Enums.Category.SolarRadiation'></a>
+
+`SolarRadiation` 22
+
+Represents the yearly solar radiation summary of a building's external surfaces \- the building totals and the per\-direction \(cardinal sector\) breakdown\.

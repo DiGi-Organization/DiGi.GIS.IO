@@ -848,6 +848,292 @@ public static ExtendedColumn SettlementType;
 #### Field Value
 [DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.extendedcolumn 'DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn')
 
+<a name='DiGi.GIS.IO.Constants.Column.SolarBeam'></a>
+
+## Column\.SolarBeam Field
+
+Area\-weighted average of the beam \(direct\) irradiation over the building's usable surfaces, in kWh/m²\.
+
+```csharp
+public static UnitColumn SolarBeam;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarDiffuse'></a>
+
+## Column\.SolarDiffuse Field
+
+Area\-weighted average of the sky\-diffuse irradiation over the building's usable surfaces, in kWh/m²\.
+
+```csharp
+public static UnitColumn SolarDiffuse;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarEastEnergy'></a>
+
+## Column\.SolarEastEnergy Field
+
+Sum of the energy over the usable surfaces facing east \(\[67\.5°, 112\.5°\)\), in kWh\.
+
+```csharp
+public static UnitColumn SolarEastEnergy;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarEastIrradiation'></a>
+
+## Column\.SolarEastIrradiation Field
+
+Area\-weighted average of the shaded irradiation over the usable surfaces facing east \(\[67\.5°, 112\.5°\)\), in kWh/m²\.
+
+```csharp
+public static UnitColumn SolarEastIrradiation;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarEnergy'></a>
+
+## Column\.SolarEnergy Field
+
+Sum of the total energy received by the building's usable surfaces, in kWh over the weather period\.
+
+```csharp
+public static UnitColumn SolarEnergy;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarGround'></a>
+
+## Column\.SolarGround Field
+
+Area\-weighted average of the ground\-reflected irradiation over the building's usable surfaces, in kWh/m²\.
+
+```csharp
+public static UnitColumn SolarGround;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarIrradiation'></a>
+
+## Column\.SolarIrradiation Field
+
+Area\-weighted average of the shaded irradiation \(beam \+ diffuse \+ ground\) over the building's usable surfaces, in kWh/m² over the weather period\.
+
+```csharp
+public static UnitColumn SolarIrradiation;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarIrradiationUnshaded'></a>
+
+## Column\.SolarIrradiationUnshaded Field
+
+Area\-weighted average of the unshaded \(open sky\) irradiation over the building's usable surfaces, in kWh/m²\.
+
+```csharp
+public static UnitColumn SolarIrradiationUnshaded;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarNortheastEnergy'></a>
+
+## Column\.SolarNortheastEnergy Field
+
+Sum of the energy over the usable surfaces facing northeast \(\[22\.5°, 67\.5°\)\), in kWh\.
+
+```csharp
+public static UnitColumn SolarNortheastEnergy;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarNortheastIrradiation'></a>
+
+## Column\.SolarNortheastIrradiation Field
+
+Area\-weighted average of the shaded irradiation over the usable surfaces facing northeast \(\[22\.5°, 67\.5°\)\), in kWh/m²\.
+
+```csharp
+public static UnitColumn SolarNortheastIrradiation;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarNorthEnergy'></a>
+
+## Column\.SolarNorthEnergy Field
+
+Sum of the energy over the usable surfaces facing north \(\[337\.5°, 360°\) ∪ \[0°, 22\.5°\)\), in kWh\.
+
+```csharp
+public static UnitColumn SolarNorthEnergy;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarNorthIrradiation'></a>
+
+## Column\.SolarNorthIrradiation Field
+
+Area\-weighted average of the shaded irradiation over the usable surfaces facing north \(\[337\.5°, 360°\) ∪ \[0°, 22\.5°\)\), in kWh/m²\.
+
+```csharp
+public static UnitColumn SolarNorthIrradiation;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarNorthwestEnergy'></a>
+
+## Column\.SolarNorthwestEnergy Field
+
+Sum of the energy over the usable surfaces facing northwest \(\[292\.5°, 337\.5°\)\), in kWh\.
+
+```csharp
+public static UnitColumn SolarNorthwestEnergy;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarNorthwestIrradiation'></a>
+
+## Column\.SolarNorthwestIrradiation Field
+
+Area\-weighted average of the shaded irradiation over the usable surfaces facing northwest \(\[292\.5°, 337\.5°\)\), in kWh/m²\.
+
+```csharp
+public static UnitColumn SolarNorthwestIrradiation;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarSoutheastEnergy'></a>
+
+## Column\.SolarSoutheastEnergy Field
+
+Sum of the energy over the usable surfaces facing southeast \(\[112\.5°, 157\.5°\)\), in kWh\.
+
+```csharp
+public static UnitColumn SolarSoutheastEnergy;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarSoutheastIrradiation'></a>
+
+## Column\.SolarSoutheastIrradiation Field
+
+Area\-weighted average of the shaded irradiation over the usable surfaces facing southeast \(\[112\.5°, 157\.5°\)\), in kWh/m²\.
+
+```csharp
+public static UnitColumn SolarSoutheastIrradiation;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarSouthEnergy'></a>
+
+## Column\.SolarSouthEnergy Field
+
+Sum of the energy over the usable surfaces facing south \(\[157\.5°, 202\.5°\)\), in kWh\.
+
+```csharp
+public static UnitColumn SolarSouthEnergy;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarSouthIrradiation'></a>
+
+## Column\.SolarSouthIrradiation Field
+
+Area\-weighted average of the shaded irradiation over the usable surfaces facing south \(\[157\.5°, 202\.5°\)\), in kWh/m²\.
+
+```csharp
+public static UnitColumn SolarSouthIrradiation;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarSouthwestEnergy'></a>
+
+## Column\.SolarSouthwestEnergy Field
+
+Sum of the energy over the usable surfaces facing southwest \(\[202\.5°, 247\.5°\)\), in kWh\.
+
+```csharp
+public static UnitColumn SolarSouthwestEnergy;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarSouthwestIrradiation'></a>
+
+## Column\.SolarSouthwestIrradiation Field
+
+Area\-weighted average of the shaded irradiation over the usable surfaces facing southwest \(\[202\.5°, 247\.5°\)\), in kWh/m²\.
+
+```csharp
+public static UnitColumn SolarSouthwestIrradiation;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarWestEnergy'></a>
+
+## Column\.SolarWestEnergy Field
+
+Sum of the energy over the usable surfaces facing west \(\[247\.5°, 292\.5°\)\), in kWh\.
+
+```csharp
+public static UnitColumn SolarWestEnergy;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarWestIrradiation'></a>
+
+## Column\.SolarWestIrradiation Field
+
+Area\-weighted average of the shaded irradiation over the usable surfaces facing west \(\[247\.5°, 292\.5°\)\), in kWh/m²\.
+
+```csharp
+public static UnitColumn SolarWestIrradiation;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
 <a name='DiGi.GIS.IO.Constants.Column.SquareThinnessRatio'></a>
 
 ## Column\.SquareThinnessRatio Field

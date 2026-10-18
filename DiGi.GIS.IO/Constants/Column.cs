@@ -378,6 +378,116 @@ namespace DiGi.GIS.IO.Constants
         /// <summary>
         /// Calculated occupancy.
         /// </summary>
-        public static ExtendedColumn CalculatedOccupancy = new("Calculated occupancy", typeof(uint), Category.Occupancy.Description(), "Calculated occupancy"); 
+        public static ExtendedColumn CalculatedOccupancy = new("Calculated occupancy", typeof(uint), Category.Occupancy.Description(), "Calculated occupancy");
+
+        /// <summary>
+        /// Area-weighted average of the shaded irradiation (beam + diffuse + ground) over the building's usable surfaces, in kWh/m² over the weather period.
+        /// </summary>
+        public static UnitColumn SolarIrradiation = new("Solar irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation (beam + diffuse + ground) over the building's usable surfaces, kWh/m² over the weather period; null when no usable surface", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Sum of the total energy received by the building's usable surfaces, in kWh over the weather period.
+        /// </summary>
+        public static UnitColumn SolarEnergy = new("Solar energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the total energy received by the building's usable surfaces, kWh over the weather period; null when no usable surface", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Area-weighted average of the beam (direct) irradiation over the building's usable surfaces, in kWh/m².
+        /// </summary>
+        public static UnitColumn SolarBeam = new("Solar beam", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the beam (direct) irradiation over the building's usable surfaces, kWh/m²; null when no usable surface", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Area-weighted average of the sky-diffuse irradiation over the building's usable surfaces, in kWh/m².
+        /// </summary>
+        public static UnitColumn SolarDiffuse = new("Solar diffuse", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the sky-diffuse irradiation over the building's usable surfaces, kWh/m²; null when no usable surface", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Area-weighted average of the ground-reflected irradiation over the building's usable surfaces, in kWh/m².
+        /// </summary>
+        public static UnitColumn SolarGround = new("Solar ground", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the ground-reflected irradiation over the building's usable surfaces, kWh/m²; null when no usable surface", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Area-weighted average of the unshaded (open sky) irradiation over the building's usable surfaces, in kWh/m².
+        /// </summary>
+        public static UnitColumn SolarIrradiationUnshaded = new("Solar irradiation unshaded", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the unshaded (open sky) irradiation over the building's usable surfaces, kWh/m²; null when no usable surface", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Area-weighted average of the shaded irradiation over the usable surfaces facing north ([337.5°, 360°) ∪ [0°, 22.5°)), in kWh/m².
+        /// </summary>
+        public static UnitColumn SolarNorthIrradiation = new("Solar north irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing north ([337.5°, 360°) ∪ [0°, 22.5°)), kWh/m²; null when no usable surface faces north", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Sum of the energy over the usable surfaces facing north ([337.5°, 360°) ∪ [0°, 22.5°)), in kWh.
+        /// </summary>
+        public static UnitColumn SolarNorthEnergy = new("Solar north energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing north ([337.5°, 360°) ∪ [0°, 22.5°)), kWh; null when no usable surface faces north", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Area-weighted average of the shaded irradiation over the usable surfaces facing northeast ([22.5°, 67.5°)), in kWh/m².
+        /// </summary>
+        public static UnitColumn SolarNortheastIrradiation = new("Solar northeast irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing northeast ([22.5°, 67.5°)), kWh/m²; null when no usable surface faces northeast", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Sum of the energy over the usable surfaces facing northeast ([22.5°, 67.5°)), in kWh.
+        /// </summary>
+        public static UnitColumn SolarNortheastEnergy = new("Solar northeast energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing northeast ([22.5°, 67.5°)), kWh; null when no usable surface faces northeast", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Area-weighted average of the shaded irradiation over the usable surfaces facing east ([67.5°, 112.5°)), in kWh/m².
+        /// </summary>
+        public static UnitColumn SolarEastIrradiation = new("Solar east irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing east ([67.5°, 112.5°)), kWh/m²; null when no usable surface faces east", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Sum of the energy over the usable surfaces facing east ([67.5°, 112.5°)), in kWh.
+        /// </summary>
+        public static UnitColumn SolarEastEnergy = new("Solar east energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing east ([67.5°, 112.5°)), kWh; null when no usable surface faces east", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Area-weighted average of the shaded irradiation over the usable surfaces facing southeast ([112.5°, 157.5°)), in kWh/m².
+        /// </summary>
+        public static UnitColumn SolarSoutheastIrradiation = new("Solar southeast irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing southeast ([112.5°, 157.5°)), kWh/m²; null when no usable surface faces southeast", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Sum of the energy over the usable surfaces facing southeast ([112.5°, 157.5°)), in kWh.
+        /// </summary>
+        public static UnitColumn SolarSoutheastEnergy = new("Solar southeast energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing southeast ([112.5°, 157.5°)), kWh; null when no usable surface faces southeast", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Area-weighted average of the shaded irradiation over the usable surfaces facing south ([157.5°, 202.5°)), in kWh/m².
+        /// </summary>
+        public static UnitColumn SolarSouthIrradiation = new("Solar south irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing south ([157.5°, 202.5°)), kWh/m²; null when no usable surface faces south", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Sum of the energy over the usable surfaces facing south ([157.5°, 202.5°)), in kWh.
+        /// </summary>
+        public static UnitColumn SolarSouthEnergy = new("Solar south energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing south ([157.5°, 202.5°)), kWh; null when no usable surface faces south", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Area-weighted average of the shaded irradiation over the usable surfaces facing southwest ([202.5°, 247.5°)), in kWh/m².
+        /// </summary>
+        public static UnitColumn SolarSouthwestIrradiation = new("Solar southwest irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing southwest ([202.5°, 247.5°)), kWh/m²; null when no usable surface faces southwest", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Sum of the energy over the usable surfaces facing southwest ([202.5°, 247.5°)), in kWh.
+        /// </summary>
+        public static UnitColumn SolarSouthwestEnergy = new("Solar southwest energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing southwest ([202.5°, 247.5°)), kWh; null when no usable surface faces southwest", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Area-weighted average of the shaded irradiation over the usable surfaces facing west ([247.5°, 292.5°)), in kWh/m².
+        /// </summary>
+        public static UnitColumn SolarWestIrradiation = new("Solar west irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing west ([247.5°, 292.5°)), kWh/m²; null when no usable surface faces west", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Sum of the energy over the usable surfaces facing west ([247.5°, 292.5°)), in kWh.
+        /// </summary>
+        public static UnitColumn SolarWestEnergy = new("Solar west energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing west ([247.5°, 292.5°)), kWh; null when no usable surface faces west", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Area-weighted average of the shaded irradiation over the usable surfaces facing northwest ([292.5°, 337.5°)), in kWh/m².
+        /// </summary>
+        public static UnitColumn SolarNorthwestIrradiation = new("Solar northwest irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing northwest ([292.5°, 337.5°)), kWh/m²; null when no usable surface faces northwest", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Sum of the energy over the usable surfaces facing northwest ([292.5°, 337.5°)), in kWh.
+        /// </summary>
+        public static UnitColumn SolarNorthwestEnergy = new("Solar northwest energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing northwest ([292.5°, 337.5°)), kWh; null when no usable surface faces northwest", Unit.Enums.UnitDataType.Float);
     }
 }

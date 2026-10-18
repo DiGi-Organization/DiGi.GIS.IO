@@ -202,5 +202,38 @@ namespace DiGi.GIS.IO
                 Constants.Column.ExternalComponentsArea
             ];
         }
+
+        /// <summary>
+        /// Creates the collection of yearly solar radiation summary columns: the six building totals, then the sixteen per-direction values in the north, northeast, east, southeast, south, southwest, west, northwest order, irradiation before energy in each sector.
+        /// </summary>
+        /// <returns>A list of 22 <see cref="Column"/> instances in a stable order: 6 building totals, then 8 sectors × (irradiation, energy).</returns>
+        public static List<Column> Columns_SolarRadiation()
+        {
+            return
+            [
+                Constants.Column.SolarIrradiation,
+                Constants.Column.SolarEnergy,
+                Constants.Column.SolarBeam,
+                Constants.Column.SolarDiffuse,
+                Constants.Column.SolarGround,
+                Constants.Column.SolarIrradiationUnshaded,
+                Constants.Column.SolarNorthIrradiation,
+                Constants.Column.SolarNorthEnergy,
+                Constants.Column.SolarNortheastIrradiation,
+                Constants.Column.SolarNortheastEnergy,
+                Constants.Column.SolarEastIrradiation,
+                Constants.Column.SolarEastEnergy,
+                Constants.Column.SolarSoutheastIrradiation,
+                Constants.Column.SolarSoutheastEnergy,
+                Constants.Column.SolarSouthIrradiation,
+                Constants.Column.SolarSouthEnergy,
+                Constants.Column.SolarSouthwestIrradiation,
+                Constants.Column.SolarSouthwestEnergy,
+                Constants.Column.SolarWestIrradiation,
+                Constants.Column.SolarWestEnergy,
+                Constants.Column.SolarNorthwestIrradiation,
+                Constants.Column.SolarNorthwestEnergy
+            ];
+        }
     }
 }

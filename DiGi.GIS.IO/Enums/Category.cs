@@ -116,5 +116,10 @@ namespace DiGi.GIS.IO.Enums
         /// Represents the areas of a building's external components (walls, roofs and floors).
         /// </summary>
         [Description("External Components Area")] ExternalComponentsArea,
+
+        /// <summary>
+        /// Represents the yearly solar radiation summary of a building's external surfaces - the building totals and the per-direction (cardinal sector) breakdown.
+        /// </summary>
+        [Description("Solar Radiation")] SolarRadiation,
     }
 }
