@@ -1030,6 +1030,19 @@ public static UnitColumn SolarNorthwestIrradiation;
 #### Field Value
 [DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
 
+<a name='DiGi.GIS.IO.Constants.Column.SolarRadius'></a>
+
+## Column\.SolarRadius Field
+
+Radius of the surrounding building range used for the solar radiation shading calculation, in meters\.
+
+```csharp
+public static UnitColumn SolarRadius;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
 <a name='DiGi.GIS.IO.Constants.Column.SolarSoutheastEnergy'></a>
 
 ## Column\.SolarSoutheastEnergy Field
@@ -1107,6 +1120,32 @@ public static UnitColumn SolarSouthwestIrradiation;
 
 #### Field Value
 [DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarWeatherSourceId'></a>
+
+## Column\.SolarWeatherSourceId Field
+
+Identifier of the weather source \(EPW station or live weather service\) used for the solar radiation calculation\.
+
+```csharp
+public static ExtendedColumn SolarWeatherSourceId;
+```
+
+#### Field Value
+[DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.extendedcolumn 'DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.SolarWeatherSourceType'></a>
+
+## Column\.SolarWeatherSourceType Field
+
+Type of the weather source used for the solar radiation calculation: \-1 undefined, 0 EPW, 1 live\.
+
+```csharp
+public static ExtendedColumn SolarWeatherSourceType;
+```
+
+#### Field Value
+[DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.extendedcolumn 'DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn')
 
 <a name='DiGi.GIS.IO.Constants.Column.SolarWestEnergy'></a>
 

@@ -204,9 +204,9 @@ namespace DiGi.GIS.IO
         }
 
         /// <summary>
-        /// Creates the collection of yearly solar radiation summary columns: the six building totals, then the sixteen per-direction values in the north, northeast, east, southeast, south, southwest, west, northwest order, irradiation before energy in each sector.
+        /// Creates the collection of yearly solar radiation summary columns: the six building totals, then the sixteen per-direction values in the north, northeast, east, southeast, south, southwest, west, northwest order, irradiation before energy in each sector, then the three weather source and range metadata columns.
         /// </summary>
-        /// <returns>A list of 22 <see cref="Column"/> instances in a stable order: 6 building totals, then 8 sectors × (irradiation, energy).</returns>
+        /// <returns>A list of 25 <see cref="Column"/> instances in a stable order: 6 building totals, then 8 sectors × (irradiation, energy), then weather source ID, weather source type, and radius.</returns>
         public static List<Column> Columns_SolarRadiation()
         {
             return
@@ -232,7 +232,10 @@ namespace DiGi.GIS.IO
                 Constants.Column.SolarWestIrradiation,
                 Constants.Column.SolarWestEnergy,
                 Constants.Column.SolarNorthwestIrradiation,
-                Constants.Column.SolarNorthwestEnergy
+                Constants.Column.SolarNorthwestEnergy,
+                Constants.Column.SolarWeatherSourceId,
+                Constants.Column.SolarWeatherSourceType,
+                Constants.Column.SolarRadius
             ];
         }
     }

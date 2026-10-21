@@ -489,5 +489,20 @@ namespace DiGi.GIS.IO.Constants
         /// Sum of the energy over the usable surfaces facing northwest ([292.5°, 337.5°)), in kWh.
         /// </summary>
         public static UnitColumn SolarNorthwestEnergy = new("Solar northwest energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing northwest ([292.5°, 337.5°)), kWh; null when no usable surface faces northwest", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Identifier of the weather source (EPW station or live weather service) used for the solar radiation calculation.
+        /// </summary>
+        public static ExtendedColumn SolarWeatherSourceId = new("Solar weather source ID", typeof(string), Category.SolarRadiation.Description(), "Identifier of the weather source (EPW station or live weather service) used for the solar radiation calculation; null when no result is stored");
+
+        /// <summary>
+        /// Type of the weather source used for the solar radiation calculation: -1 undefined, 0 EPW, 1 live.
+        /// </summary>
+        public static ExtendedColumn SolarWeatherSourceType = new("Solar weather source type", typeof(int), Category.SolarRadiation.Description(), "Type of the weather source used for the solar radiation calculation: -1 undefined, 0 EPW, 1 live; null when no result is stored");
+
+        /// <summary>
+        /// Radius of the surrounding building range used for the solar radiation shading calculation, in meters.
+        /// </summary>
+        public static UnitColumn SolarRadius = new("Solar radius", (Unit.Classes.Unit?)Unit.Enums.LengthUnit.Meter, Category.SolarRadiation.Description(), "Radius of the surrounding building range used for the solar radiation shading calculation, meters; null when no result is stored", Unit.Enums.UnitDataType.Float);
     }
 }
