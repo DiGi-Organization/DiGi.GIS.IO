@@ -783,6 +783,123 @@ public static ExtendedColumn MunicipalityName;
 #### Field Value
 [DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.extendedcolumn 'DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn')
 
+<a name='DiGi.GIS.IO.Constants.Column.PartyEastWallArea'></a>
+
+## Column\.PartyEastWallArea Field
+
+Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the east sector \(\[67\.5°, 112\.5°\)\); included in the external east wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
+
+```csharp
+public static UnitColumn PartyEastWallArea;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.PartyNortheastWallArea'></a>
+
+## Column\.PartyNortheastWallArea Field
+
+Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the northeast sector \(\[22\.5°, 67\.5°\)\); included in the external northeast wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
+
+```csharp
+public static UnitColumn PartyNortheastWallArea;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.PartyNorthWallArea'></a>
+
+## Column\.PartyNorthWallArea Field
+
+Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the north sector \(\[337\.5°, 360°\) ∪ \[0°, 22\.5°\)\); included in the external north wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
+
+```csharp
+public static UnitColumn PartyNorthWallArea;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.PartyNorthwestWallArea'></a>
+
+## Column\.PartyNorthwestWallArea Field
+
+Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the northwest sector \(\[292\.5°, 337\.5°\)\); included in the external northwest wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
+
+```csharp
+public static UnitColumn PartyNorthwestWallArea;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.PartySoutheastWallArea'></a>
+
+## Column\.PartySoutheastWallArea Field
+
+Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the southeast sector \(\[112\.5°, 157\.5°\)\); included in the external southeast wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
+
+```csharp
+public static UnitColumn PartySoutheastWallArea;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.PartySouthWallArea'></a>
+
+## Column\.PartySouthWallArea Field
+
+Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the south sector \(\[157\.5°, 202\.5°\)\); included in the external south wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
+
+```csharp
+public static UnitColumn PartySouthWallArea;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.PartySouthwestWallArea'></a>
+
+## Column\.PartySouthwestWallArea Field
+
+Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the southwest sector \(\[202\.5°, 247\.5°\)\); included in the external southwest wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
+
+```csharp
+public static UnitColumn PartySouthwestWallArea;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.PartyWallArea'></a>
+
+## Column\.PartyWallArea Field
+
+Sum of the wall areas shared with adjacent buildings \(party walls\) over all sectors; included in the external wall areas, which are gross \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
+
+```csharp
+public static UnitColumn PartyWallArea;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.PartyWestWallArea'></a>
+
+## Column\.PartyWestWallArea Field
+
+Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the west sector \(\[247\.5°, 292\.5°\)\); included in the external west wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
+
+```csharp
+public static UnitColumn PartyWestWallArea;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
 <a name='DiGi.GIS.IO.Constants.Column.PredictedBuildingShape'></a>
 
 ## Column\.PredictedBuildingShape Field

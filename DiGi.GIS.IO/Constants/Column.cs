@@ -201,6 +201,51 @@ namespace DiGi.GIS.IO.Constants
         public static UnitColumn ClosingTolerance = new("Closing tolerance", (Unit.Classes.Unit?)Unit.Enums.LengthUnit.Meter, Category.ExternalComponentsArea.Description(), "Finest distance tolerance at which the model's external envelope edge-pairs into a closed surface, over the candidate ladder 1e-6 to 0.2 m; null when the envelope does not close on the ladder or the model carries no external components - the signal that this row's sector and tilt values may rest on an arbitrary face side", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
+        /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the north sector ([337.5°, 360°) ∪ [0°, 22.5°)); included in the external north wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
+        /// </summary>
+        public static UnitColumn PartyNorthWallArea = new("Party north wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the north sector ([337.5°, 360°) ∪ [0°, 22.5°)); included in the external north wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the northeast sector ([22.5°, 67.5°)); included in the external northeast wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
+        /// </summary>
+        public static UnitColumn PartyNortheastWallArea = new("Party northeast wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the northeast sector ([22.5°, 67.5°)); included in the external northeast wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the east sector ([67.5°, 112.5°)); included in the external east wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
+        /// </summary>
+        public static UnitColumn PartyEastWallArea = new("Party east wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the east sector ([67.5°, 112.5°)); included in the external east wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the southeast sector ([112.5°, 157.5°)); included in the external southeast wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
+        /// </summary>
+        public static UnitColumn PartySoutheastWallArea = new("Party southeast wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the southeast sector ([112.5°, 157.5°)); included in the external southeast wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the south sector ([157.5°, 202.5°)); included in the external south wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
+        /// </summary>
+        public static UnitColumn PartySouthWallArea = new("Party south wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the south sector ([157.5°, 202.5°)); included in the external south wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the southwest sector ([202.5°, 247.5°)); included in the external southwest wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
+        /// </summary>
+        public static UnitColumn PartySouthwestWallArea = new("Party southwest wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the southwest sector ([202.5°, 247.5°)); included in the external southwest wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the west sector ([247.5°, 292.5°)); included in the external west wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
+        /// </summary>
+        public static UnitColumn PartyWestWallArea = new("Party west wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the west sector ([247.5°, 292.5°)); included in the external west wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the northwest sector ([292.5°, 337.5°)); included in the external northwest wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
+        /// </summary>
+        public static UnitColumn PartyNorthwestWallArea = new("Party northwest wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the northwest sector ([292.5°, 337.5°)); included in the external northwest wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Sum of the wall areas shared with adjacent buildings (party walls) over all sectors; included in the external wall areas, which are gross (DiGi-Organization/DiGi.GIS.Analytical#4).
+        /// </summary>
+        public static UnitColumn PartyWallArea = new("Party wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Sum of the wall areas shared with adjacent buildings (party walls) over all sectors; included in the external wall areas, which are gross", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
         /// Azimuth as an angle to north direction.
         /// </summary>
         public static UnitColumn Azimuth = new("Azimuth", (Unit.Classes.Unit?)Unit.Enums.AngleUnit.Degree, Category.Orientation.Description(), "Azimuth as an angle to north direction", Unit.Enums.UnitDataType.Float);

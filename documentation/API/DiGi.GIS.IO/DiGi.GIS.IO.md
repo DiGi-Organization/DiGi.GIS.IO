@@ -28,6 +28,22 @@ public static System.Collections.Generic.List<DiGi.Core.IO.Table.Classes.Column>
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[DiGi\.Core\.IO\.Table\.Classes\.Column](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.column 'DiGi\.Core\.IO\.Table\.Classes\.Column')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
 A list of 35 [DiGi\.Core\.IO\.Table\.Classes\.Column](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.column 'DiGi\.Core\.IO\.Table\.Classes\.Column') instances in a stable order: 8 walls by direction, flat roof, tilted roof bands by direction, floor, and the total last\.
 
+<a name='DiGi.GIS.IO.Create.Columns_PartyWallArea()'></a>
+
+## Create\.Columns\_PartyWallArea\(\) Method
+
+Creates the collection of party wall area columns: the wall area each building shares with adjacent buildings, by the azimuth sector of the wall it belongs to, and the total \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
+
+The external wall area columns of [Columns\_ExternalComponentsArea\(\)](DiGi.GIS.IO.md#DiGi.GIS.IO.Create.Columns_ExternalComponentsArea() 'DiGi\.GIS\.IO\.Create\.Columns\_ExternalComponentsArea\(\)') stay gross - they include the party walls - so the net external wall area of a sector is the external column minus the party column of the same sector.
+
+```csharp
+public static System.Collections.Generic.List<DiGi.Core.IO.Table.Classes.Column> Columns_PartyWallArea();
+```
+
+#### Returns
+[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[DiGi\.Core\.IO\.Table\.Classes\.Column](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.column 'DiGi\.Core\.IO\.Table\.Classes\.Column')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
+A list of 9 [DiGi\.Core\.IO\.Table\.Classes\.Column](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.column 'DiGi\.Core\.IO\.Table\.Classes\.Column') instances in a stable order: 8 sectors in the order of the external wall columns \(north, northeast, east, southeast, south, southwest, west, northwest\), and the total last\.
+
 <a name='DiGi.GIS.IO.Create.Columns_Population(DiGi.Core.Classes.Range_int_)'></a>
 
 ## Create\.Columns\_Population\(Range\<int\>\) Method

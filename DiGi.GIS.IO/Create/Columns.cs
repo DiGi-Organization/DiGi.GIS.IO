@@ -158,6 +158,27 @@ namespace DiGi.GIS.IO
         }
 
         /// <summary>
+        /// Creates the collection of party wall area columns: the wall area each building shares with adjacent buildings, by the azimuth sector of the wall it belongs to, and the total (DiGi-Organization/DiGi.GIS.Analytical#4).
+        /// <para>The external wall area columns of <see cref="Columns_ExternalComponentsArea"/> stay gross - they include the party walls - so the net external wall area of a sector is the external column minus the party column of the same sector.</para>
+        /// </summary>
+        /// <returns>A list of 9 <see cref="Column"/> instances in a stable order: 8 sectors in the order of the external wall columns (north, northeast, east, southeast, south, southwest, west, northwest), and the total last.</returns>
+        public static List<Column> Columns_PartyWallArea()
+        {
+            return
+            [
+                Constants.Column.PartyNorthWallArea,
+                Constants.Column.PartyNortheastWallArea,
+                Constants.Column.PartyEastWallArea,
+                Constants.Column.PartySoutheastWallArea,
+                Constants.Column.PartySouthWallArea,
+                Constants.Column.PartySouthwestWallArea,
+                Constants.Column.PartyWestWallArea,
+                Constants.Column.PartyNorthwestWallArea,
+                Constants.Column.PartyWallArea
+            ];
+        }
+
+        /// <summary>
         /// Creates the collection of external components area columns (walls by azimuth sector, flat and tilted roofs by tilt band and sector, floor, and the total).
         /// </summary>
         /// <returns>A list of 35 <see cref="Column"/> instances in a stable order: 8 walls by direction, flat roof, tilted roof bands by direction, floor, and the total last.</returns>
