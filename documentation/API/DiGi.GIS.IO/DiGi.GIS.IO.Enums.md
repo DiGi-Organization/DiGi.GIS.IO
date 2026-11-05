@@ -3,6 +3,49 @@
 ## DiGi\.GIS\.IO\.Enums Namespace
 ### Enums
 
+<a name='DiGi.GIS.IO.Enums.BuildingDataset'></a>
+
+## BuildingDataset Enum
+
+Identifies an open building dataset read by the DiGi\.GIS\.IO streaming readers\.
+
+The values match the `dataset_key` vocabulary of the building_dataset release register (DiGi-Organization/DiGi.GIS.PostgreSQL#125) so the reader-side and register-side names cannot drift. OpenStreetMap is deliberately absent: its PBF reader lives in DiGi.OSM (DiGi-Organization/DiGi.OSM#1).
+
+```csharp
+public enum BuildingDataset
+```
+### Fields
+
+<a name='DiGi.GIS.IO.Enums.BuildingDataset.Eubucco'></a>
+
+`Eubucco` 0
+
+EUBUCCO v0\.2 building footprints, GeoPackage, EPSG:3035\.
+
+<a name='DiGi.GIS.IO.Enums.BuildingDataset.Overture'></a>
+
+`Overture` 1
+
+Overture Maps Buildings release, GeoParquet, EPSG:4326\.
+
+<a name='DiGi.GIS.IO.Enums.BuildingDataset.Dbsm'></a>
+
+`Dbsm` 2
+
+JRC DBSM R2025 settlement layer, GeoPackage\.
+
+<a name='DiGi.GIS.IO.Enums.BuildingDataset.Microsoft'></a>
+
+`Microsoft` 3
+
+Microsoft Global ML Building Footprints, line\-delimited GeoJSON in gzip, EPSG:4326\.
+
+<a name='DiGi.GIS.IO.Enums.BuildingDataset.GhsObat'></a>
+
+`GhsObat` 4
+
+GHS\-OBAT R2024A building attribute table: GPKG centroids and the CSV attribute table, EPSG:4326\.
+
 <a name='DiGi.GIS.IO.Enums.Category'></a>
 
 ## Category Enum

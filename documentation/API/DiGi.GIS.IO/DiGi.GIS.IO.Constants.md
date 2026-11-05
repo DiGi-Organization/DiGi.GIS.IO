@@ -1667,6 +1667,84 @@ public const string StructuralSimilarityIndex_MatchTemplate = "Structural Simila
 #### Field Value
 [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
+<a name='DiGi.GIS.IO.Constants.GeometrySource'></a>
+
+## GeometrySource Class
+
+Provides the EUBUCCO geometry\_source values that carry a regional licence exception\.
+
+```csharp
+public static class GeometrySource
+```
+
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → GeometrySource
+### Fields
+
+<a name='DiGi.GIS.IO.Constants.GeometrySource.GovCzechiaPrague'></a>
+
+## GeometrySource\.GovCzechiaPrague Field
+
+Prague government geometry source, licensed CC\-BY\-SA\.
+
+```csharp
+public const string GovCzechiaPrague = "gov-czechia-prague";
+```
+
+#### Field Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+<a name='DiGi.GIS.IO.Constants.GeometrySource.GovItalyAbruzzo'></a>
+
+## GeometrySource\.GovItalyAbruzzo Field
+
+Abruzzo government geometry source, licensed CC\-BY\-NC\.
+
+```csharp
+public const string GovItalyAbruzzo = "gov-italy-abruzzo";
+```
+
+#### Field Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+<a name='DiGi.GIS.IO.Constants.LicenceException'></a>
+
+## LicenceException Class
+
+Provides the regional licence exceptions that apply on top of the EUBUCCO ODbL licence\.
+
+```csharp
+public static class LicenceException
+```
+
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → LicenceException
+### Fields
+
+<a name='DiGi.GIS.IO.Constants.LicenceException.NonCommercial'></a>
+
+## LicenceException\.NonCommercial Field
+
+Non\-Commercial exception flagged on EUBUCCO rows whose geometry comes from the Abruzzo government source\.
+
+```csharp
+public const string NonCommercial = "CC-BY-NC";
+```
+
+#### Field Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+<a name='DiGi.GIS.IO.Constants.LicenceException.ShareAlike'></a>
+
+## LicenceException\.ShareAlike Field
+
+Share\-Alike exception flagged on EUBUCCO rows whose geometry comes from the Prague government source\.
+
+```csharp
+public const string ShareAlike = "CC-BY-SA";
+```
+
+#### Field Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
 <a name='DiGi.GIS.IO.Constants.WebAPI'></a>
 
 ## WebAPI Class

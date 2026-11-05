@@ -1056,7 +1056,44 @@ public static class Query
 ```
 
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → Query
+### Fields
+
+<a name='DiGi.GIS.IO.Query.sourceIdKeys'></a>
+
+## Query\.sourceIdKeys Field
+
+The source columns tried, in order, when deriving a source identifier from a row\.
+
+```csharp
+private static readonly string[] sourceIdKeys;
+```
+
+#### Field Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')[\[\]](https://learn.microsoft.com/en-us/dotnet/api/system.array 'System\.Array')
 ### Methods
+
+<a name='DiGi.GIS.IO.Query.AttributeValue(object)'></a>
+
+## Query\.AttributeValue\(object\) Method
+
+Converts a raw column value read from a source file into a [System\.Text\.Json\.Nodes\.JsonNode](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonnode 'System\.Text\.Json\.Nodes\.JsonNode') for the attribute bag, preserving the value's JSON type\.
+
+Numeric columns stay numbers and boolean columns stay booleans so a round trip through the serializer compares equal; binary columns become base64 text because JSON has no byte type. Text is kept as text even when it looks numeric - identifiers such as 32-hex GERS ids would otherwise be corrupted by a numeric parse.
+
+```csharp
+private static System.Text.Json.Nodes.JsonNode? AttributeValue(object? value);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.AttributeValue(object).value'></a>
+
+`value` [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object')
+
+The raw column value, or null for a null column\.
+
+#### Returns
+[System\.Text\.Json\.Nodes\.JsonNode](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonnode 'System\.Text\.Json\.Nodes\.JsonNode')  
+The value as a [System\.Text\.Json\.Nodes\.JsonNode](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonnode 'System\.Text\.Json\.Nodes\.JsonNode'), or null when the column is null\.
 
 <a name='DiGi.GIS.IO.Query.DefaultOnlyColumnNames(thisDiGi.Core.IO.Table.Classes.Table)'></a>
 
@@ -1124,6 +1161,430 @@ The year reported for a row whose confidence values are all absent or zero\. Def
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[System\.Int16](https://learn.microsoft.com/en-us/dotnet/api/system.int16 'System\.Int16')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
 One entry per row, in row order: the first detection year of each row\. Empty when the table is null or holds no rows\.
 
+<a name='DiGi.GIS.IO.Query.Footprints_CsvAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken)'></a>
+
+## Query\.Footprints\_CsvAsync\(string, BuildingDataset, BoundingBox2D, CancellationToken\) Method
+
+Streams building footprints from a delimited CSV attribute table \(GHS\-OBAT\) as an asynchronous sequence, returning each footprint in EPSG:4326\.
+
+The file is read line by line through [DiGi\.Core\.IO\.DelimitedData\.Classes\.DelimitedDataReader](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.delimiteddata.classes.delimiteddatareader 'DiGi\.Core\.IO\.DelimitedData\.Classes\.DelimitedDataReader') so a country table is never materialised, and every cell stays exactly the text the source published - inferring numbers would corrupt identifiers such as 32-hex GERS ids that happen to contain only digits. The geometry is a point built from the longitude and latitude columns (accepting `lon`/`latitude` and `lat`/`longitude` spellings), which is what lets [boundingBox](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.Footprints_CsvAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).boundingBox 'DiGi\.GIS\.IO\.Query\.Footprints\_CsvAsync\(string, DiGi\.GIS\.IO\.Enums\.BuildingDataset, DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D, System\.Threading\.CancellationToken\)\.boundingBox') filter before provenance is derived.
+
+A row whose value count disagrees with the header, or whose coordinates do not parse, fails loudly with its row index rather than silently shifting every following column.
+
+```csharp
+public static System.Collections.Generic.IAsyncEnumerable<DiGi.GIS.IO.Classes.Footprint>? Footprints_CsvAsync(string? path, DiGi.GIS.IO.Enums.BuildingDataset buildingDataset, DiGi.Geometry.Planar.Classes.BoundingBox2D? boundingBox=null, System.Threading.CancellationToken cancellationToken=default(System.Threading.CancellationToken));
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.Footprints_CsvAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).path'></a>
+
+`path` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The path of the CSV file, or null or whitespace to return null\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_CsvAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).buildingDataset'></a>
+
+`buildingDataset` [BuildingDataset](DiGi.GIS.IO.Enums.md#DiGi.GIS.IO.Enums.BuildingDataset 'DiGi\.GIS\.IO\.Enums\.BuildingDataset')
+
+The dataset the file holds; GhsObat\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_CsvAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).boundingBox'></a>
+
+`boundingBox` [DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.planar.classes.boundingbox2d 'DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D')
+
+An optional bounding box, in EPSG:4326, that footprints must intersect\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_CsvAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).cancellationToken'></a>
+
+`cancellationToken` [System\.Threading\.CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken 'System\.Threading\.CancellationToken')
+
+The cancellation token\.
+
+#### Returns
+[System\.Collections\.Generic\.IAsyncEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')[Footprint](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint 'DiGi\.GIS\.IO\.Classes\.Footprint')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')  
+The streaming sequence, or null when [path](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.Footprints_CsvAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).path 'DiGi\.GIS\.IO\.Query\.Footprints\_CsvAsync\(string, DiGi\.GIS\.IO\.Enums\.BuildingDataset, DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D, System\.Threading\.CancellationToken\)\.path') is null or whitespace\.
+
+#### Exceptions
+
+[System\.ArgumentException](https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception 'System\.ArgumentException')  
+Thrown when [buildingDataset](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.Footprints_CsvAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).buildingDataset 'DiGi\.GIS\.IO\.Query\.Footprints\_CsvAsync\(string, DiGi\.GIS\.IO\.Enums\.BuildingDataset, DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D, System\.Threading\.CancellationToken\)\.buildingDataset') is not GhsObat\.
+
+[System\.IO\.InvalidDataException](https://learn.microsoft.com/en-us/dotnet/api/system.io.invaliddataexception 'System\.IO\.InvalidDataException')  
+Thrown when the file is empty, lacks a longitude/latitude column pair, or holds a malformed row\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_Csv_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken)'></a>
+
+## Query\.Footprints\_Csv\_Iterator\(string, BuildingDataset, BoundingBox2D, CancellationToken\) Method
+
+Walks a CSV attribute table row by row, yielding one [Footprint](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint 'DiGi\.GIS\.IO\.Classes\.Footprint') per row\.
+
+```csharp
+private static System.Collections.Generic.IAsyncEnumerable<DiGi.GIS.IO.Classes.Footprint> Footprints_Csv_Iterator(string path, DiGi.GIS.IO.Enums.BuildingDataset buildingDataset, DiGi.Geometry.Planar.Classes.BoundingBox2D? boundingBox, System.Threading.CancellationToken cancellationToken);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.Footprints_Csv_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).path'></a>
+
+`path` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The path of the CSV file\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_Csv_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).buildingDataset'></a>
+
+`buildingDataset` [BuildingDataset](DiGi.GIS.IO.Enums.md#DiGi.GIS.IO.Enums.BuildingDataset 'DiGi\.GIS\.IO\.Enums\.BuildingDataset')
+
+The dataset the file holds\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_Csv_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).boundingBox'></a>
+
+`boundingBox` [DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.planar.classes.boundingbox2d 'DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D')
+
+An optional bounding box, in EPSG:4326\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_Csv_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).cancellationToken'></a>
+
+`cancellationToken` [System\.Threading\.CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken 'System\.Threading\.CancellationToken')
+
+The cancellation token\.
+
+#### Returns
+[System\.Collections\.Generic\.IAsyncEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')[Footprint](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint 'DiGi\.GIS\.IO\.Classes\.Footprint')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')  
+The streaming sequence\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoJsonSequenceAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,string,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken)'></a>
+
+## Query\.Footprints\_GeoJsonSequenceAsync\(string, BuildingDataset, string, BoundingBox2D, CancellationToken\) Method
+
+Streams building footprints from a Microsoft Global ML Building Footprints line\-delimited GeoJSON file \(plain or gzip\) as an asynchronous sequence, returning each footprint in EPSG:4326\.
+
+gzip is detected from the file's magic bytes rather than its extension, so a renamed or mislabelled chunk still reads. The features carry no identifier of their own, so the source id is synthesized as `quadkey:index` over the zero-based feature index - a value that is stable for a given published chunk. The quadkey the chunk was fetched under becomes provenance together with any `capture` properties.
+
+Geometry is built from the JSON coordinates directly instead of through NetTopologySuite.IO.GeoJSON, keeping Newtonsoft out of every host that references this assembly.
+
+```csharp
+public static System.Collections.Generic.IAsyncEnumerable<DiGi.GIS.IO.Classes.Footprint>? Footprints_GeoJsonSequenceAsync(string? path, DiGi.GIS.IO.Enums.BuildingDataset buildingDataset, string quadkey, DiGi.Geometry.Planar.Classes.BoundingBox2D? boundingBox=null, System.Threading.CancellationToken cancellationToken=default(System.Threading.CancellationToken));
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoJsonSequenceAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,string,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).path'></a>
+
+`path` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The path of the GeoJSON sequence file, or null or whitespace to return null\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoJsonSequenceAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,string,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).buildingDataset'></a>
+
+`buildingDataset` [BuildingDataset](DiGi.GIS.IO.Enums.md#DiGi.GIS.IO.Enums.BuildingDataset 'DiGi\.GIS\.IO\.Enums\.BuildingDataset')
+
+The dataset the file holds; Microsoft\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoJsonSequenceAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,string,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).quadkey'></a>
+
+`quadkey` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The quadkey the chunk was fetched under, required to synthesize source identifiers and provenance\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoJsonSequenceAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,string,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).boundingBox'></a>
+
+`boundingBox` [DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.planar.classes.boundingbox2d 'DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D')
+
+An optional bounding box, in EPSG:4326, that footprints must intersect\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoJsonSequenceAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,string,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).cancellationToken'></a>
+
+`cancellationToken` [System\.Threading\.CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken 'System\.Threading\.CancellationToken')
+
+The cancellation token\.
+
+#### Returns
+[System\.Collections\.Generic\.IAsyncEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')[Footprint](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint 'DiGi\.GIS\.IO\.Classes\.Footprint')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')  
+The streaming sequence, or null when [path](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.Footprints_GeoJsonSequenceAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,string,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).path 'DiGi\.GIS\.IO\.Query\.Footprints\_GeoJsonSequenceAsync\(string, DiGi\.GIS\.IO\.Enums\.BuildingDataset, string, DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D, System\.Threading\.CancellationToken\)\.path') is null or whitespace\.
+
+#### Exceptions
+
+[System\.ArgumentException](https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception 'System\.ArgumentException')  
+Thrown when [buildingDataset](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.Footprints_GeoJsonSequenceAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,string,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).buildingDataset 'DiGi\.GIS\.IO\.Query\.Footprints\_GeoJsonSequenceAsync\(string, DiGi\.GIS\.IO\.Enums\.BuildingDataset, string, DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D, System\.Threading\.CancellationToken\)\.buildingDataset') is not Microsoft, or when [quadkey](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.Footprints_GeoJsonSequenceAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,string,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).quadkey 'DiGi\.GIS\.IO\.Query\.Footprints\_GeoJsonSequenceAsync\(string, DiGi\.GIS\.IO\.Enums\.BuildingDataset, string, DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D, System\.Threading\.CancellationToken\)\.quadkey') is null or whitespace\.
+
+[System\.IO\.InvalidDataException](https://learn.microsoft.com/en-us/dotnet/api/system.io.invaliddataexception 'System\.IO\.InvalidDataException')  
+Thrown when a line is not a feature, carries an unsupported geometry type, or holds malformed coordinates\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoJsonSequence_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,string,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken)'></a>
+
+## Query\.Footprints\_GeoJsonSequence\_Iterator\(string, BuildingDataset, string, BoundingBox2D, CancellationToken\) Method
+
+Walks a line\-delimited GeoJSON file line by line, yielding one [Footprint](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint 'DiGi\.GIS\.IO\.Classes\.Footprint') per feature\.
+
+```csharp
+private static System.Collections.Generic.IAsyncEnumerable<DiGi.GIS.IO.Classes.Footprint> Footprints_GeoJsonSequence_Iterator(string path, DiGi.GIS.IO.Enums.BuildingDataset buildingDataset, string quadkey, DiGi.Geometry.Planar.Classes.BoundingBox2D? boundingBox, System.Threading.CancellationToken cancellationToken);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoJsonSequence_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,string,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).path'></a>
+
+`path` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The path of the GeoJSON sequence file\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoJsonSequence_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,string,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).buildingDataset'></a>
+
+`buildingDataset` [BuildingDataset](DiGi.GIS.IO.Enums.md#DiGi.GIS.IO.Enums.BuildingDataset 'DiGi\.GIS\.IO\.Enums\.BuildingDataset')
+
+The dataset the file holds\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoJsonSequence_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,string,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).quadkey'></a>
+
+`quadkey` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The quadkey the chunk was fetched under\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoJsonSequence_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,string,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).boundingBox'></a>
+
+`boundingBox` [DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.planar.classes.boundingbox2d 'DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D')
+
+An optional bounding box, in EPSG:4326\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoJsonSequence_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,string,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).cancellationToken'></a>
+
+`cancellationToken` [System\.Threading\.CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken 'System\.Threading\.CancellationToken')
+
+The cancellation token\.
+
+#### Returns
+[System\.Collections\.Generic\.IAsyncEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')[Footprint](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint 'DiGi\.GIS\.IO\.Classes\.Footprint')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')  
+The streaming sequence\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoPackageAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,string,System.Threading.CancellationToken)'></a>
+
+## Query\.Footprints\_GeoPackageAsync\(string, BuildingDataset, BoundingBox2D, string, CancellationToken\) Method
+
+Streams building footprints from a GeoPackage file \(EUBUCCO, DBSM, GHS\-OBAT centroids\) as an asynchronous sequence, returning each footprint in the file's own coordinate reference system\.
+
+The file is opened read-only and walked row by row: no country file is ever materialised, so a multi-gigabyte EUBUCCO release costs one row of memory at a time. The spatial reference identifier comes from `gpkg_geometry_columns` joined to `gpkg_spatial_ref_sys` (an EPSG organisation code wins over the local srs_id) and is validated against the supported set at enumeration start, so an unexpected reference system fails loudly before the first row is interpreted.
+
+Every column except the geometry blob becomes an entry in [Attributes](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint.Attributes 'DiGi\.GIS\.IO\.Classes\.Footprint\.Attributes'), provenance and the EUBUCCO licence exception are derived per row, and [boundingBox](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.Footprints_GeoPackageAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,string,System.Threading.CancellationToken).boundingBox 'DiGi\.GIS\.IO\.Query\.Footprints\_GeoPackageAsync\(string, DiGi\.GIS\.IO\.Enums\.BuildingDataset, DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D, string, System\.Threading\.CancellationToken\)\.boundingBox') - expressed in the file's coordinate reference system - filters on the decoded geometry envelope.
+
+```csharp
+public static System.Collections.Generic.IAsyncEnumerable<DiGi.GIS.IO.Classes.Footprint>? Footprints_GeoPackageAsync(string? path, DiGi.GIS.IO.Enums.BuildingDataset buildingDataset, DiGi.Geometry.Planar.Classes.BoundingBox2D? boundingBox=null, string? tableName=null, System.Threading.CancellationToken cancellationToken=default(System.Threading.CancellationToken));
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoPackageAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,string,System.Threading.CancellationToken).path'></a>
+
+`path` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The path of the GeoPackage file, or null or whitespace to return null\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoPackageAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,string,System.Threading.CancellationToken).buildingDataset'></a>
+
+`buildingDataset` [BuildingDataset](DiGi.GIS.IO.Enums.md#DiGi.GIS.IO.Enums.BuildingDataset 'DiGi\.GIS\.IO\.Enums\.BuildingDataset')
+
+The dataset the file holds; Eubucco, Dbsm or GhsObat\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoPackageAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,string,System.Threading.CancellationToken).boundingBox'></a>
+
+`boundingBox` [DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.planar.classes.boundingbox2d 'DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D')
+
+An optional bounding box, in the file's coordinate reference system, that footprints must intersect\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoPackageAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,string,System.Threading.CancellationToken).tableName'></a>
+
+`tableName` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The geometry table to read; required only when the file registers more than one\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoPackageAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,string,System.Threading.CancellationToken).cancellationToken'></a>
+
+`cancellationToken` [System\.Threading\.CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken 'System\.Threading\.CancellationToken')
+
+The cancellation token\.
+
+#### Returns
+[System\.Collections\.Generic\.IAsyncEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')[Footprint](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint 'DiGi\.GIS\.IO\.Classes\.Footprint')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')  
+The streaming sequence, or null when [path](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.Footprints_GeoPackageAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,string,System.Threading.CancellationToken).path 'DiGi\.GIS\.IO\.Query\.Footprints\_GeoPackageAsync\(string, DiGi\.GIS\.IO\.Enums\.BuildingDataset, DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D, string, System\.Threading\.CancellationToken\)\.path') is null or whitespace\.
+
+#### Exceptions
+
+[System\.ArgumentException](https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception 'System\.ArgumentException')  
+Thrown when [buildingDataset](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.Footprints_GeoPackageAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,string,System.Threading.CancellationToken).buildingDataset 'DiGi\.GIS\.IO\.Query\.Footprints\_GeoPackageAsync\(string, DiGi\.GIS\.IO\.Enums\.BuildingDataset, DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D, string, System\.Threading\.CancellationToken\)\.buildingDataset') is not a GeoPackage dataset, or when the file registers several geometry tables and no table name was given\.
+
+[System\.NotSupportedException](https://learn.microsoft.com/en-us/dotnet/api/system.notsupportedexception 'System\.NotSupportedException')  
+Thrown at enumeration start when the file declares an SRID other than 4326 or 3035\.
+
+[System\.IO\.InvalidDataException](https://learn.microsoft.com/en-us/dotnet/api/system.io.invaliddataexception 'System\.IO\.InvalidDataException')  
+Thrown when the file has no geometry table, the registered geometry column is missing, or a row carries no geometry\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoPackage_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,string,System.Threading.CancellationToken)'></a>
+
+## Query\.Footprints\_GeoPackage\_Iterator\(string, BuildingDataset, BoundingBox2D, string, CancellationToken\) Method
+
+Walks a GeoPackage geometry table row by row, yielding one [Footprint](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint 'DiGi\.GIS\.IO\.Classes\.Footprint') per row\.
+
+```csharp
+private static System.Collections.Generic.IAsyncEnumerable<DiGi.GIS.IO.Classes.Footprint> Footprints_GeoPackage_Iterator(string path, DiGi.GIS.IO.Enums.BuildingDataset buildingDataset, DiGi.Geometry.Planar.Classes.BoundingBox2D? boundingBox, string? tableName, System.Threading.CancellationToken cancellationToken);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoPackage_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,string,System.Threading.CancellationToken).path'></a>
+
+`path` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The path of the GeoPackage file\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoPackage_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,string,System.Threading.CancellationToken).buildingDataset'></a>
+
+`buildingDataset` [BuildingDataset](DiGi.GIS.IO.Enums.md#DiGi.GIS.IO.Enums.BuildingDataset 'DiGi\.GIS\.IO\.Enums\.BuildingDataset')
+
+The dataset the file holds\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoPackage_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,string,System.Threading.CancellationToken).boundingBox'></a>
+
+`boundingBox` [DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.planar.classes.boundingbox2d 'DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D')
+
+An optional bounding box, in the file's coordinate reference system\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoPackage_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,string,System.Threading.CancellationToken).tableName'></a>
+
+`tableName` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The geometry table to read, or null to use the file's only one\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoPackage_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,string,System.Threading.CancellationToken).cancellationToken'></a>
+
+`cancellationToken` [System\.Threading\.CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken 'System\.Threading\.CancellationToken')
+
+The cancellation token\.
+
+#### Returns
+[System\.Collections\.Generic\.IAsyncEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')[Footprint](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint 'DiGi\.GIS\.IO\.Classes\.Footprint')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')  
+The streaming sequence\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoParquetAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken)'></a>
+
+## Query\.Footprints\_GeoParquetAsync\(string, BuildingDataset, BoundingBox2D, CancellationToken\) Method
+
+Streams building footprints from a GeoParquet file \(Overture Buildings\) as an asynchronous sequence, returning each footprint in the file's own coordinate reference system\.
+
+The file is walked one row group at a time and never materialised as a whole. When a bounding box is given and the file carries a `covering.bbox`, the read is pruned with the row group's footer statistics on the covering columns: a group judged disjoint is never opened or decompressed. The row-level filter still runs on the decoded geometry envelope, so a corrupt geometry sitting in a pruned group never gets decoded - and the same file read without a bounding box fails loudly instead of hiding it.
+
+The spatial reference identifier comes from the `geo` metadata (`srs_id`, else the PROJJSON CRS code, else the format default of 4326) and is validated at enumeration start. Every column becomes an entry in [Attributes](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint.Attributes 'DiGi\.GIS\.IO\.Classes\.Footprint\.Attributes') except the geometry column and the covering columns, which are derived rather than source data; repeated columns such as Overture's `sources` are grouped back into JSON arrays row by row.
+
+```csharp
+public static System.Collections.Generic.IAsyncEnumerable<DiGi.GIS.IO.Classes.Footprint>? Footprints_GeoParquetAsync(string? path, DiGi.GIS.IO.Enums.BuildingDataset buildingDataset, DiGi.Geometry.Planar.Classes.BoundingBox2D? boundingBox=null, System.Threading.CancellationToken cancellationToken=default(System.Threading.CancellationToken));
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoParquetAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).path'></a>
+
+`path` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The path of the GeoParquet file, or null or whitespace to return null\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoParquetAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).buildingDataset'></a>
+
+`buildingDataset` [BuildingDataset](DiGi.GIS.IO.Enums.md#DiGi.GIS.IO.Enums.BuildingDataset 'DiGi\.GIS\.IO\.Enums\.BuildingDataset')
+
+The dataset the file holds; Overture\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoParquetAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).boundingBox'></a>
+
+`boundingBox` [DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.planar.classes.boundingbox2d 'DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D')
+
+An optional bounding box, in the file's coordinate reference system, that footprints must intersect\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoParquetAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).cancellationToken'></a>
+
+`cancellationToken` [System\.Threading\.CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken 'System\.Threading\.CancellationToken')
+
+The cancellation token\.
+
+#### Returns
+[System\.Collections\.Generic\.IAsyncEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')[Footprint](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint 'DiGi\.GIS\.IO\.Classes\.Footprint')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')  
+The streaming sequence, or null when [path](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.Footprints_GeoParquetAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).path 'DiGi\.GIS\.IO\.Query\.Footprints\_GeoParquetAsync\(string, DiGi\.GIS\.IO\.Enums\.BuildingDataset, DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D, System\.Threading\.CancellationToken\)\.path') is null or whitespace\.
+
+#### Exceptions
+
+[System\.ArgumentException](https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception 'System\.ArgumentException')  
+Thrown when [buildingDataset](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.Footprints_GeoParquetAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).buildingDataset 'DiGi\.GIS\.IO\.Query\.Footprints\_GeoParquetAsync\(string, DiGi\.GIS\.IO\.Enums\.BuildingDataset, DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D, System\.Threading\.CancellationToken\)\.buildingDataset') is not Overture\.
+
+[System\.NotSupportedException](https://learn.microsoft.com/en-us/dotnet/api/system.notsupportedexception 'System\.NotSupportedException')  
+Thrown at enumeration start when the file declares an SRID other than 4326 or 3035\.
+
+[System\.IO\.InvalidDataException](https://learn.microsoft.com/en-us/dotnet/api/system.io.invaliddataexception 'System\.IO\.InvalidDataException')  
+Thrown when the file carries no `geo` metadata, declares an unparsable CRS, or has no geometry column\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoParquet_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken)'></a>
+
+## Query\.Footprints\_GeoParquet\_Iterator\(string, BuildingDataset, BoundingBox2D, CancellationToken\) Method
+
+Walks a GeoParquet file row group by row group, yielding one [Footprint](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint 'DiGi\.GIS\.IO\.Classes\.Footprint') per row\.
+
+```csharp
+private static System.Collections.Generic.IAsyncEnumerable<DiGi.GIS.IO.Classes.Footprint> Footprints_GeoParquet_Iterator(string path, DiGi.GIS.IO.Enums.BuildingDataset buildingDataset, DiGi.Geometry.Planar.Classes.BoundingBox2D? boundingBox, System.Threading.CancellationToken cancellationToken);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoParquet_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).path'></a>
+
+`path` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The path of the GeoParquet file\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoParquet_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).buildingDataset'></a>
+
+`buildingDataset` [BuildingDataset](DiGi.GIS.IO.Enums.md#DiGi.GIS.IO.Enums.BuildingDataset 'DiGi\.GIS\.IO\.Enums\.BuildingDataset')
+
+The dataset the file holds\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoParquet_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).boundingBox'></a>
+
+`boundingBox` [DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.planar.classes.boundingbox2d 'DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D')
+
+An optional bounding box, in the file's coordinate reference system\.
+
+<a name='DiGi.GIS.IO.Query.Footprints_GeoParquet_Iterator(string,DiGi.GIS.IO.Enums.BuildingDataset,DiGi.Geometry.Planar.Classes.BoundingBox2D,System.Threading.CancellationToken).cancellationToken'></a>
+
+`cancellationToken` [System\.Threading\.CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken 'System\.Threading\.CancellationToken')
+
+The cancellation token\.
+
+#### Returns
+[System\.Collections\.Generic\.IAsyncEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')[Footprint](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint 'DiGi\.GIS\.IO\.Classes\.Footprint')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1 'System\.Collections\.Generic\.IAsyncEnumerable\`1')  
+The streaming sequence\.
+
+<a name='DiGi.GIS.IO.Query.Geometry_Json(System.Text.Json.JsonElement,NetTopologySuite.Geometries.GeometryFactory)'></a>
+
+## Query\.Geometry\_Json\(JsonElement, GeometryFactory\) Method
+
+Builds a NetTopologySuite geometry from a GeoJSON geometry element, so a line\-delimited GeoJSON sequence can be read without pulling the Newtonsoft\-based NetTopologySuite\.IO\.GeoJSON reader into every host that references this assembly\.
+
+Every geometry type the open building datasets use is supported; an unknown type or a malformed position fails loudly with the reason, because a silently dropped or silently reshaped geometry would surface much later as a wrong area.
+
+```csharp
+private static NetTopologySuite.Geometries.Geometry Geometry_Json(System.Text.Json.JsonElement geometryElement, NetTopologySuite.Geometries.GeometryFactory geometryFactory);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.Geometry_Json(System.Text.Json.JsonElement,NetTopologySuite.Geometries.GeometryFactory).geometryElement'></a>
+
+`geometryElement` [System\.Text\.Json\.JsonElement](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.jsonelement 'System\.Text\.Json\.JsonElement')
+
+The JSON element holding the geometry \(its `type` and `coordinates`, or `geometries` for a collection\)\.
+
+<a name='DiGi.GIS.IO.Query.Geometry_Json(System.Text.Json.JsonElement,NetTopologySuite.Geometries.GeometryFactory).geometryFactory'></a>
+
+`geometryFactory` [NetTopologySuite\.Geometries\.GeometryFactory](https://learn.microsoft.com/en-us/dotnet/api/nettopologysuite.geometries.geometryfactory 'NetTopologySuite\.Geometries\.GeometryFactory')
+
+The factory used to create the geometry\.
+
+#### Returns
+[NetTopologySuite\.Geometries\.Geometry](https://learn.microsoft.com/en-us/dotnet/api/nettopologysuite.geometries.geometry 'NetTopologySuite\.Geometries\.Geometry')  
+The geometry\.
+
+#### Exceptions
+
+[System\.IO\.InvalidDataException](https://learn.microsoft.com/en-us/dotnet/api/system.io.invaliddataexception 'System\.IO\.InvalidDataException')  
+Thrown when the element is not a geometry, carries an unsupported type, or holds malformed coordinates\.
+
 <a name='DiGi.GIS.IO.Query.Holdout(string,int)'></a>
 
 ## Query\.Holdout\(string, int\) Method
@@ -1188,6 +1649,178 @@ One row in this many joins the holdout\. 5 gives a 20 percent holdout\.
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
 True for each row that belongs to the holdout, in row order\. Empty when the input is null\.
 
+<a name='DiGi.GIS.IO.Query.LicenceException(string)'></a>
+
+## Query\.LicenceException\(string\) Method
+
+Returns the regional licence exception that applies to an EUBUCCO geometry\_source value, or null when the source carries none\.
+
+The two flagged sources are Prague (CC-BY-SA, share-alike) and Abruzzo (CC-BY-NC, non-commercial); every other source stays under the plain ODbL licence. The lookup is a comparison rather than a filter so a flagged row travels on with its exception attached instead of being dropped from a read.
+
+```csharp
+private static string? LicenceException(string? geometrySource);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.LicenceException(string).geometrySource'></a>
+
+`geometrySource` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The geometry\_source column value, or null\.
+
+#### Returns
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')  
+The licence exception string, or null when no exception applies\.
+
+<a name='DiGi.GIS.IO.Query.Metadata_GeoParquet(string,Parquet.ParquetReader)'></a>
+
+## Query\.Metadata\_GeoParquet\(string, ParquetReader\) Method
+
+Parses the `geo` metadata of a GeoParquet file into the facts a read needs: the spatial reference identifier, the primary geometry column and the covering columns\.
+
+The identifier comes from `srs_id` when the writer supplies one, otherwise from the PROJJSON `crs.id` code, and a missing or null `crs` means the default of the format, CRS84 (EPSG:4326). A CRS that is present but carries no parseable identifier fails loudly: an unknown reference system can be neither validated against the supported set nor labelled honestly.
+
+Covering columns are resolved against the schema here as well, so a covering path that names a column absent from the file degrades to a full scan rather than to a crash mid-read.
+
+```csharp
+private static DiGi.GIS.IO.Query.GeoParquetMetadata Metadata_GeoParquet(string path, Parquet.ParquetReader parquetReader);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.Metadata_GeoParquet(string,Parquet.ParquetReader).path'></a>
+
+`path` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The path of the file being read, used in exception messages\.
+
+<a name='DiGi.GIS.IO.Query.Metadata_GeoParquet(string,Parquet.ParquetReader).parquetReader'></a>
+
+`parquetReader` [Parquet\.ParquetReader](https://learn.microsoft.com/en-us/dotnet/api/parquet.parquetreader 'Parquet\.ParquetReader')
+
+The open reader supplying the custom metadata and schema\.
+
+#### Returns
+[GeoParquetMetadata](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.GeoParquetMetadata 'DiGi\.GIS\.IO\.Query\.GeoParquetMetadata')  
+The parsed metadata\.
+
+#### Exceptions
+
+[System\.IO\.InvalidDataException](https://learn.microsoft.com/en-us/dotnet/api/system.io.invaliddataexception 'System\.IO\.InvalidDataException')  
+Thrown when the file has no `geo` metadata, or a CRS that cannot be reduced to an identifier\.
+
+<a name='DiGi.GIS.IO.Query.Provenance(DiGi.GIS.IO.Enums.BuildingDataset,System.Text.Json.Nodes.JsonObject,string)'></a>
+
+## Query\.Provenance\(BuildingDataset, JsonObject, string\) Method
+
+Builds the per\-object provenance for a row from its attribute bag, in the shape the building\_dataset release register expects \(DiGi\-Organization/DiGi\.GIS\.PostgreSQL\#125\)\.
+
+Each dataset states its geometry origin differently: EUBUCCO carries every column whose name contains `_source`; DBSM carries the `source` column plus the `eub_json` link blob, parsed to an object when it parses and kept as raw text otherwise; GHS-OBAT links through the Overture identifier, exposed under the single key `overture_id` whether the source column is named `overture_id` or `id`; Overture carries `id` and the full `sources` array; Microsoft features carry no origin at all, so the quadkey the file was fetched under plus any `capture` properties stand in as provenance.
+
+The attribute bag keeps every column as well: provenance is an additional view, not a move, so no consumer loses a column by this method running.
+
+```csharp
+private static System.Text.Json.Nodes.JsonObject? Provenance(DiGi.GIS.IO.Enums.BuildingDataset buildingDataset, System.Text.Json.Nodes.JsonObject? attributes, string? quadkey);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.Provenance(DiGi.GIS.IO.Enums.BuildingDataset,System.Text.Json.Nodes.JsonObject,string).buildingDataset'></a>
+
+`buildingDataset` [BuildingDataset](DiGi.GIS.IO.Enums.md#DiGi.GIS.IO.Enums.BuildingDataset 'DiGi\.GIS\.IO\.Enums\.BuildingDataset')
+
+The dataset being read\.
+
+<a name='DiGi.GIS.IO.Query.Provenance(DiGi.GIS.IO.Enums.BuildingDataset,System.Text.Json.Nodes.JsonObject,string).attributes'></a>
+
+`attributes` [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')
+
+The attribute bag built from the source row, or null\.
+
+<a name='DiGi.GIS.IO.Query.Provenance(DiGi.GIS.IO.Enums.BuildingDataset,System.Text.Json.Nodes.JsonObject,string).quadkey'></a>
+
+`quadkey` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The quadkey a Microsoft line\-delimited GeoJSON file was fetched under; used only for that dataset\.
+
+#### Returns
+[System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')  
+The provenance object, or null when the row carries nothing provenance\-worthy\.
+
+<a name='DiGi.GIS.IO.Query.RowGroup_InRange(Parquet.ParquetRowGroupReader,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D)'></a>
+
+## Query\.RowGroup\_InRange\(ParquetRowGroupReader, DataField, DataField, DataField, DataField, BoundingBox2D\) Method
+
+Decides whether a Parquet row group can hold rows inside a bounding box, using only the row group's min/max statistics on the covering columns\.
+
+This is the pruning half of a spatial read: the statistics travel in the file footer, so the decision costs four footer lookups and a disjointness test, and a group judged disjoint is never opened or decompressed. A group whose statistics are missing or unreadable counts as intersecting, because the failure mode of pruning must always be extra work rather than a dropped row.
+
+```csharp
+private static bool RowGroup_InRange(Parquet.ParquetRowGroupReader parquetRowGroupReader, Parquet.Schema.DataField? coveringMinX, Parquet.Schema.DataField? coveringMaxX, Parquet.Schema.DataField? coveringMinY, Parquet.Schema.DataField? coveringMaxY, DiGi.Geometry.Planar.Classes.BoundingBox2D boundingBox);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.RowGroup_InRange(Parquet.ParquetRowGroupReader,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D).parquetRowGroupReader'></a>
+
+`parquetRowGroupReader` [Parquet\.ParquetRowGroupReader](https://learn.microsoft.com/en-us/dotnet/api/parquet.parquetrowgroupreader 'Parquet\.ParquetRowGroupReader')
+
+The open row group reader supplying statistics\.
+
+<a name='DiGi.GIS.IO.Query.RowGroup_InRange(Parquet.ParquetRowGroupReader,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D).coveringMinX'></a>
+
+`coveringMinX` [Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
+
+The covering column holding each row's minimum X, or null\.
+
+<a name='DiGi.GIS.IO.Query.RowGroup_InRange(Parquet.ParquetRowGroupReader,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D).coveringMaxX'></a>
+
+`coveringMaxX` [Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
+
+The covering column holding each row's maximum X, or null\.
+
+<a name='DiGi.GIS.IO.Query.RowGroup_InRange(Parquet.ParquetRowGroupReader,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D).coveringMinY'></a>
+
+`coveringMinY` [Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
+
+The covering column holding each row's minimum Y, or null\.
+
+<a name='DiGi.GIS.IO.Query.RowGroup_InRange(Parquet.ParquetRowGroupReader,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D).coveringMaxY'></a>
+
+`coveringMaxY` [Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
+
+The covering column holding each row's maximum Y, or null\.
+
+<a name='DiGi.GIS.IO.Query.RowGroup_InRange(Parquet.ParquetRowGroupReader,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D).boundingBox'></a>
+
+`boundingBox` [DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.planar.classes.boundingbox2d 'DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D')
+
+The bounding box, in the source coordinate reference system, being queried\.
+
+#### Returns
+[System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')  
+True when the row group may contain rows inside the box and should be read; false when it can be skipped\.
+
+<a name='DiGi.GIS.IO.Query.SourceId(System.Text.Json.Nodes.JsonObject)'></a>
+
+## Query\.SourceId\(JsonObject\) Method
+
+Returns the source identifier for a row from its attribute bag, trying the columns the open building datasets use, in order\.
+
+The chain covers `id` (EUBUCCO, Overture, GHS-OBAT), `overture_id` (GHS-OBAT variants keyed on the Overture identifier) and `fid` (GeoPackage feature tables). Microsoft features carry no identifier at all, so that reader synthesizes one instead of calling this method.
+
+```csharp
+private static string? SourceId(System.Text.Json.Nodes.JsonObject? attributes);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.SourceId(System.Text.Json.Nodes.JsonObject).attributes'></a>
+
+`attributes` [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')
+
+The attribute bag built from the source row\.
+
+#### Returns
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')  
+The identifier as text, or null when the row carries none of the columns\.
+
 <a name='DiGi.GIS.IO.Query.UnpopulatedColumnNames(thisDiGi.Core.IO.Table.Classes.Table,System.Collections.Generic.IEnumerable_DiGi.Core.IO.Table.Classes.Column_)'></a>
 
 ## Query\.UnpopulatedColumnNames\(this Table, IEnumerable\<Column\>\) Method
@@ -1218,6 +1851,36 @@ The columns to look for\. Columns are matched by stored column slug first and by
 #### Returns
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
 The names of the unpopulated columns, in the order given\. Empty when every column carries a value somewhere\.
+
+<a name='DiGi.GIS.IO.Query.ValidateSrid(int,string)'></a>
+
+## Query\.ValidateSrid\(int, string\) Method
+
+Throws when a source file declares a spatial reference identifier outside the supported set \(EPSG:4326, EPSG:3035\)\.
+
+Readers return footprints in the source coordinate reference system, so anything outside the two supported identifiers cannot be labelled honestly: failing loudly at enumeration start names the file, the identifier found and the set accepted, instead of silently reinterpreting coordinates that were never converted.
+
+```csharp
+private static void ValidateSrid(int srid, string path);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.ValidateSrid(int,string).srid'></a>
+
+`srid` [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
+
+The spatial reference identifier declared by the file\.
+
+<a name='DiGi.GIS.IO.Query.ValidateSrid(int,string).path'></a>
+
+`path` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The path of the file being read, used in the exception message\.
+
+#### Exceptions
+
+[System\.NotSupportedException](https://learn.microsoft.com/en-us/dotnet/api/system.notsupportedexception 'System\.NotSupportedException')  
+Thrown when the identifier is neither 4326 nor 3035\.
 
 <a name='DiGi.GIS.IO.Query.YearBuiltLabels(thisDiGi.Core.IO.Table.Classes.Table)'></a>
 
@@ -1371,3 +2034,155 @@ public static System.Collections.Generic.List<DiGi.Core.IO.Table.Classes.Column>
 #### Returns
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[DiGi\.Core\.IO\.Table\.Classes\.Column](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.column 'DiGi\.Core\.IO\.Table\.Classes\.Column')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
 A list of [DiGi\.Core\.IO\.Table\.Classes\.Column](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.column 'DiGi\.Core\.IO\.Table\.Classes\.Column') instances representing the model output columns\.
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata'></a>
+
+## Query\.GeoParquetMetadata Class
+
+The file\-level GeoParquet facts a read needs in one place: the spatial reference identifier, the primary geometry column and the covering columns resolved against the schema for row\-group pruning\.
+
+```csharp
+private sealed class Query.GeoParquetMetadata
+```
+
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → GeoParquetMetadata
+### Constructors
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField)'></a>
+
+## GeoParquetMetadata\(int, string, DataField, DataField, DataField, DataField\) Constructor
+
+Initializes a new instance of the [GeoParquetMetadata](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.GeoParquetMetadata 'DiGi\.GIS\.IO\.Query\.GeoParquetMetadata') class\.
+
+```csharp
+public GeoParquetMetadata(int srid, string geometryColumn, Parquet.Schema.DataField? coveringMinX, Parquet.Schema.DataField? coveringMaxX, Parquet.Schema.DataField? coveringMinY, Parquet.Schema.DataField? coveringMaxY);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField).srid'></a>
+
+`srid` [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
+
+The spatial reference identifier declared by the file\.
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField).geometryColumn'></a>
+
+`geometryColumn` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The primary geometry column name\.
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField).coveringMinX'></a>
+
+`coveringMinX` [Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
+
+The covering column holding each row's minimum X, or null when the file carries no covering\.
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField).coveringMaxX'></a>
+
+`coveringMaxX` [Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
+
+The covering column holding each row's maximum X, or null when the file carries no covering\.
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField).coveringMinY'></a>
+
+`coveringMinY` [Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
+
+The covering column holding each row's minimum Y, or null when the file carries no covering\.
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField).coveringMaxY'></a>
+
+`coveringMaxY` [Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
+
+The covering column holding each row's maximum Y, or null when the file carries no covering\.
+### Properties
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.CoveringMaxX'></a>
+
+## Query\.GeoParquetMetadata\.CoveringMaxX Property
+
+Gets the covering column holding each row's maximum X, or null when the file carries no covering\.
+
+```csharp
+public Parquet.Schema.DataField? CoveringMaxX { get; }
+```
+
+#### Property Value
+[Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.CoveringMaxY'></a>
+
+## Query\.GeoParquetMetadata\.CoveringMaxY Property
+
+Gets the covering column holding each row's maximum Y, or null when the file carries no covering\.
+
+```csharp
+public Parquet.Schema.DataField? CoveringMaxY { get; }
+```
+
+#### Property Value
+[Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.CoveringMinX'></a>
+
+## Query\.GeoParquetMetadata\.CoveringMinX Property
+
+Gets the covering column holding each row's minimum X, or null when the file carries no covering\.
+
+```csharp
+public Parquet.Schema.DataField? CoveringMinX { get; }
+```
+
+#### Property Value
+[Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.CoveringMinY'></a>
+
+## Query\.GeoParquetMetadata\.CoveringMinY Property
+
+Gets the covering column holding each row's minimum Y, or null when the file carries no covering\.
+
+```csharp
+public Parquet.Schema.DataField? CoveringMinY { get; }
+```
+
+#### Property Value
+[Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeometryColumn'></a>
+
+## Query\.GeoParquetMetadata\.GeometryColumn Property
+
+Gets the primary geometry column name\.
+
+```csharp
+public string GeometryColumn { get; }
+```
+
+#### Property Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.HasCovering'></a>
+
+## Query\.GeoParquetMetadata\.HasCovering Property
+
+Gets whether all four covering columns resolved against the schema, which is what makes row\-group pruning possible\.
+
+```csharp
+public bool HasCovering { get; }
+```
+
+#### Property Value
+[System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.Srid'></a>
+
+## Query\.GeoParquetMetadata\.Srid Property
+
+Gets the spatial reference identifier declared by the file\.
+
+```csharp
+public int Srid { get; }
+```
+
+#### Property Value
+[System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
