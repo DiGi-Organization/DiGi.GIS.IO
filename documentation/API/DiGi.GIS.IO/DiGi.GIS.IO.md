@@ -1745,6 +1745,29 @@ The quadkey a Microsoft line\-delimited GeoJSON file was fetched under; used onl
 [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')  
 The provenance object, or null when the row carries nothing provenance\-worthy\.
 
+<a name='DiGi.GIS.IO.Query.Quadkey(string)'></a>
+
+## Query\.Quadkey\(string\) Method
+
+Reads the quadkey a Microsoft Global ML Building Footprints chunk was published under from its path \- the `quadkey=<digits>` directory segment of Microsoft's own layout \(`…/RegionName=Poland/quadkey=120213101/part-….csv.gz`\) \- so a run over several chunks can identify each file by its own quadkey \(DiGi\-Organization/DiGi\.GIS\.PostgreSQL\#132\)\.
+
+Only a directory segment counts, never the file name, and the innermost one wins when a path nests several. A segment whose value is not made of the quadkey digits 0-3 is not a quadkey and yields null rather than a wrong source identity.
+
+```csharp
+public static string? Quadkey(string? path);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.Quadkey(string).path'></a>
+
+`path` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The file path, with Windows or POSIX separators, or null\.
+
+#### Returns
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')  
+The quadkey, or null when the path carries no valid `quadkey=` directory segment\.
+
 <a name='DiGi.GIS.IO.Query.RowGroup_InRange(Parquet.ParquetRowGroupReader,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D)'></a>
 
 ## Query\.RowGroup\_InRange\(ParquetRowGroupReader, DataField, DataField, DataField, DataField, BoundingBox2D\) Method
