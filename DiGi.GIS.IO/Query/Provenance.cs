@@ -10,7 +10,7 @@ namespace DiGi.GIS.IO
     {
         /// <summary>
         /// Builds the per-object provenance for a row from its attribute bag, in the shape the building_dataset release register expects (DiGi-Organization/DiGi.GIS.PostgreSQL#125).
-        /// <para>Each dataset states its geometry origin differently: EUBUCCO carries every column whose name contains <c>_source</c>; DBSM carries the <c>source</c> column plus the <c>eub_json</c> link blob, parsed to an object when it parses and kept as raw text otherwise; GHS-OBAT links through the Overture identifier, exposed under the single key <c>overture_id</c> whether the source column is named <c>overture_id</c> or <c>id</c>; Overture carries <c>id</c> and the full <c>sources</c> array; Microsoft features carry no origin at all, so the quadkey the file was fetched under plus any <c>capture</c> properties stand in as provenance.</para>
+        /// <para>Each dataset states its geometry origin differently: EUBUCCO carries every column whose name contains <c>_source</c>; DBSM carries the <c>source</c> column plus its per-source link columns - <c>eub_data</c>, <c>osm_data</c> and <c>msb_data</c> in R2025 - and the older <c>eub_json</c> link blob, parsed to an object when it parses and kept as raw text otherwise; GHS-OBAT links through the Overture identifier, exposed under the single key <c>overture_id</c> whether the source column is named <c>overture_id</c> or <c>id</c>; Overture carries <c>id</c> and the full <c>sources</c> array; Microsoft features carry no origin at all, so the quadkey the file was fetched under plus any <c>capture</c> properties stand in as provenance.</para>
         /// <para>The attribute bag keeps every column as well: provenance is an additional view, not a move, so no consumer loses a column by this method running.</para>
         /// </summary>
         /// <param name="buildingDataset">The dataset being read.</param>
@@ -54,6 +54,17 @@ namespace DiGi.GIS.IO
                         if (attributes.TryGetPropertyValue("source", out JsonNode? source) && source != null)
                         {
                             result["source"] = source.DeepClone();
+                        }
+
+                        // DBSM R2025 carries its per-source links as eub_data / osm_data / msb_data
+                        // (DiGi-Organization/DiGi.GIS.PostgreSQL#133); older releases used eub_json.
+                        string[] keys_Data = ["eub_data", "osm_data", "msb_data"];
+                        foreach (string key in keys_Data)
+                        {
+                            if (attributes.TryGetPropertyValue(key, out JsonNode? data) && data != null)
+                            {
+                                result[key] = data.DeepClone();
+                            }
                         }
 
                         if (attributes.TryGetPropertyValue("eub_json", out JsonNode? eubJson) && eubJson != null)

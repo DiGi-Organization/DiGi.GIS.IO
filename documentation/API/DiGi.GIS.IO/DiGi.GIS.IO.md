@@ -1714,7 +1714,7 @@ Thrown when the file has no `geo` metadata, or a CRS that cannot be reduced to a
 
 Builds the per\-object provenance for a row from its attribute bag, in the shape the building\_dataset release register expects \(DiGi\-Organization/DiGi\.GIS\.PostgreSQL\#125\)\.
 
-Each dataset states its geometry origin differently: EUBUCCO carries every column whose name contains `_source`; DBSM carries the `source` column plus the `eub_json` link blob, parsed to an object when it parses and kept as raw text otherwise; GHS-OBAT links through the Overture identifier, exposed under the single key `overture_id` whether the source column is named `overture_id` or `id`; Overture carries `id` and the full `sources` array; Microsoft features carry no origin at all, so the quadkey the file was fetched under plus any `capture` properties stand in as provenance.
+Each dataset states its geometry origin differently: EUBUCCO carries every column whose name contains `_source`; DBSM carries the `source` column plus its per-source link columns - `eub_data`, `osm_data` and `msb_data` in R2025 - and the older `eub_json` link blob, parsed to an object when it parses and kept as raw text otherwise; GHS-OBAT links through the Overture identifier, exposed under the single key `overture_id` whether the source column is named `overture_id` or `id`; Overture carries `id` and the full `sources` array; Microsoft features carry no origin at all, so the quadkey the file was fetched under plus any `capture` properties stand in as provenance.
 
 The attribute bag keeps every column as well: provenance is an additional view, not a move, so no consumer loses a column by this method running.
 
@@ -1827,7 +1827,7 @@ True when the row group may contain rows inside the box and should be read; fals
 
 Returns the source identifier for a row from its attribute bag, trying the columns the open building datasets use, in order\.
 
-The chain covers `id` (EUBUCCO, Overture, GHS-OBAT), `overture_id` (GHS-OBAT variants keyed on the Overture identifier) and `fid` (GeoPackage feature tables). Microsoft features carry no identifier at all, so that reader synthesizes one instead of calling this method.
+The chain covers `id` (EUBUCCO, Overture, GHS-OBAT), `overture_id` (GHS-OBAT variants keyed on the Overture identifier), `unique_id` (DBSM R2025, which has no `id` - DiGi-Organization/DiGi.GIS.PostgreSQL#133) and `fid` (GeoPackage feature tables; the file's row number, the last resort). Microsoft features carry no identifier at all, so that reader synthesizes one instead of calling this method.
 
 ```csharp
 private static string? SourceId(System.Text.Json.Nodes.JsonObject? attributes);
