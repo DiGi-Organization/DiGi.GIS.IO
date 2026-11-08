@@ -12,7 +12,7 @@ namespace DiGi.GIS.IO
         /// </summary>
         /// <param name="value">The raw column value, or null for a null column.</param>
         /// <returns>The value as a <see cref="JsonNode"/>, or null when the column is null.</returns>
-        private static JsonNode? AttributeValue(object? value)
+        private static JsonValue? AttributeValue(object? value)
         {
             static DateTimeOffset ToDateTimeOffset(DateTime dateTime)
             {

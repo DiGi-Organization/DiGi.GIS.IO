@@ -23,7 +23,7 @@ Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system
 Azimuth as an angle to north direction\.
 
 ```csharp
-public static UnitColumn Azimuth;
+public static readonly UnitColumn Azimuth;
 ```
 
 #### Field Value
@@ -36,7 +36,7 @@ public static UnitColumn Azimuth;
 BoundingBox height calculated based on geometry data from BDOO Geoportal \*\.gml file \(ot:geometria node\)\.
 
 ```csharp
-public static UnitColumn BoundingBoxHeight;
+public static readonly UnitColumn BoundingBoxHeight;
 ```
 
 #### Field Value
@@ -49,7 +49,7 @@ public static UnitColumn BoundingBoxHeight;
 BoundingBox width calculated based on geometry data from BDOO Geoportal \*\.gml file \(ot:geometria node\)\.
 
 ```csharp
-public static UnitColumn BoundingBoxWidth;
+public static readonly UnitColumn BoundingBoxWidth;
 ```
 
 #### Field Value
@@ -62,7 +62,7 @@ public static UnitColumn BoundingBoxWidth;
 BoundingBox center point X coordinate coming from BDOO Geoportal \*\.gml file \(ot:geometria node\)\.
 
 ```csharp
-public static ExtendedColumn BoundingBoxX;
+public static readonly ExtendedColumn BoundingBoxX;
 ```
 
 #### Field Value
@@ -75,7 +75,7 @@ public static ExtendedColumn BoundingBoxX;
 BoundingBox center point Y coordinate coming from BDOO Geoportal \*\.gml file \(ot:geometria node\)\.
 
 ```csharp
-public static ExtendedColumn BoundingBoxY;
+public static readonly ExtendedColumn BoundingBoxY;
 ```
 
 #### Field Value
@@ -88,7 +88,7 @@ public static ExtendedColumn BoundingBoxY;
 Building general function from BDOO Geoportal \*\.gml file \(ot:funkcjaOgolnaBudynku node\)\.
 
 ```csharp
-public static ExtendedColumn BuildingGeneralFunction;
+public static readonly ExtendedColumn BuildingGeneralFunction;
 ```
 
 #### Field Value
@@ -101,7 +101,7 @@ public static ExtendedColumn BuildingGeneralFunction;
 Current building phase coming from BDOO Geoportal \*\.gml file \(ot:kategoriaIstnienia node\)\.
 
 ```csharp
-public static ExtendedColumn BuildingPhase;
+public static readonly ExtendedColumn BuildingPhase;
 ```
 
 #### Field Value
@@ -114,7 +114,7 @@ public static ExtendedColumn BuildingPhase;
 Building specific functions from BDOO Geoportal \*\.gml file \(ot:funkcjaSzczegolowaBudynku node\)\.
 
 ```csharp
-public static ExtendedColumn BuildingSpecificFunctions;
+public static readonly ExtendedColumn BuildingSpecificFunctions;
 ```
 
 #### Field Value
@@ -127,7 +127,7 @@ public static ExtendedColumn BuildingSpecificFunctions;
 Building shape \(e\.g\., Square, Rectangular, L, U, T, etc\.\) calculated using the BuildingShapeSolver engine via geometric ratios and bounding box analysis\.
 
 ```csharp
-public static ExtendedColumn CalculatedBuildingShape;
+public static readonly ExtendedColumn CalculatedBuildingShape;
 ```
 
 #### Field Value
@@ -140,7 +140,7 @@ public static ExtendedColumn CalculatedBuildingShape;
 Calculated occupancy\.
 
 ```csharp
-public static ExtendedColumn CalculatedOccupancy;
+public static readonly ExtendedColumn CalculatedOccupancy;
 ```
 
 #### Field Value
@@ -153,7 +153,7 @@ public static ExtendedColumn CalculatedOccupancy;
 Calculated year built \- the year built to use: the user\-entered year when one exists, otherwise the predicted year\.
 
 ```csharp
-public static ExtendedColumn CalculatedYearBuilt;
+public static readonly ExtendedColumn CalculatedYearBuilt;
 ```
 
 #### Field Value
@@ -166,7 +166,7 @@ public static ExtendedColumn CalculatedYearBuilt;
 Cardinal direction calculated from azimuth\.
 
 ```csharp
-public static ExtendedColumn CardinalDirection;
+public static readonly ExtendedColumn CardinalDirection;
 ```
 
 #### Field Value
@@ -179,7 +179,7 @@ public static ExtendedColumn CardinalDirection;
 Finest tolerance at which the model's external envelope closes, or null when it does not close \- the open\-envelope signal of the external components classification\.
 
 ```csharp
-public static UnitColumn ClosingTolerance;
+public static readonly UnitColumn ClosingTolerance;
 ```
 
 #### Field Value
@@ -192,7 +192,7 @@ public static UnitColumn ClosingTolerance;
 Shape descriptor that measures how elongated or “thin” a shape is compared to a convex hull that perfectly fits around it \(its envelope or convex enclosure\)\.
 
 ```csharp
-public static ExtendedColumn ConvexHullThinnessRatio;
+public static readonly ExtendedColumn ConvexHullThinnessRatio;
 ```
 
 #### Field Value
@@ -205,7 +205,7 @@ public static ExtendedColumn ConvexHullThinnessRatio;
 County id where the object belongs to\.
 
 ```csharp
-public static ExtendedColumn CountyId;
+public static readonly ExtendedColumn CountyId;
 ```
 
 #### Field Value
@@ -218,7 +218,7 @@ public static ExtendedColumn CountyId;
 County \(powiat\) name where the object belongs to\.
 
 ```csharp
-public static ExtendedColumn CountyName;
+public static readonly ExtendedColumn CountyName;
 ```
 
 #### Field Value
@@ -231,7 +231,7 @@ public static ExtendedColumn CountyName;
 Database Id for the building\.
 
 ```csharp
-public static ExtendedColumn DatabaseId;
+public static readonly ExtendedColumn DatabaseId;
 ```
 
 #### Field Value
@@ -244,7 +244,7 @@ public static ExtendedColumn DatabaseId;
 Sum of all external wall, roof and floor component areas\.
 
 ```csharp
-public static UnitColumn ExternalComponentsArea;
+public static readonly UnitColumn ExternalComponentsArea;
 ```
 
 #### Field Value
@@ -257,7 +257,7 @@ public static UnitColumn ExternalComponentsArea;
 External roof area with tilt greater than 45 degrees, facing east \(\> 45°\)\.
 
 ```csharp
-public static UnitColumn ExternalEastTiltedRoofAreaAbove45;
+public static readonly UnitColumn ExternalEastTiltedRoofAreaAbove45;
 ```
 
 #### Field Value
@@ -270,7 +270,7 @@ public static UnitColumn ExternalEastTiltedRoofAreaAbove45;
 External roof area with tilt greater than 20 and up to 45 degrees, facing east \(\(20°, 45°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalEastTiltedRoofAreaBetween20And45;
+public static readonly UnitColumn ExternalEastTiltedRoofAreaBetween20And45;
 ```
 
 #### Field Value
@@ -283,7 +283,7 @@ public static UnitColumn ExternalEastTiltedRoofAreaBetween20And45;
 External roof area with tilt from 5 up to 20 degrees, facing east \(\[5°, 20°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalEastTiltedRoofAreaUpTo20;
+public static readonly UnitColumn ExternalEastTiltedRoofAreaUpTo20;
 ```
 
 #### Field Value
@@ -296,7 +296,7 @@ public static UnitColumn ExternalEastTiltedRoofAreaUpTo20;
 External wall area with outward normal azimuth in the east sector \(\[67\.5°, 112\.5°\)\)\.
 
 ```csharp
-public static UnitColumn ExternalEastWallArea;
+public static readonly UnitColumn ExternalEastWallArea;
 ```
 
 #### Field Value
@@ -309,7 +309,7 @@ public static UnitColumn ExternalEastWallArea;
 External roof area with tilt below 5 degrees \(flat, no directional split\)\.
 
 ```csharp
-public static UnitColumn ExternalFlatRoofArea;
+public static readonly UnitColumn ExternalFlatRoofArea;
 ```
 
 #### Field Value
@@ -322,7 +322,7 @@ public static UnitColumn ExternalFlatRoofArea;
 External floor area \(ground\-facing external floor components\)\.
 
 ```csharp
-public static UnitColumn ExternalFloorArea;
+public static readonly UnitColumn ExternalFloorArea;
 ```
 
 #### Field Value
@@ -335,7 +335,7 @@ public static UnitColumn ExternalFloorArea;
 External roof area with tilt greater than 45 degrees, facing northeast \(\> 45°\)\.
 
 ```csharp
-public static UnitColumn ExternalNortheastTiltedRoofAreaAbove45;
+public static readonly UnitColumn ExternalNortheastTiltedRoofAreaAbove45;
 ```
 
 #### Field Value
@@ -348,7 +348,7 @@ public static UnitColumn ExternalNortheastTiltedRoofAreaAbove45;
 External roof area with tilt greater than 20 and up to 45 degrees, facing northeast \(\(20°, 45°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalNortheastTiltedRoofAreaBetween20And45;
+public static readonly UnitColumn ExternalNortheastTiltedRoofAreaBetween20And45;
 ```
 
 #### Field Value
@@ -361,7 +361,7 @@ public static UnitColumn ExternalNortheastTiltedRoofAreaBetween20And45;
 External roof area with tilt from 5 up to 20 degrees, facing northeast \(\[5°, 20°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalNortheastTiltedRoofAreaUpTo20;
+public static readonly UnitColumn ExternalNortheastTiltedRoofAreaUpTo20;
 ```
 
 #### Field Value
@@ -374,7 +374,7 @@ public static UnitColumn ExternalNortheastTiltedRoofAreaUpTo20;
 External wall area with outward normal azimuth in the northeast sector \(\[22\.5°, 67\.5°\)\)\.
 
 ```csharp
-public static UnitColumn ExternalNortheastWallArea;
+public static readonly UnitColumn ExternalNortheastWallArea;
 ```
 
 #### Field Value
@@ -387,7 +387,7 @@ public static UnitColumn ExternalNortheastWallArea;
 External roof area with tilt greater than 45 degrees, facing north \(\> 45°\)\.
 
 ```csharp
-public static UnitColumn ExternalNorthTiltedRoofAreaAbove45;
+public static readonly UnitColumn ExternalNorthTiltedRoofAreaAbove45;
 ```
 
 #### Field Value
@@ -400,7 +400,7 @@ public static UnitColumn ExternalNorthTiltedRoofAreaAbove45;
 External roof area with tilt greater than 20 and up to 45 degrees, facing north \(\(20°, 45°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalNorthTiltedRoofAreaBetween20And45;
+public static readonly UnitColumn ExternalNorthTiltedRoofAreaBetween20And45;
 ```
 
 #### Field Value
@@ -413,7 +413,7 @@ public static UnitColumn ExternalNorthTiltedRoofAreaBetween20And45;
 External roof area with tilt from 5 up to 20 degrees, facing north \(\[5°, 20°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalNorthTiltedRoofAreaUpTo20;
+public static readonly UnitColumn ExternalNorthTiltedRoofAreaUpTo20;
 ```
 
 #### Field Value
@@ -426,7 +426,7 @@ public static UnitColumn ExternalNorthTiltedRoofAreaUpTo20;
 External wall area with outward normal azimuth in the north sector \(\[337\.5°, 360°\) ∪ \[0°, 22\.5°\)\)\.
 
 ```csharp
-public static UnitColumn ExternalNorthWallArea;
+public static readonly UnitColumn ExternalNorthWallArea;
 ```
 
 #### Field Value
@@ -439,7 +439,7 @@ public static UnitColumn ExternalNorthWallArea;
 External roof area with tilt greater than 45 degrees, facing northwest \(\> 45°\)\.
 
 ```csharp
-public static UnitColumn ExternalNorthwestTiltedRoofAreaAbove45;
+public static readonly UnitColumn ExternalNorthwestTiltedRoofAreaAbove45;
 ```
 
 #### Field Value
@@ -452,7 +452,7 @@ public static UnitColumn ExternalNorthwestTiltedRoofAreaAbove45;
 External roof area with tilt greater than 20 and up to 45 degrees, facing northwest \(\(20°, 45°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalNorthwestTiltedRoofAreaBetween20And45;
+public static readonly UnitColumn ExternalNorthwestTiltedRoofAreaBetween20And45;
 ```
 
 #### Field Value
@@ -465,7 +465,7 @@ public static UnitColumn ExternalNorthwestTiltedRoofAreaBetween20And45;
 External roof area with tilt from 5 up to 20 degrees, facing northwest \(\[5°, 20°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalNorthwestTiltedRoofAreaUpTo20;
+public static readonly UnitColumn ExternalNorthwestTiltedRoofAreaUpTo20;
 ```
 
 #### Field Value
@@ -478,7 +478,7 @@ public static UnitColumn ExternalNorthwestTiltedRoofAreaUpTo20;
 External wall area with outward normal azimuth in the northwest sector \(\[292\.5°, 337\.5°\)\)\.
 
 ```csharp
-public static UnitColumn ExternalNorthwestWallArea;
+public static readonly UnitColumn ExternalNorthwestWallArea;
 ```
 
 #### Field Value
@@ -491,7 +491,7 @@ public static UnitColumn ExternalNorthwestWallArea;
 External roof area with tilt greater than 45 degrees, facing southeast \(\> 45°\)\.
 
 ```csharp
-public static UnitColumn ExternalSoutheastTiltedRoofAreaAbove45;
+public static readonly UnitColumn ExternalSoutheastTiltedRoofAreaAbove45;
 ```
 
 #### Field Value
@@ -504,7 +504,7 @@ public static UnitColumn ExternalSoutheastTiltedRoofAreaAbove45;
 External roof area with tilt greater than 20 and up to 45 degrees, facing southeast \(\(20°, 45°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalSoutheastTiltedRoofAreaBetween20And45;
+public static readonly UnitColumn ExternalSoutheastTiltedRoofAreaBetween20And45;
 ```
 
 #### Field Value
@@ -517,7 +517,7 @@ public static UnitColumn ExternalSoutheastTiltedRoofAreaBetween20And45;
 External roof area with tilt from 5 up to 20 degrees, facing southeast \(\[5°, 20°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalSoutheastTiltedRoofAreaUpTo20;
+public static readonly UnitColumn ExternalSoutheastTiltedRoofAreaUpTo20;
 ```
 
 #### Field Value
@@ -530,7 +530,7 @@ public static UnitColumn ExternalSoutheastTiltedRoofAreaUpTo20;
 External wall area with outward normal azimuth in the southeast sector \(\[112\.5°, 157\.5°\)\)\.
 
 ```csharp
-public static UnitColumn ExternalSoutheastWallArea;
+public static readonly UnitColumn ExternalSoutheastWallArea;
 ```
 
 #### Field Value
@@ -543,7 +543,7 @@ public static UnitColumn ExternalSoutheastWallArea;
 External roof area with tilt greater than 45 degrees, facing south \(\> 45°\)\.
 
 ```csharp
-public static UnitColumn ExternalSouthTiltedRoofAreaAbove45;
+public static readonly UnitColumn ExternalSouthTiltedRoofAreaAbove45;
 ```
 
 #### Field Value
@@ -556,7 +556,7 @@ public static UnitColumn ExternalSouthTiltedRoofAreaAbove45;
 External roof area with tilt greater than 20 and up to 45 degrees, facing south \(\(20°, 45°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalSouthTiltedRoofAreaBetween20And45;
+public static readonly UnitColumn ExternalSouthTiltedRoofAreaBetween20And45;
 ```
 
 #### Field Value
@@ -569,7 +569,7 @@ public static UnitColumn ExternalSouthTiltedRoofAreaBetween20And45;
 External roof area with tilt from 5 up to 20 degrees, facing south \(\[5°, 20°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalSouthTiltedRoofAreaUpTo20;
+public static readonly UnitColumn ExternalSouthTiltedRoofAreaUpTo20;
 ```
 
 #### Field Value
@@ -582,7 +582,7 @@ public static UnitColumn ExternalSouthTiltedRoofAreaUpTo20;
 External wall area with outward normal azimuth in the south sector \(\[157\.5°, 202\.5°\)\)\.
 
 ```csharp
-public static UnitColumn ExternalSouthWallArea;
+public static readonly UnitColumn ExternalSouthWallArea;
 ```
 
 #### Field Value
@@ -595,7 +595,7 @@ public static UnitColumn ExternalSouthWallArea;
 External roof area with tilt greater than 45 degrees, facing southwest \(\> 45°\)\.
 
 ```csharp
-public static UnitColumn ExternalSouthwestTiltedRoofAreaAbove45;
+public static readonly UnitColumn ExternalSouthwestTiltedRoofAreaAbove45;
 ```
 
 #### Field Value
@@ -608,7 +608,7 @@ public static UnitColumn ExternalSouthwestTiltedRoofAreaAbove45;
 External roof area with tilt greater than 20 and up to 45 degrees, facing southwest \(\(20°, 45°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalSouthwestTiltedRoofAreaBetween20And45;
+public static readonly UnitColumn ExternalSouthwestTiltedRoofAreaBetween20And45;
 ```
 
 #### Field Value
@@ -621,7 +621,7 @@ public static UnitColumn ExternalSouthwestTiltedRoofAreaBetween20And45;
 External roof area with tilt from 5 up to 20 degrees, facing southwest \(\[5°, 20°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalSouthwestTiltedRoofAreaUpTo20;
+public static readonly UnitColumn ExternalSouthwestTiltedRoofAreaUpTo20;
 ```
 
 #### Field Value
@@ -634,7 +634,7 @@ public static UnitColumn ExternalSouthwestTiltedRoofAreaUpTo20;
 External wall area with outward normal azimuth in the southwest sector \(\[202\.5°, 247\.5°\)\)\.
 
 ```csharp
-public static UnitColumn ExternalSouthwestWallArea;
+public static readonly UnitColumn ExternalSouthwestWallArea;
 ```
 
 #### Field Value
@@ -647,7 +647,7 @@ public static UnitColumn ExternalSouthwestWallArea;
 External roof area with tilt greater than 45 degrees, facing west \(\> 45°\)\.
 
 ```csharp
-public static UnitColumn ExternalWestTiltedRoofAreaAbove45;
+public static readonly UnitColumn ExternalWestTiltedRoofAreaAbove45;
 ```
 
 #### Field Value
@@ -660,7 +660,7 @@ public static UnitColumn ExternalWestTiltedRoofAreaAbove45;
 External roof area with tilt greater than 20 and up to 45 degrees, facing west \(\(20°, 45°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalWestTiltedRoofAreaBetween20And45;
+public static readonly UnitColumn ExternalWestTiltedRoofAreaBetween20And45;
 ```
 
 #### Field Value
@@ -673,7 +673,7 @@ public static UnitColumn ExternalWestTiltedRoofAreaBetween20And45;
 External roof area with tilt from 5 up to 20 degrees, facing west \(\[5°, 20°\]\)\.
 
 ```csharp
-public static UnitColumn ExternalWestTiltedRoofAreaUpTo20;
+public static readonly UnitColumn ExternalWestTiltedRoofAreaUpTo20;
 ```
 
 #### Field Value
@@ -686,7 +686,7 @@ public static UnitColumn ExternalWestTiltedRoofAreaUpTo20;
 External wall area with outward normal azimuth in the west sector \(\[247\.5°, 292\.5°\)\)\.
 
 ```csharp
-public static UnitColumn ExternalWestWallArea;
+public static readonly UnitColumn ExternalWestWallArea;
 ```
 
 #### Field Value
@@ -699,7 +699,7 @@ public static UnitColumn ExternalWestWallArea;
 Calculated floor area based on geometry data from BDOO Geoportal \*\.gml file \(ot:geometria node\)\.
 
 ```csharp
-public static UnitColumn FloorArea;
+public static readonly UnitColumn FloorArea;
 ```
 
 #### Field Value
@@ -712,7 +712,7 @@ public static UnitColumn FloorArea;
 X coordinate of internal point calculated based on bounding box coming from BDOO Geoportal \*\.gml file \(ot:geometria node\)\.
 
 ```csharp
-public static ExtendedColumn InternalPointX;
+public static readonly ExtendedColumn InternalPointX;
 ```
 
 #### Field Value
@@ -725,7 +725,7 @@ public static ExtendedColumn InternalPointX;
 Y coordinate of internal point calculated based on bounding box coming from BDOO Geoportal \*\.gml file \(ot:geometria node\)\.
 
 ```csharp
-public static ExtendedColumn InternalPointY;
+public static readonly ExtendedColumn InternalPointY;
 ```
 
 #### Field Value
@@ -738,7 +738,7 @@ public static ExtendedColumn InternalPointY;
 Determines if building is occupied\.
 
 ```csharp
-public static ExtendedColumn IsOccupied;
+public static readonly ExtendedColumn IsOccupied;
 ```
 
 #### Field Value
@@ -751,7 +751,7 @@ public static ExtendedColumn IsOccupied;
 Ratio of the curve area to the area of a circle with same perimeter as the curve\.
 
 ```csharp
-public static ExtendedColumn IsoperimetricRatio;
+public static readonly ExtendedColumn IsoperimetricRatio;
 ```
 
 #### Field Value
@@ -764,7 +764,7 @@ public static ExtendedColumn IsoperimetricRatio;
 Determines if building is residental\.
 
 ```csharp
-public static ExtendedColumn IsResidential;
+public static readonly ExtendedColumn IsResidential;
 ```
 
 #### Field Value
@@ -777,7 +777,7 @@ public static ExtendedColumn IsResidential;
 Municipality \(gmina\) name where the object belongs to\.
 
 ```csharp
-public static ExtendedColumn MunicipalityName;
+public static readonly ExtendedColumn MunicipalityName;
 ```
 
 #### Field Value
@@ -790,7 +790,7 @@ public static ExtendedColumn MunicipalityName;
 Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the east sector \(\[67\.5°, 112\.5°\)\); included in the external east wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
 
 ```csharp
-public static UnitColumn PartyEastWallArea;
+public static readonly UnitColumn PartyEastWallArea;
 ```
 
 #### Field Value
@@ -803,7 +803,7 @@ public static UnitColumn PartyEastWallArea;
 Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the northeast sector \(\[22\.5°, 67\.5°\)\); included in the external northeast wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
 
 ```csharp
-public static UnitColumn PartyNortheastWallArea;
+public static readonly UnitColumn PartyNortheastWallArea;
 ```
 
 #### Field Value
@@ -816,7 +816,7 @@ public static UnitColumn PartyNortheastWallArea;
 Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the north sector \(\[337\.5°, 360°\) ∪ \[0°, 22\.5°\)\); included in the external north wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
 
 ```csharp
-public static UnitColumn PartyNorthWallArea;
+public static readonly UnitColumn PartyNorthWallArea;
 ```
 
 #### Field Value
@@ -829,7 +829,7 @@ public static UnitColumn PartyNorthWallArea;
 Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the northwest sector \(\[292\.5°, 337\.5°\)\); included in the external northwest wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
 
 ```csharp
-public static UnitColumn PartyNorthwestWallArea;
+public static readonly UnitColumn PartyNorthwestWallArea;
 ```
 
 #### Field Value
@@ -842,7 +842,7 @@ public static UnitColumn PartyNorthwestWallArea;
 Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the southeast sector \(\[112\.5°, 157\.5°\)\); included in the external southeast wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
 
 ```csharp
-public static UnitColumn PartySoutheastWallArea;
+public static readonly UnitColumn PartySoutheastWallArea;
 ```
 
 #### Field Value
@@ -855,7 +855,7 @@ public static UnitColumn PartySoutheastWallArea;
 Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the south sector \(\[157\.5°, 202\.5°\)\); included in the external south wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
 
 ```csharp
-public static UnitColumn PartySouthWallArea;
+public static readonly UnitColumn PartySouthWallArea;
 ```
 
 #### Field Value
@@ -868,7 +868,7 @@ public static UnitColumn PartySouthWallArea;
 Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the southwest sector \(\[202\.5°, 247\.5°\)\); included in the external southwest wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
 
 ```csharp
-public static UnitColumn PartySouthwestWallArea;
+public static readonly UnitColumn PartySouthwestWallArea;
 ```
 
 #### Field Value
@@ -881,7 +881,7 @@ public static UnitColumn PartySouthwestWallArea;
 Sum of the wall areas shared with adjacent buildings \(party walls\) over all sectors; included in the external wall areas, which are gross \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
 
 ```csharp
-public static UnitColumn PartyWallArea;
+public static readonly UnitColumn PartyWallArea;
 ```
 
 #### Field Value
@@ -894,7 +894,7 @@ public static UnitColumn PartyWallArea;
 Wall area shared with an adjacent building \(party wall\) whose wall has its outward normal azimuth in the west sector \(\[247\.5°, 292\.5°\)\); included in the external west wall area, which is gross, so the net external area is the difference \(DiGi\-Organization/DiGi\.GIS\.Analytical\#4\)\.
 
 ```csharp
-public static UnitColumn PartyWestWallArea;
+public static readonly UnitColumn PartyWestWallArea;
 ```
 
 #### Field Value
@@ -907,7 +907,7 @@ public static UnitColumn PartyWestWallArea;
 Predicted Building Shape based on Machine Learning engine\.
 
 ```csharp
-public static ExtendedColumn PredictedBuildingShape;
+public static readonly ExtendedColumn PredictedBuildingShape;
 ```
 
 #### Field Value
@@ -920,7 +920,7 @@ public static ExtendedColumn PredictedBuildingShape;
 Predicted year built \- the most frequent year over every prediction stored for the building by the Machine Learning engine \(orthophoto \- YOLO \- ML model\)\.
 
 ```csharp
-public static ExtendedColumn PredictedYearBuilt;
+public static readonly ExtendedColumn PredictedYearBuilt;
 ```
 
 #### Field Value
@@ -933,7 +933,7 @@ public static ExtendedColumn PredictedYearBuilt;
 Ratio of the shape area to the area of its minimum bounding rectangle\.
 
 ```csharp
-public static ExtendedColumn RectangularThinnessRatio;
+public static readonly ExtendedColumn RectangularThinnessRatio;
 ```
 
 #### Field Value
@@ -946,7 +946,7 @@ public static ExtendedColumn RectangularThinnessRatio;
 Main reference of the object coming from BDOO Geoportal \*\.gml file \(ot:lokalnyId node\)\.
 
 ```csharp
-public static ExtendedColumn Reference;
+public static readonly ExtendedColumn Reference;
 ```
 
 #### Field Value
@@ -959,7 +959,7 @@ public static ExtendedColumn Reference;
 Settlement type such as rural or urban\.
 
 ```csharp
-public static ExtendedColumn SettlementType;
+public static readonly ExtendedColumn SettlementType;
 ```
 
 #### Field Value
@@ -972,7 +972,7 @@ public static ExtendedColumn SettlementType;
 Area\-weighted average of the beam \(direct\) irradiation over the building's usable surfaces, in kWh/m²\.
 
 ```csharp
-public static UnitColumn SolarBeam;
+public static readonly UnitColumn SolarBeam;
 ```
 
 #### Field Value
@@ -985,7 +985,7 @@ public static UnitColumn SolarBeam;
 Area\-weighted average of the sky\-diffuse irradiation over the building's usable surfaces, in kWh/m²\.
 
 ```csharp
-public static UnitColumn SolarDiffuse;
+public static readonly UnitColumn SolarDiffuse;
 ```
 
 #### Field Value
@@ -998,7 +998,7 @@ public static UnitColumn SolarDiffuse;
 Sum of the energy over the usable surfaces facing east \(\[67\.5°, 112\.5°\)\), in kWh\.
 
 ```csharp
-public static UnitColumn SolarEastEnergy;
+public static readonly UnitColumn SolarEastEnergy;
 ```
 
 #### Field Value
@@ -1011,7 +1011,7 @@ public static UnitColumn SolarEastEnergy;
 Area\-weighted average of the shaded irradiation over the usable surfaces facing east \(\[67\.5°, 112\.5°\)\), in kWh/m²\.
 
 ```csharp
-public static UnitColumn SolarEastIrradiation;
+public static readonly UnitColumn SolarEastIrradiation;
 ```
 
 #### Field Value
@@ -1024,7 +1024,7 @@ public static UnitColumn SolarEastIrradiation;
 Sum of the total energy received by the building's usable surfaces, in kWh over the weather period\.
 
 ```csharp
-public static UnitColumn SolarEnergy;
+public static readonly UnitColumn SolarEnergy;
 ```
 
 #### Field Value
@@ -1037,7 +1037,7 @@ public static UnitColumn SolarEnergy;
 Area\-weighted average of the ground\-reflected irradiation over the building's usable surfaces, in kWh/m²\.
 
 ```csharp
-public static UnitColumn SolarGround;
+public static readonly UnitColumn SolarGround;
 ```
 
 #### Field Value
@@ -1050,7 +1050,7 @@ public static UnitColumn SolarGround;
 Area\-weighted average of the shaded irradiation \(beam \+ diffuse \+ ground\) over the building's usable surfaces, in kWh/m² over the weather period\.
 
 ```csharp
-public static UnitColumn SolarIrradiation;
+public static readonly UnitColumn SolarIrradiation;
 ```
 
 #### Field Value
@@ -1063,7 +1063,7 @@ public static UnitColumn SolarIrradiation;
 Area\-weighted average of the unshaded \(open sky\) irradiation over the building's usable surfaces, in kWh/m²\.
 
 ```csharp
-public static UnitColumn SolarIrradiationUnshaded;
+public static readonly UnitColumn SolarIrradiationUnshaded;
 ```
 
 #### Field Value
@@ -1076,7 +1076,7 @@ public static UnitColumn SolarIrradiationUnshaded;
 Sum of the energy over the usable surfaces facing northeast \(\[22\.5°, 67\.5°\)\), in kWh\.
 
 ```csharp
-public static UnitColumn SolarNortheastEnergy;
+public static readonly UnitColumn SolarNortheastEnergy;
 ```
 
 #### Field Value
@@ -1089,7 +1089,7 @@ public static UnitColumn SolarNortheastEnergy;
 Area\-weighted average of the shaded irradiation over the usable surfaces facing northeast \(\[22\.5°, 67\.5°\)\), in kWh/m²\.
 
 ```csharp
-public static UnitColumn SolarNortheastIrradiation;
+public static readonly UnitColumn SolarNortheastIrradiation;
 ```
 
 #### Field Value
@@ -1102,7 +1102,7 @@ public static UnitColumn SolarNortheastIrradiation;
 Sum of the energy over the usable surfaces facing north \(\[337\.5°, 360°\) ∪ \[0°, 22\.5°\)\), in kWh\.
 
 ```csharp
-public static UnitColumn SolarNorthEnergy;
+public static readonly UnitColumn SolarNorthEnergy;
 ```
 
 #### Field Value
@@ -1115,7 +1115,7 @@ public static UnitColumn SolarNorthEnergy;
 Area\-weighted average of the shaded irradiation over the usable surfaces facing north \(\[337\.5°, 360°\) ∪ \[0°, 22\.5°\)\), in kWh/m²\.
 
 ```csharp
-public static UnitColumn SolarNorthIrradiation;
+public static readonly UnitColumn SolarNorthIrradiation;
 ```
 
 #### Field Value
@@ -1128,7 +1128,7 @@ public static UnitColumn SolarNorthIrradiation;
 Sum of the energy over the usable surfaces facing northwest \(\[292\.5°, 337\.5°\)\), in kWh\.
 
 ```csharp
-public static UnitColumn SolarNorthwestEnergy;
+public static readonly UnitColumn SolarNorthwestEnergy;
 ```
 
 #### Field Value
@@ -1141,7 +1141,7 @@ public static UnitColumn SolarNorthwestEnergy;
 Area\-weighted average of the shaded irradiation over the usable surfaces facing northwest \(\[292\.5°, 337\.5°\)\), in kWh/m²\.
 
 ```csharp
-public static UnitColumn SolarNorthwestIrradiation;
+public static readonly UnitColumn SolarNorthwestIrradiation;
 ```
 
 #### Field Value
@@ -1154,7 +1154,7 @@ public static UnitColumn SolarNorthwestIrradiation;
 Radius of the surrounding building range used for the solar radiation shading calculation, in meters\.
 
 ```csharp
-public static UnitColumn SolarRadius;
+public static readonly UnitColumn SolarRadius;
 ```
 
 #### Field Value
@@ -1167,7 +1167,7 @@ public static UnitColumn SolarRadius;
 Sum of the energy over the usable surfaces facing southeast \(\[112\.5°, 157\.5°\)\), in kWh\.
 
 ```csharp
-public static UnitColumn SolarSoutheastEnergy;
+public static readonly UnitColumn SolarSoutheastEnergy;
 ```
 
 #### Field Value
@@ -1180,7 +1180,7 @@ public static UnitColumn SolarSoutheastEnergy;
 Area\-weighted average of the shaded irradiation over the usable surfaces facing southeast \(\[112\.5°, 157\.5°\)\), in kWh/m²\.
 
 ```csharp
-public static UnitColumn SolarSoutheastIrradiation;
+public static readonly UnitColumn SolarSoutheastIrradiation;
 ```
 
 #### Field Value
@@ -1193,7 +1193,7 @@ public static UnitColumn SolarSoutheastIrradiation;
 Sum of the energy over the usable surfaces facing south \(\[157\.5°, 202\.5°\)\), in kWh\.
 
 ```csharp
-public static UnitColumn SolarSouthEnergy;
+public static readonly UnitColumn SolarSouthEnergy;
 ```
 
 #### Field Value
@@ -1206,7 +1206,7 @@ public static UnitColumn SolarSouthEnergy;
 Area\-weighted average of the shaded irradiation over the usable surfaces facing south \(\[157\.5°, 202\.5°\)\), in kWh/m²\.
 
 ```csharp
-public static UnitColumn SolarSouthIrradiation;
+public static readonly UnitColumn SolarSouthIrradiation;
 ```
 
 #### Field Value
@@ -1219,7 +1219,7 @@ public static UnitColumn SolarSouthIrradiation;
 Sum of the energy over the usable surfaces facing southwest \(\[202\.5°, 247\.5°\)\), in kWh\.
 
 ```csharp
-public static UnitColumn SolarSouthwestEnergy;
+public static readonly UnitColumn SolarSouthwestEnergy;
 ```
 
 #### Field Value
@@ -1232,7 +1232,7 @@ public static UnitColumn SolarSouthwestEnergy;
 Area\-weighted average of the shaded irradiation over the usable surfaces facing southwest \(\[202\.5°, 247\.5°\)\), in kWh/m²\.
 
 ```csharp
-public static UnitColumn SolarSouthwestIrradiation;
+public static readonly UnitColumn SolarSouthwestIrradiation;
 ```
 
 #### Field Value
@@ -1245,7 +1245,7 @@ public static UnitColumn SolarSouthwestIrradiation;
 Identifier of the weather source \(EPW station or live weather service\) used for the solar radiation calculation\.
 
 ```csharp
-public static ExtendedColumn SolarWeatherSourceId;
+public static readonly ExtendedColumn SolarWeatherSourceId;
 ```
 
 #### Field Value
@@ -1258,7 +1258,7 @@ public static ExtendedColumn SolarWeatherSourceId;
 Type of the weather source used for the solar radiation calculation: \-1 undefined, 0 EPW, 1 live\.
 
 ```csharp
-public static ExtendedColumn SolarWeatherSourceType;
+public static readonly ExtendedColumn SolarWeatherSourceType;
 ```
 
 #### Field Value
@@ -1271,7 +1271,7 @@ public static ExtendedColumn SolarWeatherSourceType;
 Sum of the energy over the usable surfaces facing west \(\[247\.5°, 292\.5°\)\), in kWh\.
 
 ```csharp
-public static UnitColumn SolarWestEnergy;
+public static readonly UnitColumn SolarWestEnergy;
 ```
 
 #### Field Value
@@ -1284,7 +1284,7 @@ public static UnitColumn SolarWestEnergy;
 Area\-weighted average of the shaded irradiation over the usable surfaces facing west \(\[247\.5°, 292\.5°\)\), in kWh/m²\.
 
 ```csharp
-public static UnitColumn SolarWestIrradiation;
+public static readonly UnitColumn SolarWestIrradiation;
 ```
 
 #### Field Value
@@ -1297,7 +1297,7 @@ public static UnitColumn SolarWestIrradiation;
 Ratio of the shape area to the area of its minimum bounding square\.
 
 ```csharp
-public static ExtendedColumn SquareThinnessRatio;
+public static readonly ExtendedColumn SquareThinnessRatio;
 ```
 
 #### Field Value
@@ -1310,7 +1310,7 @@ public static ExtendedColumn SquareThinnessRatio;
 Number of building storeys coming from BDOO Geoportal \*\.gml file \(ot:liczbaKondygnacji node\)\.
 
 ```csharp
-public static ExtendedColumn Storeys;
+public static readonly ExtendedColumn Storeys;
 ```
 
 #### Field Value
@@ -1323,7 +1323,7 @@ public static ExtendedColumn Storeys;
 Subdivision id where the object belongs to\.
 
 ```csharp
-public static ExtendedColumn SubdivisionId;
+public static readonly ExtendedColumn SubdivisionId;
 ```
 
 #### Field Value
@@ -1336,7 +1336,7 @@ public static ExtendedColumn SubdivisionId;
 Subdivision \(city, village, colony etc\.\) name where the object belongs to\.
 
 ```csharp
-public static ExtendedColumn SubdivisionName;
+public static readonly ExtendedColumn SubdivisionName;
 ```
 
 #### Field Value
@@ -1349,7 +1349,7 @@ public static ExtendedColumn SubdivisionName;
 Subdivision occupancy coming from BDOO Geoportal \*\.gml file \(ot:liczbaMieszkancow node\)\.
 
 ```csharp
-public static ExtendedColumn SubdivisionOccupancy;
+public static readonly ExtendedColumn SubdivisionOccupancy;
 ```
 
 #### Field Value
@@ -1362,7 +1362,7 @@ public static ExtendedColumn SubdivisionOccupancy;
 A geometric measure that describes how close a shape is to a perfect circle, calculated as \(4 \* Pi \* Area\) / Perimeter^2\.
 
 ```csharp
-public static ExtendedColumn ThinnessRatio;
+public static readonly ExtendedColumn ThinnessRatio;
 ```
 
 #### Field Value
@@ -1375,7 +1375,7 @@ public static ExtendedColumn ThinnessRatio;
 Calculated total area \(floor area \* storeys\) based on geometry data from BDOO Geoportal \*\.gml file \(ot:geometria node\)\.
 
 ```csharp
-public static UnitColumn TotalArea;
+public static readonly UnitColumn TotalArea;
 ```
 
 #### Field Value
@@ -1388,7 +1388,7 @@ public static UnitColumn TotalArea;
 Building Shape determined by user\.
 
 ```csharp
-public static ExtendedColumn UserBuildingShape;
+public static readonly ExtendedColumn UserBuildingShape;
 ```
 
 #### Field Value
@@ -1401,7 +1401,7 @@ public static ExtendedColumn UserBuildingShape;
 User year built \- the most frequent year entered manually by a user\.
 
 ```csharp
-public static ExtendedColumn UserYearBuilt;
+public static readonly ExtendedColumn UserYearBuilt;
 ```
 
 #### Field Value
@@ -1414,7 +1414,7 @@ public static ExtendedColumn UserYearBuilt;
 Voivodeship \(province\) name where the object belongs to\.
 
 ```csharp
-public static ExtendedColumn VoivodeshipName;
+public static readonly ExtendedColumn VoivodeshipName;
 ```
 
 #### Field Value

@@ -1081,7 +1081,7 @@ Converts a raw column value read from a source file into a [System\.Text\.Json\.
 Numeric columns stay numbers and boolean columns stay booleans so a round trip through the serializer compares equal; binary columns become base64 text because JSON has no byte type. Text is kept as text even when it looks numeric - identifiers such as 32-hex GERS ids would otherwise be corrupted by a numeric parse.
 
 ```csharp
-private static System.Text.Json.Nodes.JsonNode? AttributeValue(object? value);
+private static System.Text.Json.Nodes.JsonValue? AttributeValue(object? value);
 ```
 #### Parameters
 
@@ -1092,7 +1092,7 @@ private static System.Text.Json.Nodes.JsonNode? AttributeValue(object? value);
 The raw column value, or null for a null column\.
 
 #### Returns
-[System\.Text\.Json\.Nodes\.JsonNode](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonnode 'System\.Text\.Json\.Nodes\.JsonNode')  
+[System\.Text\.Json\.Nodes\.JsonValue](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonvalue 'System\.Text\.Json\.Nodes\.JsonValue')  
 The value as a [System\.Text\.Json\.Nodes\.JsonNode](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonnode 'System\.Text\.Json\.Nodes\.JsonNode'), or null when the column is null\.
 
 <a name='DiGi.GIS.IO.Query.DefaultOnlyColumnNames(thisDiGi.Core.IO.Table.Classes.Table)'></a>

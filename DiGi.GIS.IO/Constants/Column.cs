@@ -13,541 +13,541 @@ namespace DiGi.GIS.IO.Constants
         /// <summary>
         /// Calculated floor area based on geometry data from BDOO Geoportal *.gml file (ot:geometria node).
         /// </summary>
-        public static UnitColumn FloorArea = new("Floor area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ShapeDescriptors.Description(), "Calculated floor area based on geometry data from BDOO Geoportal *.gml file (ot:geometria node)", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn FloorArea = new("Floor area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ShapeDescriptors.Description(), "Calculated floor area based on geometry data from BDOO Geoportal *.gml file (ot:geometria node)", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Calculated total area (floor area * storeys) based on geometry data from BDOO Geoportal *.gml file (ot:geometria node).
         /// </summary>
-        public static UnitColumn TotalArea = new("Total area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ShapeDescriptors.Description(), "Calculated total area (floor area * storeys) based on geometry data from BDOO Geoportal *.gml file (ot:geometria node)", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn TotalArea = new("Total area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ShapeDescriptors.Description(), "Calculated total area (floor area * storeys) based on geometry data from BDOO Geoportal *.gml file (ot:geometria node)", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External wall area with outward normal azimuth in the north sector ([337.5°, 360°) ∪ [0°, 22.5°)).
         /// </summary>
-        public static UnitColumn ExternalNorthWallArea = new("External north wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the north sector ([337.5°, 360°) ∪ [0°, 22.5°))", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalNorthWallArea = new("External north wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the north sector ([337.5°, 360°) ∪ [0°, 22.5°))", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External wall area with outward normal azimuth in the northeast sector ([22.5°, 67.5°)).
         /// </summary>
-        public static UnitColumn ExternalNortheastWallArea = new("External northeast wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the northeast sector ([22.5°, 67.5°))", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalNortheastWallArea = new("External northeast wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the northeast sector ([22.5°, 67.5°))", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External wall area with outward normal azimuth in the east sector ([67.5°, 112.5°)).
         /// </summary>
-        public static UnitColumn ExternalEastWallArea = new("External east wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the east sector ([67.5°, 112.5°))", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalEastWallArea = new("External east wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the east sector ([67.5°, 112.5°))", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External wall area with outward normal azimuth in the southeast sector ([112.5°, 157.5°)).
         /// </summary>
-        public static UnitColumn ExternalSoutheastWallArea = new("External southeast wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the southeast sector ([112.5°, 157.5°))", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalSoutheastWallArea = new("External southeast wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the southeast sector ([112.5°, 157.5°))", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External wall area with outward normal azimuth in the south sector ([157.5°, 202.5°)).
         /// </summary>
-        public static UnitColumn ExternalSouthWallArea = new("External south wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the south sector ([157.5°, 202.5°))", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalSouthWallArea = new("External south wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the south sector ([157.5°, 202.5°))", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External wall area with outward normal azimuth in the southwest sector ([202.5°, 247.5°)).
         /// </summary>
-        public static UnitColumn ExternalSouthwestWallArea = new("External southwest wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the southwest sector ([202.5°, 247.5°))", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalSouthwestWallArea = new("External southwest wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the southwest sector ([202.5°, 247.5°))", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External wall area with outward normal azimuth in the west sector ([247.5°, 292.5°)).
         /// </summary>
-        public static UnitColumn ExternalWestWallArea = new("External west wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the west sector ([247.5°, 292.5°))", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalWestWallArea = new("External west wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the west sector ([247.5°, 292.5°))", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External wall area with outward normal azimuth in the northwest sector ([292.5°, 337.5°)).
         /// </summary>
-        public static UnitColumn ExternalNorthwestWallArea = new("External northwest wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the northwest sector ([292.5°, 337.5°))", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalNorthwestWallArea = new("External northwest wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External wall area with outward normal azimuth in the northwest sector ([292.5°, 337.5°))", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt below 5 degrees (flat, no directional split).
         /// </summary>
-        public static UnitColumn ExternalFlatRoofArea = new("External flat roof area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt below 5 degrees (flat, no directional split)", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalFlatRoofArea = new("External flat roof area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt below 5 degrees (flat, no directional split)", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt from 5 up to 20 degrees, facing north ([5°, 20°]).
         /// </summary>
-        public static UnitColumn ExternalNorthTiltedRoofAreaUpTo20 = new("External north tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing north ([5°, 20°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalNorthTiltedRoofAreaUpTo20 = new("External north tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing north ([5°, 20°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt from 5 up to 20 degrees, facing northeast ([5°, 20°]).
         /// </summary>
-        public static UnitColumn ExternalNortheastTiltedRoofAreaUpTo20 = new("External northeast tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing northeast ([5°, 20°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalNortheastTiltedRoofAreaUpTo20 = new("External northeast tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing northeast ([5°, 20°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt from 5 up to 20 degrees, facing east ([5°, 20°]).
         /// </summary>
-        public static UnitColumn ExternalEastTiltedRoofAreaUpTo20 = new("External east tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing east ([5°, 20°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalEastTiltedRoofAreaUpTo20 = new("External east tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing east ([5°, 20°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt from 5 up to 20 degrees, facing southeast ([5°, 20°]).
         /// </summary>
-        public static UnitColumn ExternalSoutheastTiltedRoofAreaUpTo20 = new("External southeast tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing southeast ([5°, 20°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalSoutheastTiltedRoofAreaUpTo20 = new("External southeast tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing southeast ([5°, 20°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt from 5 up to 20 degrees, facing south ([5°, 20°]).
         /// </summary>
-        public static UnitColumn ExternalSouthTiltedRoofAreaUpTo20 = new("External south tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing south ([5°, 20°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalSouthTiltedRoofAreaUpTo20 = new("External south tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing south ([5°, 20°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt from 5 up to 20 degrees, facing southwest ([5°, 20°]).
         /// </summary>
-        public static UnitColumn ExternalSouthwestTiltedRoofAreaUpTo20 = new("External southwest tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing southwest ([5°, 20°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalSouthwestTiltedRoofAreaUpTo20 = new("External southwest tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing southwest ([5°, 20°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt from 5 up to 20 degrees, facing west ([5°, 20°]).
         /// </summary>
-        public static UnitColumn ExternalWestTiltedRoofAreaUpTo20 = new("External west tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing west ([5°, 20°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalWestTiltedRoofAreaUpTo20 = new("External west tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing west ([5°, 20°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt from 5 up to 20 degrees, facing northwest ([5°, 20°]).
         /// </summary>
-        public static UnitColumn ExternalNorthwestTiltedRoofAreaUpTo20 = new("External northwest tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing northwest ([5°, 20°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalNorthwestTiltedRoofAreaUpTo20 = new("External northwest tilted roof area up to 20", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt from 5 up to 20 degrees, facing northwest ([5°, 20°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 20 and up to 45 degrees, facing north ((20°, 45°]).
         /// </summary>
-        public static UnitColumn ExternalNorthTiltedRoofAreaBetween20And45 = new("External north tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing north ((20°, 45°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalNorthTiltedRoofAreaBetween20And45 = new("External north tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing north ((20°, 45°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 20 and up to 45 degrees, facing northeast ((20°, 45°]).
         /// </summary>
-        public static UnitColumn ExternalNortheastTiltedRoofAreaBetween20And45 = new("External northeast tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing northeast ((20°, 45°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalNortheastTiltedRoofAreaBetween20And45 = new("External northeast tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing northeast ((20°, 45°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 20 and up to 45 degrees, facing east ((20°, 45°]).
         /// </summary>
-        public static UnitColumn ExternalEastTiltedRoofAreaBetween20And45 = new("External east tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing east ((20°, 45°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalEastTiltedRoofAreaBetween20And45 = new("External east tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing east ((20°, 45°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 20 and up to 45 degrees, facing southeast ((20°, 45°]).
         /// </summary>
-        public static UnitColumn ExternalSoutheastTiltedRoofAreaBetween20And45 = new("External southeast tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing southeast ((20°, 45°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalSoutheastTiltedRoofAreaBetween20And45 = new("External southeast tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing southeast ((20°, 45°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 20 and up to 45 degrees, facing south ((20°, 45°]).
         /// </summary>
-        public static UnitColumn ExternalSouthTiltedRoofAreaBetween20And45 = new("External south tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing south ((20°, 45°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalSouthTiltedRoofAreaBetween20And45 = new("External south tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing south ((20°, 45°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 20 and up to 45 degrees, facing southwest ((20°, 45°]).
         /// </summary>
-        public static UnitColumn ExternalSouthwestTiltedRoofAreaBetween20And45 = new("External southwest tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing southwest ((20°, 45°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalSouthwestTiltedRoofAreaBetween20And45 = new("External southwest tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing southwest ((20°, 45°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 20 and up to 45 degrees, facing west ((20°, 45°]).
         /// </summary>
-        public static UnitColumn ExternalWestTiltedRoofAreaBetween20And45 = new("External west tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing west ((20°, 45°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalWestTiltedRoofAreaBetween20And45 = new("External west tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing west ((20°, 45°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 20 and up to 45 degrees, facing northwest ((20°, 45°]).
         /// </summary>
-        public static UnitColumn ExternalNorthwestTiltedRoofAreaBetween20And45 = new("External northwest tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing northwest ((20°, 45°])", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalNorthwestTiltedRoofAreaBetween20And45 = new("External northwest tilted roof area between 20 and 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 20 and up to 45 degrees, facing northwest ((20°, 45°])", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 45 degrees, facing north (> 45°).
         /// </summary>
-        public static UnitColumn ExternalNorthTiltedRoofAreaAbove45 = new("External north tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing north (> 45°)", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalNorthTiltedRoofAreaAbove45 = new("External north tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing north (> 45°)", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 45 degrees, facing northeast (> 45°).
         /// </summary>
-        public static UnitColumn ExternalNortheastTiltedRoofAreaAbove45 = new("External northeast tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing northeast (> 45°)", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalNortheastTiltedRoofAreaAbove45 = new("External northeast tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing northeast (> 45°)", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 45 degrees, facing east (> 45°).
         /// </summary>
-        public static UnitColumn ExternalEastTiltedRoofAreaAbove45 = new("External east tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing east (> 45°)", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalEastTiltedRoofAreaAbove45 = new("External east tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing east (> 45°)", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 45 degrees, facing southeast (> 45°).
         /// </summary>
-        public static UnitColumn ExternalSoutheastTiltedRoofAreaAbove45 = new("External southeast tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing southeast (> 45°)", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalSoutheastTiltedRoofAreaAbove45 = new("External southeast tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing southeast (> 45°)", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 45 degrees, facing south (> 45°).
         /// </summary>
-        public static UnitColumn ExternalSouthTiltedRoofAreaAbove45 = new("External south tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing south (> 45°)", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalSouthTiltedRoofAreaAbove45 = new("External south tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing south (> 45°)", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 45 degrees, facing southwest (> 45°).
         /// </summary>
-        public static UnitColumn ExternalSouthwestTiltedRoofAreaAbove45 = new("External southwest tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing southwest (> 45°)", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalSouthwestTiltedRoofAreaAbove45 = new("External southwest tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing southwest (> 45°)", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 45 degrees, facing west (> 45°).
         /// </summary>
-        public static UnitColumn ExternalWestTiltedRoofAreaAbove45 = new("External west tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing west (> 45°)", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalWestTiltedRoofAreaAbove45 = new("External west tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing west (> 45°)", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External roof area with tilt greater than 45 degrees, facing northwest (> 45°).
         /// </summary>
-        public static UnitColumn ExternalNorthwestTiltedRoofAreaAbove45 = new("External northwest tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing northwest (> 45°)", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalNorthwestTiltedRoofAreaAbove45 = new("External northwest tilted roof area above 45", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External roof area with tilt greater than 45 degrees, facing northwest (> 45°)", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// External floor area (ground-facing external floor components).
         /// </summary>
-        public static UnitColumn ExternalFloorArea = new("External floor area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External floor area (ground-facing external floor components)", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalFloorArea = new("External floor area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "External floor area (ground-facing external floor components)", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Sum of all external wall, roof and floor component areas.
         /// </summary>
-        public static UnitColumn ExternalComponentsArea = new("External components area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Sum of all external wall, roof and floor component areas", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ExternalComponentsArea = new("External components area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Sum of all external wall, roof and floor component areas", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Finest tolerance at which the model's external envelope closes, or null when it does not close - the open-envelope signal of the external components classification.
         /// </summary>
-        public static UnitColumn ClosingTolerance = new("Closing tolerance", (Unit.Classes.Unit?)Unit.Enums.LengthUnit.Meter, Category.ExternalComponentsArea.Description(), "Finest distance tolerance at which the model's external envelope edge-pairs into a closed surface, over the candidate ladder 1e-6 to 0.2 m; null when the envelope does not close on the ladder or the model carries no external components - the signal that this row's sector and tilt values may rest on an arbitrary face side", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn ClosingTolerance = new("Closing tolerance", (Unit.Classes.Unit?)Unit.Enums.LengthUnit.Meter, Category.ExternalComponentsArea.Description(), "Finest distance tolerance at which the model's external envelope edge-pairs into a closed surface, over the candidate ladder 1e-6 to 0.2 m; null when the envelope does not close on the ladder or the model carries no external components - the signal that this row's sector and tilt values may rest on an arbitrary face side", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the north sector ([337.5°, 360°) ∪ [0°, 22.5°)); included in the external north wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
         /// </summary>
-        public static UnitColumn PartyNorthWallArea = new("Party north wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the north sector ([337.5°, 360°) ∪ [0°, 22.5°)); included in the external north wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn PartyNorthWallArea = new("Party north wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the north sector ([337.5°, 360°) ∪ [0°, 22.5°)); included in the external north wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the northeast sector ([22.5°, 67.5°)); included in the external northeast wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
         /// </summary>
-        public static UnitColumn PartyNortheastWallArea = new("Party northeast wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the northeast sector ([22.5°, 67.5°)); included in the external northeast wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn PartyNortheastWallArea = new("Party northeast wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the northeast sector ([22.5°, 67.5°)); included in the external northeast wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the east sector ([67.5°, 112.5°)); included in the external east wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
         /// </summary>
-        public static UnitColumn PartyEastWallArea = new("Party east wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the east sector ([67.5°, 112.5°)); included in the external east wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn PartyEastWallArea = new("Party east wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the east sector ([67.5°, 112.5°)); included in the external east wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the southeast sector ([112.5°, 157.5°)); included in the external southeast wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
         /// </summary>
-        public static UnitColumn PartySoutheastWallArea = new("Party southeast wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the southeast sector ([112.5°, 157.5°)); included in the external southeast wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn PartySoutheastWallArea = new("Party southeast wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the southeast sector ([112.5°, 157.5°)); included in the external southeast wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the south sector ([157.5°, 202.5°)); included in the external south wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
         /// </summary>
-        public static UnitColumn PartySouthWallArea = new("Party south wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the south sector ([157.5°, 202.5°)); included in the external south wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn PartySouthWallArea = new("Party south wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the south sector ([157.5°, 202.5°)); included in the external south wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the southwest sector ([202.5°, 247.5°)); included in the external southwest wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
         /// </summary>
-        public static UnitColumn PartySouthwestWallArea = new("Party southwest wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the southwest sector ([202.5°, 247.5°)); included in the external southwest wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn PartySouthwestWallArea = new("Party southwest wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the southwest sector ([202.5°, 247.5°)); included in the external southwest wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the west sector ([247.5°, 292.5°)); included in the external west wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
         /// </summary>
-        public static UnitColumn PartyWestWallArea = new("Party west wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the west sector ([247.5°, 292.5°)); included in the external west wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn PartyWestWallArea = new("Party west wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the west sector ([247.5°, 292.5°)); included in the external west wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the northwest sector ([292.5°, 337.5°)); included in the external northwest wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
         /// </summary>
-        public static UnitColumn PartyNorthwestWallArea = new("Party northwest wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the northwest sector ([292.5°, 337.5°)); included in the external northwest wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn PartyNorthwestWallArea = new("Party northwest wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the northwest sector ([292.5°, 337.5°)); included in the external northwest wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Sum of the wall areas shared with adjacent buildings (party walls) over all sectors; included in the external wall areas, which are gross (DiGi-Organization/DiGi.GIS.Analytical#4).
         /// </summary>
-        public static UnitColumn PartyWallArea = new("Party wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Sum of the wall areas shared with adjacent buildings (party walls) over all sectors; included in the external wall areas, which are gross", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn PartyWallArea = new("Party wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Sum of the wall areas shared with adjacent buildings (party walls) over all sectors; included in the external wall areas, which are gross", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Azimuth as an angle to north direction.
         /// </summary>
-        public static UnitColumn Azimuth = new("Azimuth", (Unit.Classes.Unit?)Unit.Enums.AngleUnit.Degree, Category.Orientation.Description(), "Azimuth as an angle to north direction", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn Azimuth = new("Azimuth", (Unit.Classes.Unit?)Unit.Enums.AngleUnit.Degree, Category.Orientation.Description(), "Azimuth as an angle to north direction", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// BoundingBox height calculated based on geometry data from BDOO Geoportal *.gml file (ot:geometria node).
         /// </summary>
-        public static UnitColumn BoundingBoxHeight = new("BoundingBox height", (Unit.Classes.Unit?)Unit.Enums.LengthUnit.Meter, Category.BoundingBox.Description(), "BoundingBox height calculated based on geometry data from BDOO Geoportal *.gml file (ot:geometria node)");
+        public static readonly UnitColumn BoundingBoxHeight = new("BoundingBox height", (Unit.Classes.Unit?)Unit.Enums.LengthUnit.Meter, Category.BoundingBox.Description(), "BoundingBox height calculated based on geometry data from BDOO Geoportal *.gml file (ot:geometria node)");
 
         /// <summary>
         /// BoundingBox width calculated based on geometry data from BDOO Geoportal *.gml file (ot:geometria node).
         /// </summary>
-        public static UnitColumn BoundingBoxWidth = new("BoundingBox width", (Unit.Classes.Unit?)Unit.Enums.LengthUnit.Meter, Category.BoundingBox.Description(), "BoundingBox width calculated based on geometry data from BDOO Geoportal *.gml file (ot:geometria node)");
+        public static readonly UnitColumn BoundingBoxWidth = new("BoundingBox width", (Unit.Classes.Unit?)Unit.Enums.LengthUnit.Meter, Category.BoundingBox.Description(), "BoundingBox width calculated based on geometry data from BDOO Geoportal *.gml file (ot:geometria node)");
 
         /// <summary>
         /// BoundingBox center point X coordinate coming from BDOO Geoportal *.gml file (ot:geometria node).
         /// </summary>
-        public static ExtendedColumn BoundingBoxX = new("BoundingBox X", typeof(double), Category.BoundingBox.Description(), "BoundingBox center point X coordinate coming from BDOO Geoportal *.gml file (ot:geometria node)");
+        public static readonly ExtendedColumn BoundingBoxX = new("BoundingBox X", typeof(double), Category.BoundingBox.Description(), "BoundingBox center point X coordinate coming from BDOO Geoportal *.gml file (ot:geometria node)");
 
         /// <summary>
         /// BoundingBox center point Y coordinate coming from BDOO Geoportal *.gml file (ot:geometria node).
         /// </summary>
-        public static ExtendedColumn BoundingBoxY = new("BoundingBox Y", typeof(double), Category.BoundingBox.Description(), "BoundingBox center point Y coordinate coming from BDOO Geoportal *.gml file (ot:geometria node)");
+        public static readonly ExtendedColumn BoundingBoxY = new("BoundingBox Y", typeof(double), Category.BoundingBox.Description(), "BoundingBox center point Y coordinate coming from BDOO Geoportal *.gml file (ot:geometria node)");
 
         /// <summary>
         /// Building general function from BDOO Geoportal *.gml file (ot:funkcjaOgolnaBudynku node).
         /// </summary>
-        public static ExtendedColumn BuildingGeneralFunction = new("Building general function", typeof(string), Category.BuildingFunction.Description(), "Building general function from BDOO Geoportal *.gml file (ot:funkcjaOgolnaBudynku node)");
+        public static readonly ExtendedColumn BuildingGeneralFunction = new("Building general function", typeof(string), Category.BuildingFunction.Description(), "Building general function from BDOO Geoportal *.gml file (ot:funkcjaOgolnaBudynku node)");
 
         /// <summary>
         /// Current building phase coming from BDOO Geoportal *.gml file (ot:kategoriaIstnienia node).
         /// </summary>
-        public static ExtendedColumn BuildingPhase = new("Building Phase", typeof(string), Category.BuildingState.Description(), "Current building phase coming from BDOO Geoportal *.gml file (ot:kategoriaIstnienia node)");
+        public static readonly ExtendedColumn BuildingPhase = new("Building Phase", typeof(string), Category.BuildingState.Description(), "Current building phase coming from BDOO Geoportal *.gml file (ot:kategoriaIstnienia node)");
 
         /// <summary>
         /// Building specific functions from BDOO Geoportal *.gml file (ot:funkcjaSzczegolowaBudynku node).
         /// </summary>
-        public static ExtendedColumn BuildingSpecificFunctions = new("Building specific functions", typeof(string), Category.BuildingFunction.Description(), "Building specific functions from BDOO Geoportal *.gml file (ot:funkcjaSzczegolowaBudynku node)");
+        public static readonly ExtendedColumn BuildingSpecificFunctions = new("Building specific functions", typeof(string), Category.BuildingFunction.Description(), "Building specific functions from BDOO Geoportal *.gml file (ot:funkcjaSzczegolowaBudynku node)");
 
         /// <summary>
         /// Cardinal direction calculated from azimuth.
         /// </summary>
-        public static ExtendedColumn CardinalDirection = new("Cardinal direction", typeof(string), Category.Orientation.Description(), "Cardinal direction calculated from azimuth");
+        public static readonly ExtendedColumn CardinalDirection = new("Cardinal direction", typeof(string), Category.Orientation.Description(), "Cardinal direction calculated from azimuth");
 
         /// <summary>
         /// County id where the object belongs to.
         /// </summary>
-        public static ExtendedColumn CountyId = new("County Id", typeof(int), Category.Administrative.Description(), "County id where the object belongs to");
+        public static readonly ExtendedColumn CountyId = new("County Id", typeof(int), Category.Administrative.Description(), "County id where the object belongs to");
 
         /// <summary>
         /// Subdivision id where the object belongs to.
         /// </summary>
-        public static ExtendedColumn SubdivisionId = new("Subdivision Id", typeof(int), Category.Administrative.Description(), "Subdivision id where the object belongs to");
+        public static readonly ExtendedColumn SubdivisionId = new("Subdivision Id", typeof(int), Category.Administrative.Description(), "Subdivision id where the object belongs to");
 
         /// <summary>
         /// County (powiat) name where the object belongs to.
         /// </summary>
-        public static ExtendedColumn CountyName = new("County name", typeof(string), Category.Administrative.Description(), "County (powiat) name where the object belongs to");
+        public static readonly ExtendedColumn CountyName = new("County name", typeof(string), Category.Administrative.Description(), "County (powiat) name where the object belongs to");
 
         /// <summary>
         /// X coordinate of internal point calculated based on bounding box coming from BDOO Geoportal *.gml file (ot:geometria node).
         /// </summary>
-        public static ExtendedColumn InternalPointX = new("Internal Point X", typeof(double), Category.Location.Description(), "X coordinate of internal point calculated based on bounding box coming from BDOO Geoportal *.gml file (ot:geometria node)");
+        public static readonly ExtendedColumn InternalPointX = new("Internal Point X", typeof(double), Category.Location.Description(), "X coordinate of internal point calculated based on bounding box coming from BDOO Geoportal *.gml file (ot:geometria node)");
 
         /// <summary>
         /// Y coordinate of internal point calculated based on bounding box coming from BDOO Geoportal *.gml file (ot:geometria node).
         /// </summary>
-        public static ExtendedColumn InternalPointY = new("Internal Point Y", typeof(double), Category.Location.Description(), "Y coordinate of internal point calculated based on bounding box coming from BDOO Geoportal *.gml file (ot:geometria node)");
+        public static readonly ExtendedColumn InternalPointY = new("Internal Point Y", typeof(double), Category.Location.Description(), "Y coordinate of internal point calculated based on bounding box coming from BDOO Geoportal *.gml file (ot:geometria node)");
 
         /// <summary>
         /// Municipality (gmina) name where the object belongs to.
         /// </summary>
-        public static ExtendedColumn MunicipalityName = new("Municipality name", typeof(string), Category.Administrative.Description(), "Municipality (gmina) name where the object belongs to");
+        public static readonly ExtendedColumn MunicipalityName = new("Municipality name", typeof(string), Category.Administrative.Description(), "Municipality (gmina) name where the object belongs to");
 
         /// <summary>
         /// Predicted year built - the most frequent year over every prediction stored for the building by the Machine Learning engine (orthophoto - YOLO - ML model).
         /// </summary>
-        public static ExtendedColumn PredictedYearBuilt = new("Predicted year built", typeof(ushort), Category.YearBuit.Description(), "Year built predicted by the Machine Learning engine; the most frequent value when the building carries several predictions");
+        public static readonly ExtendedColumn PredictedYearBuilt = new("Predicted year built", typeof(ushort), Category.YearBuit.Description(), "Year built predicted by the Machine Learning engine; the most frequent value when the building carries several predictions");
 
         /// <summary>
         /// User year built - the most frequent year entered manually by a user.
         /// </summary>
-        public static ExtendedColumn UserYearBuilt = new("User year built", typeof(ushort), Category.YearBuit.Description(), "Year built entered manually by a user; the most frequent value when several users entered one");
+        public static readonly ExtendedColumn UserYearBuilt = new("User year built", typeof(ushort), Category.YearBuit.Description(), "Year built entered manually by a user; the most frequent value when several users entered one");
 
         /// <summary>
         /// Calculated year built - the year built to use: the user-entered year when one exists, otherwise the predicted year.
         /// </summary>
-        public static ExtendedColumn CalculatedYearBuilt = new("Calculated year built", typeof(ushort), Category.YearBuit.Description(), "Year built to use - the user-entered year when one exists, otherwise the predicted year");
+        public static readonly ExtendedColumn CalculatedYearBuilt = new("Calculated year built", typeof(ushort), Category.YearBuit.Description(), "Year built to use - the user-entered year when one exists, otherwise the predicted year");
 
         /// <summary>
         /// Main reference of the object coming from BDOO Geoportal *.gml file (ot:lokalnyId node).
         /// </summary>
-        public static ExtendedColumn Reference = new("Reference", typeof(string), Category.Administrative.Description(), "Main reference of the object coming from BDOO Geoportal *.gml file (ot:lokalnyId node)");
+        public static readonly ExtendedColumn Reference = new("Reference", typeof(string), Category.Administrative.Description(), "Main reference of the object coming from BDOO Geoportal *.gml file (ot:lokalnyId node)");
 
         /// <summary>
         /// Number of building storeys coming from BDOO Geoportal *.gml file (ot:liczbaKondygnacji node).
         /// </summary>
-        public static ExtendedColumn Storeys = new("Storeys", typeof(ushort), Category.BuildingState.Description(), "Number of building storeys coming from BDOO Geoportal *.gml file (ot:liczbaKondygnacji node)");
+        public static readonly ExtendedColumn Storeys = new("Storeys", typeof(ushort), Category.BuildingState.Description(), "Number of building storeys coming from BDOO Geoportal *.gml file (ot:liczbaKondygnacji node)");
 
         /// <summary>
         /// Subdivision occupancy coming from BDOO Geoportal *.gml file (ot:liczbaMieszkancow node).
         /// </summary>
-        public static ExtendedColumn SubdivisionOccupancy = new("Subdivision occupancy", typeof(uint), Category.Occupancy.Description(), "Subdivision occupancy coming from BDOO Geoportal *.gml file (ot:liczbaMieszkancow node)");
+        public static readonly ExtendedColumn SubdivisionOccupancy = new("Subdivision occupancy", typeof(uint), Category.Occupancy.Description(), "Subdivision occupancy coming from BDOO Geoportal *.gml file (ot:liczbaMieszkancow node)");
 
         /// <summary>
         /// Subdivision (city, village, colony etc.) name where the object belongs to.
         /// </summary>
-        public static ExtendedColumn SubdivisionName = new("Subdivision name", typeof(string), Category.Administrative.Description(), "Subdivision (city, village, colony etc.) name where the object belongs to");
+        public static readonly ExtendedColumn SubdivisionName = new("Subdivision name", typeof(string), Category.Administrative.Description(), "Subdivision (city, village, colony etc.) name where the object belongs to");
 
         /// <summary>
         /// Voivodeship (province) name where the object belongs to.
         /// </summary>
-        public static ExtendedColumn VoivodeshipName = new("Voivodeship name", typeof(string), Category.Administrative.Description(), "Voivodeship (province) name where the object belongs to");
+        public static readonly ExtendedColumn VoivodeshipName = new("Voivodeship name", typeof(string), Category.Administrative.Description(), "Voivodeship (province) name where the object belongs to");
 
         /// <summary>
         /// Determines if building is residental.
         /// </summary>
-        public static ExtendedColumn IsResidential = new("Is residential", typeof(bool), Category.BuildingFunction.Description(), "Determines if building is residental");
+        public static readonly ExtendedColumn IsResidential = new("Is residential", typeof(bool), Category.BuildingFunction.Description(), "Determines if building is residental");
 
         /// <summary>
         /// Determines if building is occupied.
         /// </summary>
-        public static ExtendedColumn IsOccupied = new("Is occupied", typeof(bool), Category.BuildingState.Description(), "Determines if building is occupied");
+        public static readonly ExtendedColumn IsOccupied = new("Is occupied", typeof(bool), Category.BuildingState.Description(), "Determines if building is occupied");
 
         /// <summary>
         /// Settlement type such as rural or urban.
         /// </summary>
-        public static ExtendedColumn SettlementType = new("Settlement type", typeof(string), Category.Administrative.Description(), "Settlement type such as rural or urban");
+        public static readonly ExtendedColumn SettlementType = new("Settlement type", typeof(string), Category.Administrative.Description(), "Settlement type such as rural or urban");
 
         /// <summary>
         /// Ratio of the curve area to the area of a circle with same perimeter as the curve.
         /// </summary>
-        public static ExtendedColumn IsoperimetricRatio = new("Isoperimetric ratio", typeof(float), Category.ShapeDescriptors.Description(), "Ratio of the curve area to the area of a circle with same perimeter as the curve");
+        public static readonly ExtendedColumn IsoperimetricRatio = new("Isoperimetric ratio", typeof(float), Category.ShapeDescriptors.Description(), "Ratio of the curve area to the area of a circle with same perimeter as the curve");
 
         /// <summary>
         /// Ratio of the shape area to the area of its minimum bounding rectangle.
         /// </summary>
-        public static ExtendedColumn RectangularThinnessRatio = new("Rectangular thinnes ratio", typeof(float), Category.ShapeDescriptors.Description(), "Ratio of the shape area to the area of its minimum bounding rectangle");
+        public static readonly ExtendedColumn RectangularThinnessRatio = new("Rectangular thinnes ratio", typeof(float), Category.ShapeDescriptors.Description(), "Ratio of the shape area to the area of its minimum bounding rectangle");
 
         /// <summary>
         /// Ratio of the shape area to the area of its minimum bounding square.
         /// </summary>
-        public static ExtendedColumn SquareThinnessRatio = new("Square thinness ratio", typeof(float), Category.ShapeDescriptors.Description(), "Ratio of the shape area to the area of its minimum bounding square");
+        public static readonly ExtendedColumn SquareThinnessRatio = new("Square thinness ratio", typeof(float), Category.ShapeDescriptors.Description(), "Ratio of the shape area to the area of its minimum bounding square");
 
         /// <summary>
         /// A geometric measure that describes how close a shape is to a perfect circle, calculated as (4 * Pi * Area) / Perimeter^2.
         /// </summary>
-        public static ExtendedColumn ThinnessRatio = new("Thinness ratio", typeof(float), Category.ShapeDescriptors.Description(), "A geometric measure that describes how close a shape is to a perfect circle, calculated as (4 * Pi * Area) / Perimeter^2");
+        public static readonly ExtendedColumn ThinnessRatio = new("Thinness ratio", typeof(float), Category.ShapeDescriptors.Description(), "A geometric measure that describes how close a shape is to a perfect circle, calculated as (4 * Pi * Area) / Perimeter^2");
 
         /// <summary>
         /// Shape descriptor that measures how elongated or “thin” a shape is compared to a convex hull that perfectly fits around it (its envelope or convex enclosure).
         /// </summary>
-        public static ExtendedColumn ConvexHullThinnessRatio = new("Convex hull thinness ratio", typeof(float), Category.ShapeDescriptors.Description(), "Shape descriptor that measures how elongated or “thin” a shape is compared to a convex hull that perfectly fits around it (its envelope or convex enclosure)");
+        public static readonly ExtendedColumn ConvexHullThinnessRatio = new("Convex hull thinness ratio", typeof(float), Category.ShapeDescriptors.Description(), "Shape descriptor that measures how elongated or “thin” a shape is compared to a convex hull that perfectly fits around it (its envelope or convex enclosure)");
 
         /// <summary>
         /// Predicted Building Shape based on Machine Learning engine.
         /// </summary>
-        public static ExtendedColumn PredictedBuildingShape = new("Predicted Building Shape", typeof(string), Category.BuildingShape.Description(), "Predicted Building Shape based on Machine Learning engine");
+        public static readonly ExtendedColumn PredictedBuildingShape = new("Predicted Building Shape", typeof(string), Category.BuildingShape.Description(), "Predicted Building Shape based on Machine Learning engine");
 
         /// <summary>
         /// Building shape (e.g., Square, Rectangular, L, U, T, etc.) calculated using the BuildingShapeSolver engine via geometric ratios and bounding box analysis.
         /// </summary>
-        public static ExtendedColumn CalculatedBuildingShape = new("Calculated Building Shape", typeof(string), Category.BuildingShape.Description(), "Building shape (e.g., Square, Rectangular, L, U, T, etc.) calculated using the BuildingShapeSolver engine via geometric ratios and bounding box analysis");
+        public static readonly ExtendedColumn CalculatedBuildingShape = new("Calculated Building Shape", typeof(string), Category.BuildingShape.Description(), "Building shape (e.g., Square, Rectangular, L, U, T, etc.) calculated using the BuildingShapeSolver engine via geometric ratios and bounding box analysis");
 
         /// <summary>
         /// Building Shape determined by user.
         /// </summary>
-        public static ExtendedColumn UserBuildingShape = new("User Building Shape", typeof(string), Category.BuildingShape.Description(), "Building Shape determined by user");
+        public static readonly ExtendedColumn UserBuildingShape = new("User Building Shape", typeof(string), Category.BuildingShape.Description(), "Building Shape determined by user");
 
         /// <summary>
         /// Database Id for the building.
         /// </summary>
-        public static ExtendedColumn DatabaseId = new("Database Id", typeof(long), Category.Identity.Description(), "Unique identifier for the building in the database");
+        public static readonly ExtendedColumn DatabaseId = new("Database Id", typeof(long), Category.Identity.Description(), "Unique identifier for the building in the database");
 
         /// <summary>
         /// Calculated occupancy.
         /// </summary>
-        public static ExtendedColumn CalculatedOccupancy = new("Calculated occupancy", typeof(uint), Category.Occupancy.Description(), "Calculated occupancy");
+        public static readonly ExtendedColumn CalculatedOccupancy = new("Calculated occupancy", typeof(uint), Category.Occupancy.Description(), "Calculated occupancy");
 
         /// <summary>
         /// Area-weighted average of the shaded irradiation (beam + diffuse + ground) over the building's usable surfaces, in kWh/m² over the weather period.
         /// </summary>
-        public static UnitColumn SolarIrradiation = new("Solar irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation (beam + diffuse + ground) over the building's usable surfaces, kWh/m² over the weather period; null when no usable surface", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarIrradiation = new("Solar irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation (beam + diffuse + ground) over the building's usable surfaces, kWh/m² over the weather period; null when no usable surface", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Sum of the total energy received by the building's usable surfaces, in kWh over the weather period.
         /// </summary>
-        public static UnitColumn SolarEnergy = new("Solar energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the total energy received by the building's usable surfaces, kWh over the weather period; null when no usable surface", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarEnergy = new("Solar energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the total energy received by the building's usable surfaces, kWh over the weather period; null when no usable surface", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Area-weighted average of the beam (direct) irradiation over the building's usable surfaces, in kWh/m².
         /// </summary>
-        public static UnitColumn SolarBeam = new("Solar beam", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the beam (direct) irradiation over the building's usable surfaces, kWh/m²; null when no usable surface", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarBeam = new("Solar beam", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the beam (direct) irradiation over the building's usable surfaces, kWh/m²; null when no usable surface", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Area-weighted average of the sky-diffuse irradiation over the building's usable surfaces, in kWh/m².
         /// </summary>
-        public static UnitColumn SolarDiffuse = new("Solar diffuse", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the sky-diffuse irradiation over the building's usable surfaces, kWh/m²; null when no usable surface", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarDiffuse = new("Solar diffuse", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the sky-diffuse irradiation over the building's usable surfaces, kWh/m²; null when no usable surface", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Area-weighted average of the ground-reflected irradiation over the building's usable surfaces, in kWh/m².
         /// </summary>
-        public static UnitColumn SolarGround = new("Solar ground", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the ground-reflected irradiation over the building's usable surfaces, kWh/m²; null when no usable surface", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarGround = new("Solar ground", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the ground-reflected irradiation over the building's usable surfaces, kWh/m²; null when no usable surface", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Area-weighted average of the unshaded (open sky) irradiation over the building's usable surfaces, in kWh/m².
         /// </summary>
-        public static UnitColumn SolarIrradiationUnshaded = new("Solar irradiation unshaded", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the unshaded (open sky) irradiation over the building's usable surfaces, kWh/m²; null when no usable surface", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarIrradiationUnshaded = new("Solar irradiation unshaded", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the unshaded (open sky) irradiation over the building's usable surfaces, kWh/m²; null when no usable surface", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Area-weighted average of the shaded irradiation over the usable surfaces facing north ([337.5°, 360°) ∪ [0°, 22.5°)), in kWh/m².
         /// </summary>
-        public static UnitColumn SolarNorthIrradiation = new("Solar north irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing north ([337.5°, 360°) ∪ [0°, 22.5°)), kWh/m²; null when no usable surface faces north", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarNorthIrradiation = new("Solar north irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing north ([337.5°, 360°) ∪ [0°, 22.5°)), kWh/m²; null when no usable surface faces north", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Sum of the energy over the usable surfaces facing north ([337.5°, 360°) ∪ [0°, 22.5°)), in kWh.
         /// </summary>
-        public static UnitColumn SolarNorthEnergy = new("Solar north energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing north ([337.5°, 360°) ∪ [0°, 22.5°)), kWh; null when no usable surface faces north", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarNorthEnergy = new("Solar north energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing north ([337.5°, 360°) ∪ [0°, 22.5°)), kWh; null when no usable surface faces north", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Area-weighted average of the shaded irradiation over the usable surfaces facing northeast ([22.5°, 67.5°)), in kWh/m².
         /// </summary>
-        public static UnitColumn SolarNortheastIrradiation = new("Solar northeast irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing northeast ([22.5°, 67.5°)), kWh/m²; null when no usable surface faces northeast", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarNortheastIrradiation = new("Solar northeast irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing northeast ([22.5°, 67.5°)), kWh/m²; null when no usable surface faces northeast", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Sum of the energy over the usable surfaces facing northeast ([22.5°, 67.5°)), in kWh.
         /// </summary>
-        public static UnitColumn SolarNortheastEnergy = new("Solar northeast energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing northeast ([22.5°, 67.5°)), kWh; null when no usable surface faces northeast", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarNortheastEnergy = new("Solar northeast energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing northeast ([22.5°, 67.5°)), kWh; null when no usable surface faces northeast", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Area-weighted average of the shaded irradiation over the usable surfaces facing east ([67.5°, 112.5°)), in kWh/m².
         /// </summary>
-        public static UnitColumn SolarEastIrradiation = new("Solar east irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing east ([67.5°, 112.5°)), kWh/m²; null when no usable surface faces east", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarEastIrradiation = new("Solar east irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing east ([67.5°, 112.5°)), kWh/m²; null when no usable surface faces east", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Sum of the energy over the usable surfaces facing east ([67.5°, 112.5°)), in kWh.
         /// </summary>
-        public static UnitColumn SolarEastEnergy = new("Solar east energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing east ([67.5°, 112.5°)), kWh; null when no usable surface faces east", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarEastEnergy = new("Solar east energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing east ([67.5°, 112.5°)), kWh; null when no usable surface faces east", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Area-weighted average of the shaded irradiation over the usable surfaces facing southeast ([112.5°, 157.5°)), in kWh/m².
         /// </summary>
-        public static UnitColumn SolarSoutheastIrradiation = new("Solar southeast irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing southeast ([112.5°, 157.5°)), kWh/m²; null when no usable surface faces southeast", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarSoutheastIrradiation = new("Solar southeast irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing southeast ([112.5°, 157.5°)), kWh/m²; null when no usable surface faces southeast", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Sum of the energy over the usable surfaces facing southeast ([112.5°, 157.5°)), in kWh.
         /// </summary>
-        public static UnitColumn SolarSoutheastEnergy = new("Solar southeast energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing southeast ([112.5°, 157.5°)), kWh; null when no usable surface faces southeast", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarSoutheastEnergy = new("Solar southeast energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing southeast ([112.5°, 157.5°)), kWh; null when no usable surface faces southeast", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Area-weighted average of the shaded irradiation over the usable surfaces facing south ([157.5°, 202.5°)), in kWh/m².
         /// </summary>
-        public static UnitColumn SolarSouthIrradiation = new("Solar south irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing south ([157.5°, 202.5°)), kWh/m²; null when no usable surface faces south", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarSouthIrradiation = new("Solar south irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing south ([157.5°, 202.5°)), kWh/m²; null when no usable surface faces south", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Sum of the energy over the usable surfaces facing south ([157.5°, 202.5°)), in kWh.
         /// </summary>
-        public static UnitColumn SolarSouthEnergy = new("Solar south energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing south ([157.5°, 202.5°)), kWh; null when no usable surface faces south", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarSouthEnergy = new("Solar south energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing south ([157.5°, 202.5°)), kWh; null when no usable surface faces south", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Area-weighted average of the shaded irradiation over the usable surfaces facing southwest ([202.5°, 247.5°)), in kWh/m².
         /// </summary>
-        public static UnitColumn SolarSouthwestIrradiation = new("Solar southwest irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing southwest ([202.5°, 247.5°)), kWh/m²; null when no usable surface faces southwest", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarSouthwestIrradiation = new("Solar southwest irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing southwest ([202.5°, 247.5°)), kWh/m²; null when no usable surface faces southwest", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Sum of the energy over the usable surfaces facing southwest ([202.5°, 247.5°)), in kWh.
         /// </summary>
-        public static UnitColumn SolarSouthwestEnergy = new("Solar southwest energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing southwest ([202.5°, 247.5°)), kWh; null when no usable surface faces southwest", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarSouthwestEnergy = new("Solar southwest energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing southwest ([202.5°, 247.5°)), kWh; null when no usable surface faces southwest", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Area-weighted average of the shaded irradiation over the usable surfaces facing west ([247.5°, 292.5°)), in kWh/m².
         /// </summary>
-        public static UnitColumn SolarWestIrradiation = new("Solar west irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing west ([247.5°, 292.5°)), kWh/m²; null when no usable surface faces west", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarWestIrradiation = new("Solar west irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing west ([247.5°, 292.5°)), kWh/m²; null when no usable surface faces west", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Sum of the energy over the usable surfaces facing west ([247.5°, 292.5°)), in kWh.
         /// </summary>
-        public static UnitColumn SolarWestEnergy = new("Solar west energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing west ([247.5°, 292.5°)), kWh; null when no usable surface faces west", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarWestEnergy = new("Solar west energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing west ([247.5°, 292.5°)), kWh; null when no usable surface faces west", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Area-weighted average of the shaded irradiation over the usable surfaces facing northwest ([292.5°, 337.5°)), in kWh/m².
         /// </summary>
-        public static UnitColumn SolarNorthwestIrradiation = new("Solar northwest irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing northwest ([292.5°, 337.5°)), kWh/m²; null when no usable surface faces northwest", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarNorthwestIrradiation = new("Solar northwest irradiation", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.SolarRadiation.Description(), "Area-weighted average of the shaded irradiation over the usable surfaces facing northwest ([292.5°, 337.5°)), kWh/m²; null when no usable surface faces northwest", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Sum of the energy over the usable surfaces facing northwest ([292.5°, 337.5°)), in kWh.
         /// </summary>
-        public static UnitColumn SolarNorthwestEnergy = new("Solar northwest energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing northwest ([292.5°, 337.5°)), kWh; null when no usable surface faces northwest", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarNorthwestEnergy = new("Solar northwest energy", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.SolarRadiation.Description(), "Sum of the energy over the usable surfaces facing northwest ([292.5°, 337.5°)), kWh; null when no usable surface faces northwest", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
         /// Identifier of the weather source (EPW station or live weather service) used for the solar radiation calculation.
         /// </summary>
-        public static ExtendedColumn SolarWeatherSourceId = new("Solar weather source ID", typeof(string), Category.SolarRadiation.Description(), "Identifier of the weather source (EPW station or live weather service) used for the solar radiation calculation; null when no result is stored");
+        public static readonly ExtendedColumn SolarWeatherSourceId = new("Solar weather source ID", typeof(string), Category.SolarRadiation.Description(), "Identifier of the weather source (EPW station or live weather service) used for the solar radiation calculation; null when no result is stored");
 
         /// <summary>
         /// Type of the weather source used for the solar radiation calculation: -1 undefined, 0 EPW, 1 live.
         /// </summary>
-        public static ExtendedColumn SolarWeatherSourceType = new("Solar weather source type", typeof(int), Category.SolarRadiation.Description(), "Type of the weather source used for the solar radiation calculation: -1 undefined, 0 EPW, 1 live; null when no result is stored");
+        public static readonly ExtendedColumn SolarWeatherSourceType = new("Solar weather source type", typeof(int), Category.SolarRadiation.Description(), "Type of the weather source used for the solar radiation calculation: -1 undefined, 0 EPW, 1 live; null when no result is stored");
 
         /// <summary>
         /// Radius of the surrounding building range used for the solar radiation shading calculation, in meters.
         /// </summary>
-        public static UnitColumn SolarRadius = new("Solar radius", (Unit.Classes.Unit?)Unit.Enums.LengthUnit.Meter, Category.SolarRadiation.Description(), "Radius of the surrounding building range used for the solar radiation shading calculation, meters; null when no result is stored", Unit.Enums.UnitDataType.Float);
+        public static readonly UnitColumn SolarRadius = new("Solar radius", (Unit.Classes.Unit?)Unit.Enums.LengthUnit.Meter, Category.SolarRadiation.Description(), "Radius of the surrounding building range used for the solar radiation shading calculation, meters; null when no result is stored", Unit.Enums.UnitDataType.Float);
     }
 }
