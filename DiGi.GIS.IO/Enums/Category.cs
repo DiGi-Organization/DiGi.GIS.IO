@@ -121,5 +121,10 @@ namespace DiGi.GIS.IO.Enums
         /// Represents the yearly solar radiation summary of a building's external surfaces - the building totals and the per-direction (cardinal sector) breakdown.
         /// </summary>
         [Description("Solar Radiation")] SolarRadiation,
+
+        /// <summary>
+        /// Represents the annual heat demand summary of a building.
+        /// </summary>
+        [Description("Heat Demand")] HeatDemand,
     }
 }

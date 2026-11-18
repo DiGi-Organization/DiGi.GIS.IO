@@ -28,6 +28,20 @@ public static System.Collections.Generic.List<DiGi.Core.IO.Table.Classes.Column>
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[DiGi\.Core\.IO\.Table\.Classes\.Column](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.column 'DiGi\.Core\.IO\.Table\.Classes\.Column')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
 A list of 35 [DiGi\.Core\.IO\.Table\.Classes\.Column](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.column 'DiGi\.Core\.IO\.Table\.Classes\.Column') instances in a stable order: 8 walls by direction, flat roof, tilted roof bands by direction, floor, and the total last\.
 
+<a name='DiGi.GIS.IO.Create.Columns_HeatDemand()'></a>
+
+## Create\.Columns\_HeatDemand\(\) Method
+
+Creates the collection of heat demand summary columns: the annual energy need, the per\-area energy need, the design heat load, and the method version\.
+
+```csharp
+public static System.Collections.Generic.List<DiGi.Core.IO.Table.Classes.Column> Columns_HeatDemand();
+```
+
+#### Returns
+[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[DiGi\.Core\.IO\.Table\.Classes\.Column](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.column 'DiGi\.Core\.IO\.Table\.Classes\.Column')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
+A list of 4 [DiGi\.Core\.IO\.Table\.Classes\.Column](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.column 'DiGi\.Core\.IO\.Table\.Classes\.Column') instances in a stable order: HeatingEnergyNeed, HeatingEnergyNeedPerArea, DesignHeatLoad, HeatDemandMethodVersion \(DiGi\-Organization/DiGi\.GIS\.IO\#18\)\.
+
 <a name='DiGi.GIS.IO.Create.Columns_PartyWallArea()'></a>
 
 ## Create\.Columns\_PartyWallArea\(\) Method

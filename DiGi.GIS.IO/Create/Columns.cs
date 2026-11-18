@@ -259,5 +259,20 @@ namespace DiGi.GIS.IO
                 Constants.Column.SolarRadius
             ];
         }
+
+        /// <summary>
+        /// Creates the collection of heat demand summary columns: the annual energy need, the per-area energy need, the design heat load, and the method version.
+        /// </summary>
+        /// <returns>A list of 4 <see cref="Column"/> instances in a stable order: HeatingEnergyNeed, HeatingEnergyNeedPerArea, DesignHeatLoad, HeatDemandMethodVersion (DiGi-Organization/DiGi.GIS.IO#18).</returns>
+        public static List<Column> Columns_HeatDemand()
+        {
+            return
+            [
+                Constants.Column.HeatingEnergyNeed,
+                Constants.Column.HeatingEnergyNeedPerArea,
+                Constants.Column.DesignHeatLoad,
+                Constants.Column.HeatDemandMethodVersion
+            ];
+        }
     }
 }

@@ -194,3 +194,9 @@ Represents the areas of a building's external components \(walls, roofs and floo
 `SolarRadiation` 22
 
 Represents the yearly solar radiation summary of a building's external surfaces \- the building totals and the per\-direction \(cardinal sector\) breakdown\.
+
+<a name='DiGi.GIS.IO.Enums.Category.HeatDemand'></a>
+
+`HeatDemand` 23
+
+Represents the annual heat demand summary of a building\.

@@ -237,6 +237,19 @@ public static readonly ExtendedColumn DatabaseId;
 #### Field Value
 [DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.extendedcolumn 'DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn')
 
+<a name='DiGi.GIS.IO.Constants.Column.DesignHeatLoad'></a>
+
+## Column\.DesignHeatLoad Field
+
+Design heat load Φ\_HL \(PN\-EN 12831\-1 simplified\) in W; null when no result is stored \(DiGi\-Organization/DiGi\.GIS\.IO\#18\)\.
+
+```csharp
+public static readonly UnitColumn DesignHeatLoad;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
 <a name='DiGi.GIS.IO.Constants.Column.ExternalComponentsArea'></a>
 
 ## Column\.ExternalComponentsArea Field
@@ -700,6 +713,45 @@ Calculated floor area based on geometry data from BDOO Geoportal \*\.gml file \(
 
 ```csharp
 public static readonly UnitColumn FloorArea;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.HeatDemandMethodVersion'></a>
+
+## Column\.HeatDemandMethodVersion Field
+
+Integer method version of the heat demand calculation that wrote the row; null when no result is stored \(DiGi\-Organization/DiGi\.GIS\.IO\#18\)\.
+
+```csharp
+public static readonly ExtendedColumn HeatDemandMethodVersion;
+```
+
+#### Field Value
+[DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.extendedcolumn 'DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.HeatingEnergyNeed'></a>
+
+## Column\.HeatingEnergyNeed Field
+
+Annual space\-heating energy need Q\_H,nd in kWh; null when no result is stored \(DiGi\-Organization/DiGi\.GIS\.IO\#18\)\.
+
+```csharp
+public static readonly UnitColumn HeatingEnergyNeed;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.HeatingEnergyNeedPerArea'></a>
+
+## Column\.HeatingEnergyNeedPerArea Field
+
+Annual space\-heating energy need per gross heated floor area in kWh/m²; null when no result is stored \(DiGi\-Organization/DiGi\.GIS\.IO\#18\)\.
+
+```csharp
+public static readonly UnitColumn HeatingEnergyNeedPerArea;
 ```
 
 #### Field Value

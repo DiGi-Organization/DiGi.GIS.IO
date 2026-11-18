@@ -549,5 +549,25 @@ namespace DiGi.GIS.IO.Constants
         /// Radius of the surrounding building range used for the solar radiation shading calculation, in meters.
         /// </summary>
         public static readonly UnitColumn SolarRadius = new("Solar radius", (Unit.Classes.Unit?)Unit.Enums.LengthUnit.Meter, Category.SolarRadiation.Description(), "Radius of the surrounding building range used for the solar radiation shading calculation, meters; null when no result is stored", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Annual space-heating energy need Q_H,nd in kWh; null when no result is stored (DiGi-Organization/DiGi.GIS.IO#18).
+        /// </summary>
+        public static readonly UnitColumn HeatingEnergyNeed = new("Heating energy need", (Unit.Classes.Unit?)Unit.Enums.EnergyUnit.KilowattHour, Category.HeatDemand.Description(), "Annual space-heating energy need Q_H,nd in kWh; null when no result is stored", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Annual space-heating energy need per gross heated floor area in kWh/m²; null when no result is stored (DiGi-Organization/DiGi.GIS.IO#18).
+        /// </summary>
+        public static readonly UnitColumn HeatingEnergyNeedPerArea = new("Heating energy need per area", (Unit.Classes.Unit?)Unit.Enums.SolarRadiationUnit.KilowattHourPerSquareMeter, Category.HeatDemand.Description(), "Annual space-heating energy need per gross heated floor area in kWh/m²; null when no result is stored", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Design heat load Φ_HL (PN-EN 12831-1 simplified) in W; null when no result is stored (DiGi-Organization/DiGi.GIS.IO#18).
+        /// </summary>
+        public static readonly UnitColumn DesignHeatLoad = new("Design heat load", (Unit.Classes.Unit?)Unit.Enums.PowerUnit.Watt, Category.HeatDemand.Description(), "Design heat load Φ_HL (PN-EN 12831-1 simplified) in W; null when no result is stored", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
+        /// Integer method version of the heat demand calculation that wrote the row; null when no result is stored (DiGi-Organization/DiGi.GIS.IO#18).
+        /// </summary>
+        public static readonly ExtendedColumn HeatDemandMethodVersion = new("Heat demand method version", typeof(int), Category.HeatDemand.Description(), "Integer method version of the heat demand calculation that wrote the row; null when no result is stored");
     }
 }
