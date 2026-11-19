@@ -172,6 +172,19 @@ public static readonly ExtendedColumn CardinalDirection;
 #### Field Value
 [DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.extendedcolumn 'DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn')
 
+<a name='DiGi.GIS.IO.Constants.Column.CensusYearBuilt'></a>
+
+## Column\.CensusYearBuilt Field
+
+Census year built \- the median construction year of the inhabited dwellings built up to 2008 in the building's municipality, from the NSP 2021 census \(BDL subject P4386, `GIS.Query.CensusYearBuilt`\)\. It stands in for a predicted year built that only bounds the year \(DiGi\-Organization/DiGi\.GIS\.Analytical\#17\); empty when the municipality has no census data\.
+
+```csharp
+public static readonly ExtendedColumn CensusYearBuilt;
+```
+
+#### Field Value
+[DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.extendedcolumn 'DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn')
+
 <a name='DiGi.GIS.IO.Constants.Column.ClosingTolerance'></a>
 
 ## Column\.ClosingTolerance Field

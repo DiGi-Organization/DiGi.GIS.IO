@@ -326,6 +326,11 @@ namespace DiGi.GIS.IO.Constants
         public static readonly ExtendedColumn PredictedYearBuilt = new("Predicted year built", typeof(ushort), Category.YearBuit.Description(), "Year built predicted by the Machine Learning engine; the most frequent value when the building carries several predictions");
 
         /// <summary>
+        /// Census year built - the median construction year of the inhabited dwellings built up to 2008 in the building's municipality, from the NSP 2021 census (BDL subject P4386, <c>GIS.Query.CensusYearBuilt</c>). It stands in for a predicted year built that only bounds the year (DiGi-Organization/DiGi.GIS.Analytical#17); empty when the municipality has no census data.
+        /// </summary>
+        public static readonly ExtendedColumn CensusYearBuilt = new("Census year built", typeof(ushort), Category.YearBuit.Description(), "Median construction year of the occupied dwellings built up to 2008 in the building's municipality, from the NSP 2021 census (BDL); stands in for a predicted year that only bounds the year");
+
+        /// <summary>
         /// User year built - the most frequent year entered manually by a user.
         /// </summary>
         public static readonly ExtendedColumn UserYearBuilt = new("User year built", typeof(ushort), Category.YearBuit.Description(), "Year built entered manually by a user; the most frequent value when several users entered one");

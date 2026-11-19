@@ -712,6 +712,80 @@ The collection of building 2D geometries\.
 
 The collection of administrative boundary areas\.
 
+<a name='DiGi.GIS.IO.Modify.Update_Building2D_CensusYearBuilt(thisDiGi.Core.IO.Table.Classes.Table,int,System.Collections.Generic.IEnumerable_DiGi.GIS.Classes.Building2D_,DiGi.GIS.Classes.StatisticalDataCollection)'></a>
+
+## Modify\.Update\_Building2D\_CensusYearBuilt\(this Table, int, IEnumerable\<Building2D\>, StatisticalDataCollection\) Method
+
+Writes the census year built of a municipality, computed from its statistical data with `GIS.Query.CensusYearBuilt` \(the NSP 2021 dwellings by construction period up to 2008\), to every given building 2D of a county in the table \(DiGi\-Organization/DiGi\.GIS\.IO\#19\)\.
+
+A null collection, or one without a positive dwelling count up to 2008, clears the cell.
+
+```csharp
+public static void Update_Building2D_CensusYearBuilt(this DiGi.Core.IO.Table.Classes.Table? table, int countyId, System.Collections.Generic.IEnumerable<DiGi.GIS.Classes.Building2D>? building2Ds, DiGi.GIS.Classes.StatisticalDataCollection? statisticalDataCollection);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Modify.Update_Building2D_CensusYearBuilt(thisDiGi.Core.IO.Table.Classes.Table,int,System.Collections.Generic.IEnumerable_DiGi.GIS.Classes.Building2D_,DiGi.GIS.Classes.StatisticalDataCollection).table'></a>
+
+`table` [DiGi\.Core\.IO\.Table\.Classes\.Table](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.table 'DiGi\.Core\.IO\.Table\.Classes\.Table')
+
+The table to update\.
+
+<a name='DiGi.GIS.IO.Modify.Update_Building2D_CensusYearBuilt(thisDiGi.Core.IO.Table.Classes.Table,int,System.Collections.Generic.IEnumerable_DiGi.GIS.Classes.Building2D_,DiGi.GIS.Classes.StatisticalDataCollection).countyId'></a>
+
+`countyId` [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
+
+The unique identifier of the county\.
+
+<a name='DiGi.GIS.IO.Modify.Update_Building2D_CensusYearBuilt(thisDiGi.Core.IO.Table.Classes.Table,int,System.Collections.Generic.IEnumerable_DiGi.GIS.Classes.Building2D_,DiGi.GIS.Classes.StatisticalDataCollection).building2Ds'></a>
+
+`building2Ds` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[DiGi\.GIS\.Classes\.Building2D](https://learn.microsoft.com/en-us/dotnet/api/digi.gis.classes.building2d 'DiGi\.GIS\.Classes\.Building2D')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
+
+The building 2D geometries of one municipality\.
+
+<a name='DiGi.GIS.IO.Modify.Update_Building2D_CensusYearBuilt(thisDiGi.Core.IO.Table.Classes.Table,int,System.Collections.Generic.IEnumerable_DiGi.GIS.Classes.Building2D_,DiGi.GIS.Classes.StatisticalDataCollection).statisticalDataCollection'></a>
+
+`statisticalDataCollection` [DiGi\.GIS\.Classes\.StatisticalDataCollection](https://learn.microsoft.com/en-us/dotnet/api/digi.gis.classes.statisticaldatacollection 'DiGi\.GIS\.Classes\.StatisticalDataCollection')
+
+The statistical data of their municipality's statistical unit\.
+
+<a name='DiGi.GIS.IO.Modify.Update_Building2D_CensusYearBuilt(thisDiGi.Core.IO.Table.Classes.Table,int,System.Collections.Generic.IEnumerable_DiGi.GIS.Classes.Building2D_,System.Nullable_short_)'></a>
+
+## Modify\.Update\_Building2D\_CensusYearBuilt\(this Table, int, IEnumerable\<Building2D\>, Nullable\<short\>\) Method
+
+Writes one census year built to every given building 2D of a county in the table \([CensusYearBuilt](DiGi.GIS.IO.Constants.md#DiGi.GIS.IO.Constants.Column.CensusYearBuilt 'DiGi\.GIS\.IO\.Constants\.Column\.CensusYearBuilt'), DiGi\-Organization/DiGi\.GIS\.IO\#19\)\.
+
+A building's row is found by county id and reference, or added. A null year clears the cell rather than writing 0, so a municipality without census data leaves its buildings empty and a re-run over a municipality that lost its data clears what an earlier run wrote.
+
+```csharp
+public static void Update_Building2D_CensusYearBuilt(this DiGi.Core.IO.Table.Classes.Table? table, int countyId, System.Collections.Generic.IEnumerable<DiGi.GIS.Classes.Building2D>? building2Ds, System.Nullable<short> censusYearBuilt);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Modify.Update_Building2D_CensusYearBuilt(thisDiGi.Core.IO.Table.Classes.Table,int,System.Collections.Generic.IEnumerable_DiGi.GIS.Classes.Building2D_,System.Nullable_short_).table'></a>
+
+`table` [DiGi\.Core\.IO\.Table\.Classes\.Table](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.table 'DiGi\.Core\.IO\.Table\.Classes\.Table')
+
+The table to update\.
+
+<a name='DiGi.GIS.IO.Modify.Update_Building2D_CensusYearBuilt(thisDiGi.Core.IO.Table.Classes.Table,int,System.Collections.Generic.IEnumerable_DiGi.GIS.Classes.Building2D_,System.Nullable_short_).countyId'></a>
+
+`countyId` [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
+
+The unique identifier of the county\.
+
+<a name='DiGi.GIS.IO.Modify.Update_Building2D_CensusYearBuilt(thisDiGi.Core.IO.Table.Classes.Table,int,System.Collections.Generic.IEnumerable_DiGi.GIS.Classes.Building2D_,System.Nullable_short_).building2Ds'></a>
+
+`building2Ds` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[DiGi\.GIS\.Classes\.Building2D](https://learn.microsoft.com/en-us/dotnet/api/digi.gis.classes.building2d 'DiGi\.GIS\.Classes\.Building2D')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
+
+The building 2D geometries of one municipality\.
+
+<a name='DiGi.GIS.IO.Modify.Update_Building2D_CensusYearBuilt(thisDiGi.Core.IO.Table.Classes.Table,int,System.Collections.Generic.IEnumerable_DiGi.GIS.Classes.Building2D_,System.Nullable_short_).censusYearBuilt'></a>
+
+`censusYearBuilt` [System\.Nullable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')[System\.Int16](https://learn.microsoft.com/en-us/dotnet/api/system.int16 'System\.Int16')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')
+
+The census year built of their municipality, or null when it has no census data\.
+
 <a name='DiGi.GIS.IO.Modify.Update_Building2D_Occupancy(thisDiGi.Core.IO.Table.Classes.Table,int,System.Collections.Generic.IEnumerable_DiGi.GIS.Classes.Building2D_)'></a>
 
 ## Modify\.Update\_Building2D\_Occupancy\(this Table, int, IEnumerable\<Building2D\>\) Method
