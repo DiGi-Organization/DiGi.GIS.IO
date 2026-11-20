@@ -133,6 +133,19 @@ public static readonly ExtendedColumn CalculatedBuildingShape;
 #### Field Value
 [DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.extendedcolumn 'DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn')
 
+<a name='DiGi.GIS.IO.Constants.Column.CalculatedHeight'></a>
+
+## Column\.CalculatedHeight Field
+
+Building height calculated from the stored BuildingModel \- the Z extent \(max Z minus min Z\) of its axis\-aligned bounding box, in meters; null when the model has no component geometry \(DiGi\-Organization/DiGi\.GIS\.IO\#20\)\.
+
+```csharp
+public static readonly UnitColumn CalculatedHeight;
+```
+
+#### Field Value
+[DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
+
 <a name='DiGi.GIS.IO.Constants.Column.CalculatedOccupancy'></a>
 
 ## Column\.CalculatedOccupancy Field

@@ -201,6 +201,11 @@ namespace DiGi.GIS.IO.Constants
         public static readonly UnitColumn ClosingTolerance = new("Closing tolerance", (Unit.Classes.Unit?)Unit.Enums.LengthUnit.Meter, Category.ExternalComponentsArea.Description(), "Finest distance tolerance at which the model's external envelope edge-pairs into a closed surface, over the candidate ladder 1e-6 to 0.2 m; null when the envelope does not close on the ladder or the model carries no external components - the signal that this row's sector and tilt values may rest on an arbitrary face side", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
+        /// Building height calculated from the stored BuildingModel - the Z extent (max Z minus min Z) of its axis-aligned bounding box, in meters; null when the model has no component geometry (DiGi-Organization/DiGi.GIS.IO#20).
+        /// </summary>
+        public static readonly UnitColumn CalculatedHeight = new("Calculated height", (Unit.Classes.Unit?)Unit.Enums.LengthUnit.Meter, Category.Geometry.Description(), "Building height calculated from the stored BuildingModel: the Z extent (max Z minus min Z) of its axis-aligned bounding box, meters; null when the model has no component geometry", Unit.Enums.UnitDataType.Float);
+
+        /// <summary>
         /// Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the north sector ([337.5°, 360°) ∪ [0°, 22.5°)); included in the external north wall area, which is gross, so the net external area is the difference (DiGi-Organization/DiGi.GIS.Analytical#4).
         /// </summary>
         public static readonly UnitColumn PartyNorthWallArea = new("Party north wall area", (Unit.Classes.Unit?)Unit.Enums.AreaUnit.SquareMeter, Category.ExternalComponentsArea.Description(), "Wall area shared with an adjacent building (party wall) whose wall has its outward normal azimuth in the north sector ([337.5°, 360°) ∪ [0°, 22.5°)); included in the external north wall area, which is gross, so the net external area is the difference", Unit.Enums.UnitDataType.Float);

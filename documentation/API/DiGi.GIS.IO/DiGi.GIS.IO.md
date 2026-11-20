@@ -240,6 +240,20 @@ public static System.Collections.Generic.List<DiGi.Core.IO.Table.Classes.Column>
 [System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[DiGi\.Core\.IO\.Table\.Classes\.Column](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.column 'DiGi\.Core\.IO\.Table\.Classes\.Column')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')  
 A list of 25 [DiGi\.Core\.IO\.Table\.Classes\.Column](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.column 'DiGi\.Core\.IO\.Table\.Classes\.Column') instances in a stable order: 6 building totals, then 8 sectors × \(irradiation, energy\), then weather source ID, weather source type, and radius\.
 
+<a name='DiGi.GIS.IO.Create.Column_CalculatedHeight()'></a>
+
+## Create\.Column\_CalculatedHeight\(\) Method
+
+Creates the calculated height column \- the Z extent of the stored building model's bounding box, written beside the external components area columns \(DiGi\-Organization/DiGi\.GIS\.IO\#20\)\.
+
+```csharp
+public static DiGi.Core.IO.Table.Classes.Column Column_CalculatedHeight();
+```
+
+#### Returns
+[DiGi\.Core\.IO\.Table\.Classes\.Column](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.column 'DiGi\.Core\.IO\.Table\.Classes\.Column')  
+A [DiGi\.Core\.IO\.Table\.Classes\.Column](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.column 'DiGi\.Core\.IO\.Table\.Classes\.Column') whose cell holds the building height in meters, and is null when the model carries no component geometry\. It is not one of the columns of `Columns_ExternalComponentsArea`, whose order the classification indexes\.
+
 <a name='DiGi.GIS.IO.Create.Column_ClosingTolerance()'></a>
 
 ## Create\.Column\_ClosingTolerance\(\) Method
