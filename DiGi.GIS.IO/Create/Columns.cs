@@ -263,7 +263,7 @@ namespace DiGi.GIS.IO
         /// <summary>
         /// Creates the collection of heat demand summary columns: the annual energy need, the per-area energy need, the design heat load, and the method version.
         /// </summary>
-        /// <returns>A list of 4 <see cref="Column"/> instances in a stable order: HeatingEnergyNeed, HeatingEnergyNeedPerArea, DesignHeatLoad, HeatDemandMethodVersion (DiGi-Organization/DiGi.GIS.IO#18).</returns>
+        /// <returns>A list of 6 <see cref="Column"/> instances in a stable order: HeatingEnergyNeed, HeatingEnergyNeedPerArea, DesignHeatLoad, HeatDemandMethodVersion (DiGi-Organization/DiGi.GIS.IO#18), HeatDemandMethod, HeatDemandInputVariant (DiGi-Organization/DiGi.GIS.IO#21).</returns>
         public static List<Column> Columns_HeatDemand()
         {
             return
@@ -271,7 +271,9 @@ namespace DiGi.GIS.IO
                 Constants.Column.HeatingEnergyNeed,
                 Constants.Column.HeatingEnergyNeedPerArea,
                 Constants.Column.DesignHeatLoad,
-                Constants.Column.HeatDemandMethodVersion
+                Constants.Column.HeatDemandMethodVersion,
+                Constants.Column.HeatDemandMethod,
+                Constants.Column.HeatDemandInputVariant
             ];
         }
     }

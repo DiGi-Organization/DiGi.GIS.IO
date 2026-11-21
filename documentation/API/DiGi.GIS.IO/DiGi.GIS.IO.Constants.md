@@ -744,11 +744,37 @@ public static readonly UnitColumn FloorArea;
 #### Field Value
 [DiGi\.Unit\.IO\.Classes\.UnitColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.unit.io.classes.unitcolumn 'DiGi\.Unit\.IO\.Classes\.UnitColumn')
 
+<a name='DiGi.GIS.IO.Constants.Column.HeatDemandInputVariant'></a>
+
+## Column\.HeatDemandInputVariant Field
+
+Integer of the `DiGi.GIS.Analytical.Energy.Enums.HeatDemandInputVariant` of the heat demand in the row \- how the inputs of the solve run's primary result were assembled; 1 = Generated; null when no result is stored \(DiGi\-Organization/DiGi\.GIS\.IO\#21, Heat Demand Method Identity DiGi\-Organization/DiGi\.GIS\.Analytical\#19\)\. The integer, not the member name\.
+
+```csharp
+public static readonly ExtendedColumn HeatDemandInputVariant;
+```
+
+#### Field Value
+[DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.extendedcolumn 'DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn')
+
+<a name='DiGi.GIS.IO.Constants.Column.HeatDemandMethod'></a>
+
+## Column\.HeatDemandMethod Field
+
+Integer of the `DiGi.Analytical.Building.Energy.Enums.HeatDemandMethod` of the heat demand in the row \- the solve run's primary result; 1 = Monthly; null when no result is stored \(DiGi\-Organization/DiGi\.GIS\.IO\#21, Heat Demand Method Identity DiGi\-Organization/DiGi\.GIS\.Analytical\#19\)\. The integer, not the member name: names may be renamed, the integers never change\.
+
+```csharp
+public static readonly ExtendedColumn HeatDemandMethod;
+```
+
+#### Field Value
+[DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn](https://learn.microsoft.com/en-us/dotnet/api/digi.core.io.table.classes.extendedcolumn 'DiGi\.Core\.IO\.Table\.Classes\.ExtendedColumn')
+
 <a name='DiGi.GIS.IO.Constants.Column.HeatDemandMethodVersion'></a>
 
 ## Column\.HeatDemandMethodVersion Field
 
-Integer method version of the heat demand calculation that wrote the row; null when no result is stored \(DiGi\-Organization/DiGi\.GIS\.IO\#18\)\.
+Integer method version of the heat demand calculation that wrote the row \- the revision within the method of [HeatDemandMethod](DiGi.GIS.IO.Constants.md#DiGi.GIS.IO.Constants.Column.HeatDemandMethod 'DiGi\.GIS\.IO\.Constants\.Column\.HeatDemandMethod'), not a method identifier; null when no result is stored \(DiGi\-Organization/DiGi\.GIS\.IO\#18, \#21\)\.
 
 ```csharp
 public static readonly ExtendedColumn HeatDemandMethodVersion;

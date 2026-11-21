@@ -576,8 +576,18 @@ namespace DiGi.GIS.IO.Constants
         public static readonly UnitColumn DesignHeatLoad = new("Design heat load", (Unit.Classes.Unit?)Unit.Enums.PowerUnit.Watt, Category.HeatDemand.Description(), "Design heat load Φ_HL (PN-EN 12831-1 simplified) in W; null when no result is stored", Unit.Enums.UnitDataType.Float);
 
         /// <summary>
-        /// Integer method version of the heat demand calculation that wrote the row; null when no result is stored (DiGi-Organization/DiGi.GIS.IO#18).
+        /// Integer method version of the heat demand calculation that wrote the row - the revision within the method of <see cref="HeatDemandMethod"/>, not a method identifier; null when no result is stored (DiGi-Organization/DiGi.GIS.IO#18, #21).
         /// </summary>
-        public static readonly ExtendedColumn HeatDemandMethodVersion = new("Heat demand method version", typeof(int), Category.HeatDemand.Description(), "Integer method version of the heat demand calculation that wrote the row; null when no result is stored");
+        public static readonly ExtendedColumn HeatDemandMethodVersion = new("Heat demand method version", typeof(int), Category.HeatDemand.Description(), "Integer revision, within the method of Heat demand method, of the heat demand calculation that wrote the row; null when no result is stored");
+
+        /// <summary>
+        /// Integer of the <c>DiGi.Analytical.Building.Energy.Enums.HeatDemandMethod</c> of the heat demand in the row - the solve run's primary result; 1 = Monthly; null when no result is stored (DiGi-Organization/DiGi.GIS.IO#21, Heat Demand Method Identity DiGi-Organization/DiGi.GIS.Analytical#19). The integer, not the member name: names may be renamed, the integers never change.
+        /// </summary>
+        public static readonly ExtendedColumn HeatDemandMethod = new("Heat demand method", typeof(int), Category.HeatDemand.Description(), "Integer HeatDemandMethod of the solve run's primary heat demand result (1 Monthly); null when no result is stored");
+
+        /// <summary>
+        /// Integer of the <c>DiGi.GIS.Analytical.Energy.Enums.HeatDemandInputVariant</c> of the heat demand in the row - how the inputs of the solve run's primary result were assembled; 1 = Generated; null when no result is stored (DiGi-Organization/DiGi.GIS.IO#21, Heat Demand Method Identity DiGi-Organization/DiGi.GIS.Analytical#19). The integer, not the member name.
+        /// </summary>
+        public static readonly ExtendedColumn HeatDemandInputVariant = new("Heat demand input variant", typeof(int), Category.HeatDemand.Description(), "Integer HeatDemandInputVariant of the solve run's primary heat demand result (1 Generated); null when no result is stored");
     }
 }
