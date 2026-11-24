@@ -1,3 +1,4 @@
+using DiGi.Geometry.Planar.Classes;
 using Parquet.Schema;
 
 namespace DiGi.GIS.IO
@@ -5,7 +6,7 @@ namespace DiGi.GIS.IO
     public static partial class Query
     {
         /// <summary>
-        /// The file-level GeoParquet facts a read needs in one place: the spatial reference identifier, the primary geometry column and the covering columns resolved against the schema for row-group pruning.
+        /// The file-level GeoParquet facts a read needs in one place: the spatial reference identifier, the primary geometry column, the covering columns resolved against the schema for row-group pruning, and the column's declared bounding box.
         /// </summary>
         private sealed class GeoParquetMetadata
         {
@@ -18,7 +19,8 @@ namespace DiGi.GIS.IO
             /// <param name="coveringMaxX">The covering column holding each row's maximum X, or null when the file carries no covering.</param>
             /// <param name="coveringMinY">The covering column holding each row's minimum Y, or null when the file carries no covering.</param>
             /// <param name="coveringMaxY">The covering column holding each row's maximum Y, or null when the file carries no covering.</param>
-            public GeoParquetMetadata(int srid, string geometryColumn, DataField? coveringMinX, DataField? coveringMaxX, DataField? coveringMinY, DataField? coveringMaxY)
+            /// <param name="boundingBox2D">The bounding box the primary geometry column declares in the file's own coordinate reference system, or null when the file declares none.</param>
+            public GeoParquetMetadata(int srid, string geometryColumn, DataField? coveringMinX, DataField? coveringMaxX, DataField? coveringMinY, DataField? coveringMaxY, BoundingBox2D? boundingBox2D)
             {
                 this.srid = srid;
                 this.geometryColumn = geometryColumn;
@@ -26,6 +28,18 @@ namespace DiGi.GIS.IO
                 this.coveringMaxX = coveringMaxX;
                 this.coveringMinY = coveringMinY;
                 this.coveringMaxY = coveringMaxY;
+                this.boundingBox2D = boundingBox2D;
+            }
+
+            /// <summary>
+            /// Gets the bounding box the primary geometry column declares in the file's own coordinate reference system (the optional <c>bbox</c> of the GeoParquet column metadata), or null when the file declares none.
+            /// </summary>
+            public BoundingBox2D? BoundingBox2D
+            {
+                get
+                {
+                    return boundingBox2D;
+                }
             }
 
             /// <summary>
@@ -111,6 +125,7 @@ namespace DiGi.GIS.IO
             private readonly DataField? coveringMaxX;
             private readonly DataField? coveringMinY;
             private readonly DataField? coveringMaxY;
+            private readonly BoundingBox2D? boundingBox2D;
         }
     }
 }

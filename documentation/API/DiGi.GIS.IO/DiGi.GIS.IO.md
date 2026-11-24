@@ -1870,6 +1870,29 @@ The file path, with Windows or POSIX separators, or null\.
 [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')  
 The quadkey, or null when the path carries no valid `quadkey=` directory segment\.
 
+<a name='DiGi.GIS.IO.Query.QuadkeyBoundingBox2D(string)'></a>
+
+## Query\.QuadkeyBoundingBox2D\(string\) Method
+
+Computes the area a Bing Maps quadkey tile covers \- the tile a Microsoft Global ML Building Footprints chunk is published under \- as a bounding box in EPSG:4326, longitude in X and latitude in Y \(DiGi\-Organization/DiGi\.GIS\.PostgreSQL\#170\)\.
+
+Each digit halves the tile of the previous level in both directions (0 north-west, 1 north-east, 2 south-west, 3 south-east), so the quadkey's length is its level of detail. The edges follow the Web Mercator tiling: longitudes are linear, latitudes are the inverse Mercator of the tile's row. The box is the tile, not the buildings: Microsoft files a building under the tile its geometry falls in, and a building can reach a little beyond that tile's edge.
+
+```csharp
+public static DiGi.Geometry.Planar.Classes.BoundingBox2D? QuadkeyBoundingBox2D(string? quadkey);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.QuadkeyBoundingBox2D(string).quadkey'></a>
+
+`quadkey` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The quadkey: digits 0\-3 only, at least one and at most 30 of them \(the level the integer tile arithmetic carries exactly\)\.
+
+#### Returns
+[DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.planar.classes.boundingbox2d 'DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D')  
+The tile's bounding box in EPSG:4326, or null when [quadkey](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.QuadkeyBoundingBox2D(string).quadkey 'DiGi\.GIS\.IO\.Query\.QuadkeyBoundingBox2D\(string\)\.quadkey') is null, empty, longer than 30 digits or holds a character other than 0\-3\.
+
 <a name='DiGi.GIS.IO.Query.RowGroup_InRange(Parquet.ParquetRowGroupReader,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D)'></a>
 
 ## Query\.RowGroup\_InRange\(ParquetRowGroupReader, DataField, DataField, DataField, DataField, BoundingBox2D\) Method
@@ -1922,6 +1945,49 @@ The bounding box, in the source coordinate reference system, being queried\.
 #### Returns
 [System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')  
 True when the row group may contain rows inside the box and should be read; false when it can be skipped\.
+
+<a name='DiGi.GIS.IO.Query.SourceExtentAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,System.Threading.CancellationToken)'></a>
+
+## Query\.SourceExtentAsync\(string, BuildingDataset, CancellationToken\) Method
+
+Reads the area an open building source file can hold footprints in, as the file states it without being read row by row, so an import scoped to a few counties can leave out the files of a nationwide release that cannot reach them \(DiGi\-Organization/DiGi\.GIS\.PostgreSQL\#170\)\.
+
+Only an extent the format keeps exact is used:
+
+- Microsoft (line-delimited GeoJSON): the tile of the path's `quadkey=` directory ([Quadkey\(string\)](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.Quadkey(string) 'DiGi\.GIS\.IO\.Query\.Quadkey\(string\)'), [QuadkeyBoundingBox2D\(string\)](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.QuadkeyBoundingBox2D(string) 'DiGi\.GIS\.IO\.Query\.QuadkeyBoundingBox2D\(string\)')), in EPSG:4326.
+
+- GeoPackage (EUBUCCO, DBSM, GHS-OBAT): the root of the geometry column's R-tree, `rtree_<table>_<column>`, and only when `gpkg_extensions` registers the `gpkg_rtree_index` extension for that column - the triggers of the extension keep the index equal to the rows. The extent in `gpkg_contents` is informative in the specification and may be stale, so it is never used.
+
+- GeoParquet (Overture): the `bbox` the primary geometry column declares in the `geo` metadata.
+
+Absence is never a reason to skip a file: a file whose format keeps no extent (CSV, an unregistered or missing R-tree, no declared `bbox`), that cannot be opened, that registers several geometry tables, or that declares a reference system the readers do not support answers null, and the caller reads it whole - the reader then reports whatever is wrong with it.
+
+```csharp
+public static System.Threading.Tasks.Task<DiGi.GIS.IO.Classes.SourceExtent?> SourceExtentAsync(string? path, DiGi.GIS.IO.Enums.BuildingDataset buildingDataset, System.Threading.CancellationToken cancellationToken=default(System.Threading.CancellationToken));
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Query.SourceExtentAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,System.Threading.CancellationToken).path'></a>
+
+`path` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The source file\.
+
+<a name='DiGi.GIS.IO.Query.SourceExtentAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,System.Threading.CancellationToken).buildingDataset'></a>
+
+`buildingDataset` [BuildingDataset](DiGi.GIS.IO.Enums.md#DiGi.GIS.IO.Enums.BuildingDataset 'DiGi\.GIS\.IO\.Enums\.BuildingDataset')
+
+The dataset the file belongs to; it selects the format as the import task does\.
+
+<a name='DiGi.GIS.IO.Query.SourceExtentAsync(string,DiGi.GIS.IO.Enums.BuildingDataset,System.Threading.CancellationToken).cancellationToken'></a>
+
+`cancellationToken` [System\.Threading\.CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken 'System\.Threading\.CancellationToken')
+
+The [System\.Threading\.CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken 'System\.Threading\.CancellationToken') to monitor for cancellation requests\.
+
+#### Returns
+[System\.Threading\.Tasks\.Task&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1 'System\.Threading\.Tasks\.Task\`1')[SourceExtent](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.SourceExtent 'DiGi\.GIS\.IO\.Classes\.SourceExtent')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1 'System\.Threading\.Tasks\.Task\`1')  
+A task whose result is the file's extent in its own coordinate reference system, or null when the file states none that can be trusted\.
 
 <a name='DiGi.GIS.IO.Query.SourceId(System.Text.Json.Nodes.JsonObject)'></a>
 
@@ -2164,7 +2230,7 @@ A list of [DiGi\.Core\.IO\.Table\.Classes\.Column](https://learn.microsoft.com/e
 
 ## Query\.GeoParquetMetadata Class
 
-The file\-level GeoParquet facts a read needs in one place: the spatial reference identifier, the primary geometry column and the covering columns resolved against the schema for row\-group pruning\.
+The file\-level GeoParquet facts a read needs in one place: the spatial reference identifier, the primary geometry column, the covering columns resolved against the schema for row\-group pruning, and the column's declared bounding box\.
 
 ```csharp
 private sealed class Query.GeoParquetMetadata
@@ -2173,53 +2239,72 @@ private sealed class Query.GeoParquetMetadata
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → GeoParquetMetadata
 ### Constructors
 
-<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField)'></a>
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D)'></a>
 
-## GeoParquetMetadata\(int, string, DataField, DataField, DataField, DataField\) Constructor
+## GeoParquetMetadata\(int, string, DataField, DataField, DataField, DataField, BoundingBox2D\) Constructor
 
 Initializes a new instance of the [GeoParquetMetadata](DiGi.GIS.IO.md#DiGi.GIS.IO.Query.GeoParquetMetadata 'DiGi\.GIS\.IO\.Query\.GeoParquetMetadata') class\.
 
 ```csharp
-public GeoParquetMetadata(int srid, string geometryColumn, Parquet.Schema.DataField? coveringMinX, Parquet.Schema.DataField? coveringMaxX, Parquet.Schema.DataField? coveringMinY, Parquet.Schema.DataField? coveringMaxY);
+public GeoParquetMetadata(int srid, string geometryColumn, Parquet.Schema.DataField? coveringMinX, Parquet.Schema.DataField? coveringMaxX, Parquet.Schema.DataField? coveringMinY, Parquet.Schema.DataField? coveringMaxY, DiGi.Geometry.Planar.Classes.BoundingBox2D? boundingBox2D);
 ```
 #### Parameters
 
-<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField).srid'></a>
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D).srid'></a>
 
 `srid` [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
 
 The spatial reference identifier declared by the file\.
 
-<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField).geometryColumn'></a>
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D).geometryColumn'></a>
 
 `geometryColumn` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
 The primary geometry column name\.
 
-<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField).coveringMinX'></a>
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D).coveringMinX'></a>
 
 `coveringMinX` [Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
 
 The covering column holding each row's minimum X, or null when the file carries no covering\.
 
-<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField).coveringMaxX'></a>
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D).coveringMaxX'></a>
 
 `coveringMaxX` [Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
 
 The covering column holding each row's maximum X, or null when the file carries no covering\.
 
-<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField).coveringMinY'></a>
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D).coveringMinY'></a>
 
 `coveringMinY` [Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
 
 The covering column holding each row's minimum Y, or null when the file carries no covering\.
 
-<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField).coveringMaxY'></a>
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D).coveringMaxY'></a>
 
 `coveringMaxY` [Parquet\.Schema\.DataField](https://learn.microsoft.com/en-us/dotnet/api/parquet.schema.datafield 'Parquet\.Schema\.DataField')
 
 The covering column holding each row's maximum Y, or null when the file carries no covering\.
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.GeoParquetMetadata(int,string,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,Parquet.Schema.DataField,DiGi.Geometry.Planar.Classes.BoundingBox2D).boundingBox2D'></a>
+
+`boundingBox2D` [DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.planar.classes.boundingbox2d 'DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D')
+
+The bounding box the primary geometry column declares in the file's own coordinate reference system, or null when the file declares none\.
 ### Properties
+
+<a name='DiGi.GIS.IO.Query.GeoParquetMetadata.BoundingBox2D'></a>
+
+## Query\.GeoParquetMetadata\.BoundingBox2D Property
+
+Gets the bounding box the primary geometry column declares in the file's own coordinate reference system \(the optional `bbox` of the GeoParquet column metadata\), or null when the file declares none\.
+
+```csharp
+public DiGi.Geometry.Planar.Classes.BoundingBox2D? BoundingBox2D { get; }
+```
+
+#### Property Value
+[DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.planar.classes.boundingbox2d 'DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D')
 
 <a name='DiGi.GIS.IO.Query.GeoParquetMetadata.CoveringMaxX'></a>
 

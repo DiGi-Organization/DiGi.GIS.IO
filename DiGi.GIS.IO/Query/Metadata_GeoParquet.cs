@@ -1,3 +1,4 @@
+using DiGi.Geometry.Planar.Classes;
 using Parquet;
 using Parquet.Schema;
 using System;
@@ -161,7 +162,31 @@ namespace DiGi.GIS.IO
                 coveringMaxY = FindCoveringField(parquetReader.Schema, bboxElement, "ymax");
             }
 
-            return new GeoParquetMetadata(srid, geometryColumn, coveringMinX, coveringMaxX, coveringMinY, coveringMaxY);
+            // The column's optional bbox: [xmin, ymin, xmax, ymax], or [xmin, ymin, zmin, xmax, ymax, zmax] for 3D
+            // geometry. Anything else - a missing, malformed, non-finite or inverted box - declares no extent.
+            BoundingBox2D? boundingBox2D = null;
+            if (hasColumn && columnElement.TryGetProperty("bbox", out JsonElement boundingBoxElement) && boundingBoxElement.ValueKind == JsonValueKind.Array)
+            {
+                List<double> values = [];
+                foreach (JsonElement valueElement in boundingBoxElement.EnumerateArray())
+                {
+                    if (valueElement.ValueKind != JsonValueKind.Number || !valueElement.TryGetDouble(out double value) || double.IsNaN(value) || double.IsInfinity(value))
+                    {
+                        values.Clear();
+                        break;
+                    }
+
+                    values.Add(value);
+                }
+
+                int offset = values.Count == 4 ? 2 : values.Count == 6 ? 3 : 0;
+                if (offset != 0 && values[0] <= values[offset] && values[1] <= values[offset + 1])
+                {
+                    boundingBox2D = new BoundingBox2D(new Point2D(values[0], values[1]), new Point2D(values[offset], values[offset + 1]));
+                }
+            }
+
+            return new GeoParquetMetadata(srid, geometryColumn, coveringMinX, coveringMaxX, coveringMinY, coveringMaxY, boundingBox2D);
         }
     }
 }

@@ -199,6 +199,122 @@ Implements [Clone\(\)](https://learn.microsoft.com/en-us/dotnet/api/digi.core.in
 [DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')  
 A new [Footprint](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint 'DiGi\.GIS\.IO\.Classes\.Footprint') instance with the same data, or null if cloning fails\.
 
+<a name='DiGi.GIS.IO.Classes.SourceExtent'></a>
+
+## SourceExtent Class
+
+The area an open building source file can hold footprints in, as the file itself states it without being read row by row: a bounding box in the file's own coordinate reference system \(DiGi\-Organization/DiGi\.GIS\.PostgreSQL\#170\)\.
+
+Like a [Footprint](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.Footprint 'DiGi\.GIS\.IO\.Classes\.Footprint'), the box is never converted: [Srid](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.SourceExtent.Srid 'DiGi\.GIS\.IO\.Classes\.SourceExtent\.Srid') states the reference system it is expressed in, and a caller comparing it with an area in another system transforms explicitly. An extent is an envelope of the footprints, not of the footprints' area, so a caller testing it against a scope must allow for the footprints that reach a little beyond it (the Microsoft tile a building is filed under need not contain the whole building).
+
+```csharp
+public class SourceExtent : DiGi.Core.Classes.SerializableObject
+```
+
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.Core\.Classes\.Object](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.object 'DiGi\.Core\.Classes\.Object') → [DiGi\.Core\.Classes\.SerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.classes.serializableobject 'DiGi\.Core\.Classes\.SerializableObject') → SourceExtent
+### Constructors
+
+<a name='DiGi.GIS.IO.Classes.SourceExtent.SourceExtent(DiGi.GIS.IO.Classes.SourceExtent)'></a>
+
+## SourceExtent\(SourceExtent\) Constructor
+
+Initializes a new instance of the [SourceExtent](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.SourceExtent 'DiGi\.GIS\.IO\.Classes\.SourceExtent') class by copying another instance\.
+
+```csharp
+public SourceExtent(DiGi.GIS.IO.Classes.SourceExtent? sourceExtent);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Classes.SourceExtent.SourceExtent(DiGi.GIS.IO.Classes.SourceExtent).sourceExtent'></a>
+
+`sourceExtent` [SourceExtent](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.SourceExtent 'DiGi\.GIS\.IO\.Classes\.SourceExtent')
+
+The source extent to copy from\.
+
+<a name='DiGi.GIS.IO.Classes.SourceExtent.SourceExtent(int,DiGi.Geometry.Planar.Classes.BoundingBox2D)'></a>
+
+## SourceExtent\(int, BoundingBox2D\) Constructor
+
+Initializes a new instance of the [SourceExtent](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.SourceExtent 'DiGi\.GIS\.IO\.Classes\.SourceExtent') class\.
+
+```csharp
+public SourceExtent(int srid, DiGi.Geometry.Planar.Classes.BoundingBox2D? boundingBox2D);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Classes.SourceExtent.SourceExtent(int,DiGi.Geometry.Planar.Classes.BoundingBox2D).srid'></a>
+
+`srid` [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
+
+The spatial reference identifier the bounding box is expressed in\.
+
+<a name='DiGi.GIS.IO.Classes.SourceExtent.SourceExtent(int,DiGi.Geometry.Planar.Classes.BoundingBox2D).boundingBox2D'></a>
+
+`boundingBox2D` [DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.planar.classes.boundingbox2d 'DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D')
+
+The bounding box of the file's footprints in that reference system\.
+
+<a name='DiGi.GIS.IO.Classes.SourceExtent.SourceExtent(System.Text.Json.Nodes.JsonObject)'></a>
+
+## SourceExtent\(JsonObject\) Constructor
+
+Initializes a new instance of the [SourceExtent](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.SourceExtent 'DiGi\.GIS\.IO\.Classes\.SourceExtent') class from a JSON object\.
+
+```csharp
+public SourceExtent(System.Text.Json.Nodes.JsonObject? jsonObject);
+```
+#### Parameters
+
+<a name='DiGi.GIS.IO.Classes.SourceExtent.SourceExtent(System.Text.Json.Nodes.JsonObject).jsonObject'></a>
+
+`jsonObject` [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')
+
+The JSON object containing the extent data\.
+### Properties
+
+<a name='DiGi.GIS.IO.Classes.SourceExtent.BoundingBox2D'></a>
+
+## SourceExtent\.BoundingBox2D Property
+
+Gets the bounding box of the file's footprints in the reference system of [Srid](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.SourceExtent.Srid 'DiGi\.GIS\.IO\.Classes\.SourceExtent\.Srid')\.
+
+```csharp
+public DiGi.Geometry.Planar.Classes.BoundingBox2D? BoundingBox2D { get; }
+```
+
+#### Property Value
+[DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.planar.classes.boundingbox2d 'DiGi\.Geometry\.Planar\.Classes\.BoundingBox2D')
+
+<a name='DiGi.GIS.IO.Classes.SourceExtent.Srid'></a>
+
+## SourceExtent\.Srid Property
+
+Gets the spatial reference identifier the bounding box is expressed in\.
+
+```csharp
+public int Srid { get; }
+```
+
+#### Property Value
+[System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
+### Methods
+
+<a name='DiGi.GIS.IO.Classes.SourceExtent.Clone()'></a>
+
+## SourceExtent\.Clone\(\) Method
+
+Creates a deep copy of this [SourceExtent](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.SourceExtent 'DiGi\.GIS\.IO\.Classes\.SourceExtent') instance\.
+
+```csharp
+public override DiGi.Core.Interfaces.ISerializableObject? Clone();
+```
+
+Implements [Clone\(\)](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.icloneableobject-1.clone 'DiGi\.Core\.Interfaces\.ICloneableObject\`1\.Clone')
+
+#### Returns
+[DiGi\.Core\.Interfaces\.ISerializableObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iserializableobject 'DiGi\.Core\.Interfaces\.ISerializableObject')  
+A new [SourceExtent](DiGi.GIS.IO.Classes.md#DiGi.GIS.IO.Classes.SourceExtent 'DiGi\.GIS\.IO\.Classes\.SourceExtent') instance with the same data\.
+
 <a name='DiGi.GIS.IO.Classes.YearBuiltPredictorReadiness'></a>
 
 ## YearBuiltPredictorReadiness Class
